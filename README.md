@@ -1,4 +1,4 @@
-# CMU Interactive Data Science Final Project
+# CMU Interactive Data Science Final Project - Global Catastrophic Risk
 
 * **Online URL**: TODO
 * **Team members**:
@@ -6,7 +6,7 @@
   * jmoore3@andrew.cmu.edu
   * kdottere@andrew.cmu.edu
   * wborom@andrew.cmu.edu
-* **Track**: TODO (one of Narrative or Interactive Visualization/Application)
+* **Track**: Narrative
 
 ## Work distribution
 
