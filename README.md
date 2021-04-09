@@ -1,23 +1,27 @@
 # CMU Interactive Data Science Final Project - Global Catastrophic Risk
 
-* **Online URL**: TODO
-* **Team members**:
-  * Contact person: avorhaus@andrew.cmu.edu
-  * jmoore3@andrew.cmu.edu
-  * kdottere@andrew.cmu.edu
-  * wborom@andrew.cmu.edu
-* **Track**: Narrative
+**Online URL**: TODO
+
+**Team members**
+- Abby Vorhaus* (`avorhaus@andrew.cmu.edu`)
+- Jeff Moore (`jmoore3@andrew.cmu.edu`)
+- Kyle Dotterrer (`kdottere@andrew.cmu.edu`)
+- Will Borom (`wborom@andrew.cmu.edu`)
+
+*Contact Person
+
+**Track**: Narrative
 
 ## Work distribution
 
-Update towards the end of the project.
+TODO: Update with actual distribution near end of project.
 
 ## Deliverables
 
 ### Proposal
 
 - [ ] The URL at the top of this readme needs to point to your application online. It should also list the names of the team members.
-- [ ] A completed [proposal](Proposal.md). The contact should submit it as a PDF on Canvas.
+- [x] A completed [proposal](Proposal.md). The contact should submit it as a PDF on Canvas.
 
 ### Design review
 
