@@ -1,6 +1,6 @@
 # CMU Interactive Data Science Final Project
 
-## Global Catastrophic Risk
+## Project Title: Global Catastrophic Risk
 
 **Online URL**: TODO
 
