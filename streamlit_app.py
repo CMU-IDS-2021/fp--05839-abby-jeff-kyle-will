@@ -2,7 +2,7 @@
 # streamlist_app.py
 # Streamlit application.
 #
-# Abby Vorhaus, Kyle Dotterrer
+# Abby Vorhaus, Jeff Moore, Kyle Dotterrer, Will Borom
 
 import numpy as np
 import pandas as pd
