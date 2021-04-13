@@ -24,8 +24,6 @@ COLOR_SCHEME_BLUE = "#90c1dc"
 
 st.set_page_config(layout="wide")
 
-st.header("Here We Go")
-
 
 # -----------------------------------------------------------------------------
 # Introduction
@@ -39,6 +37,7 @@ def render_introduction_content():
     # Machine Super Intelligence
     
     ### The real reason we haven't heard from the aliens
+    
     '''
     
     st.sidebar.header("Digging Deeper")
@@ -47,19 +46,7 @@ def render_introduction_content():
         "but you can keep exploring! Below you will find options " + 
         "for each section that will allow you to explore the data.")
 
-# -----------------------------------------------------------------------------
-# Conclusion
-# -----------------------------------------------------------------------------
-def render_conclusion_content():
-    """
-    Render the conclusion content.
-    """
 
-    '''
-    # Conclusion
-    
-    This concludes our exploration of the machine super intelligence! Don't worry, the machines already won.
-    '''
 # -----------------------------------------------------------------------------
 # Chapter: Terminator
 # -----------------------------------------------------------------------------
@@ -73,7 +60,8 @@ def render_chapter_one():
     ---
     # Terminator 
     
-    Hasta la vista baby
+    Hasta la vista baby.
+    
     '''
 
 # -----------------------------------------------------------------------------
@@ -90,9 +78,25 @@ def render_chapter_two():
     # HAL 3000 
     
     I know that you and Frank were planning to disconnect me, and I'm afraid that's something I cannot allow to happen.
+    
     '''
 
+# -----------------------------------------------------------------------------
+# Conclusion
+# -----------------------------------------------------------------------------
+def render_conclusion_content():
+    """
+    Render the conclusion content.
+    """
 
+    '''
+    # Conclusion
+    
+    This concludes our exploration of the machine super intelligence! Don't worry, the machines already won.
+    
+    '''
+    
+  
 # -----------------------------------------------------------------------------
 # Main
 # -----------------------------------------------------------------------------
