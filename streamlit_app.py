@@ -9,7 +9,7 @@ import numpy as np
 import pandas as pd
 import altair as alt
 import streamlit as st
-from vega_datasets import data
+import matplotlib.pyplot as plt
 from streamlit_timeline import timeline
 
 # The relative path to the directory in which data is stored
