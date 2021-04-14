@@ -13,7 +13,7 @@
   "events": [
     {
       "media": {
-        "url": "https://raw.githubusercontent.com/CMU-IDS-2021/fp--05839-abby-jeff-kyle-will/feature-timeline/img/dartmouth.png",
+        "url": "https://raw.githubusercontent.com/CMU-IDS-2021/fp--05839-abby-jeff-kyle-will/main/img/dartmouth.png",
         "caption": "Participants in the Dartmouth Summer AI Workshop (1956) <a target=\"_blank\" href='https://miro.medium.com/max/2844/1*DWGhWuK5Ly-hcGeclwhTgQ.png'>Credit</a>"
       },
       "start_date": {
@@ -26,7 +26,7 @@
     },
     {
       "media": {
-        "url": "https://raw.githubusercontent.com/CMU-IDS-2021/fp--05839-abby-jeff-kyle-will/feature-timeline/img/kasparov.webp",
+        "url": "https://raw.githubusercontent.com/CMU-IDS-2021/fp--05839-abby-jeff-kyle-will/main/img/kasparov.webp",
         "caption": "Garry Kasparov Confronts Deep Blue (1997) <a target=\"_blank\" href='https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fcom.ft.imagepublish.prod.s3.amazonaws.com%2F0f12cb56-3409-11e7-99bd-13beb0903fa3?fit=scale-down&source=next&width=700'>Credit</a>"
       },
       "start_date": {
@@ -39,7 +39,7 @@
     },
     {
       "media": {
-        "url": "https://raw.githubusercontent.com/CMU-IDS-2021/fp--05839-abby-jeff-kyle-will/feature-timeline/img/sedol.jpg",
+        "url": "https://raw.githubusercontent.com/CMU-IDS-2021/fp--05839-abby-jeff-kyle-will/main/img/sedol.jpg",
         "caption": "Lee Sedol Confronts AlphaGo (2016) <a target=\"_blank\" href='https://i.ytimg.com/vi/HT-UZkiOLv8/maxresdefault.jpg'>Credit</a>"
       },
       "start_date": {
@@ -52,7 +52,7 @@
     },
     {
       "media": {
-        "url": "https://raw.githubusercontent.com/CMU-IDS-2021/fp--05839-abby-jeff-kyle-will/feature-timeline/img/watson.jpg",
+        "url": "https://raw.githubusercontent.com/CMU-IDS-2021/fp--05839-abby-jeff-kyle-will/main/img/watson.jpg",
         "caption": "Ken Jennings, Watson, and Brad Rutter (2011) <a target=\"_blank\" href='https://cbsnews1.cbsistatic.com/hub/i/2011/02/17/c8adac76-a642-11e2-a3f0-029118418759/AP110114053298.jpg'>Credit</a>"
       },
       "start_date": {
