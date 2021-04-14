@@ -52,15 +52,15 @@
     },
     {
       "media": {
-        "url": "https://raw.githubusercontent.com/CMU-IDS-2021/fp--05839-abby-jeff-kyle-will/feature-timeline/img/sedol.jpg",
-        "caption": "IBM's Watson and Human Jeopardy Champions (2011) <a target=\"_blank\" href='https://cbsnews1.cbsistatic.com/hub/i/2011/02/17/c8adac76-a642-11e2-a3f0-029118418759/AP110114053298.jpg'>Credit</a>"
+        "url": "https://raw.githubusercontent.com/CMU-IDS-2021/fp--05839-abby-jeff-kyle-will/feature-timeline/img/watson.jpg",
+        "caption": "Ken Jennings, Watson, and Brad Rutter (2011) <a target=\"_blank\" href='https://cbsnews1.cbsistatic.com/hub/i/2011/02/17/c8adac76-a642-11e2-a3f0-029118418759/AP110114053298.jpg'>Credit</a>"
       },
       "start_date": {
         "year": "2011"
       },
       "text": {
         "headline": "Watson Dethrones Human Jeopardy Champions",
-        "text": "Content Here"
+        "text": "'\"Quiz show contestant\" may be the first job made redundant by Watson, but I'm sure it won't be the last' - <a target=\"_blank\" href='https://slate.com/culture/2011/02/watson-jeopardy-computer-ken-jennings-describes-what-it-s-like-to-play-against-a-machine.html'>Ken Jennings</a></p>"
       }
     }
   ]
