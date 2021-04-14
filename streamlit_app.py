@@ -66,7 +66,7 @@ def render_history_chapter():
     Artificial intelligence may seem like a distinctly modern phenomenon, but research into the subject has been going on for nearly seventy years. Some of major milestones related to the development of machine superintelligence are highlighted in the timeline below.
     '''
 
-    path = os.path.join(DATA_PATH, TIMELINE_DATA_FILENAME)
+    path = DATA_PATH + TIMELINE_DATA_FILENAME
     with open(path, "r") as f:
         data = f.read()
 
