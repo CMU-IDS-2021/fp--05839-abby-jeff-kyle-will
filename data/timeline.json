@@ -1,0 +1,67 @@
+{
+  "title": {
+      "media": {
+        "url": "https://cdn.britannica.com/00/146200-050-A60812DA/Thinker-Auguste-Rodin-Museum-garden-Paris-1904.jpg",
+        "caption": "Rodin's The Thinker. <a target=\"_blank\" href='https://cdn.britannica.com/00/146200-050-A60812DA/Thinker-Auguste-Rodin-Museum-garden-Paris-1904.jpg'>Credit</a>",
+        "credit": ""
+      },
+      "text": {
+        "headline": "Artificial Intelligence Milestones",
+        "text": ""
+      }
+  },
+  "events": [
+    {
+      "media": {
+        "url": "https://raw.githubusercontent.com/CMU-IDS-2021/fp--05839-abby-jeff-kyle-will/main/img/dartmouth.png",
+        "caption": "Participants in the Dartmouth Summer AI Workshop (1956) <a target=\"_blank\" href='https://miro.medium.com/max/2844/1*DWGhWuK5Ly-hcGeclwhTgQ.png'>Credit</a>"
+      },
+      "start_date": {
+        "year": "1956"
+      },
+      "text": {
+        "headline": "The Dartmouth Summer Workshop",
+        "text": "</b><p>'...proceed on the basis of the conjecture that every aspect of learning or any other feature of intelligence can in principle be so precisely described that a machine can be made to simulate it'</p></bn><a target=\"_blank\" href='http://www-formal.stanford.edu/jmc/history/dartmouth.pdf'>A Proposal for the Dartmouth Summer Research Project on Artificial Intelligence</a>"
+      }
+    },
+    {
+      "media": {
+        "url": "https://raw.githubusercontent.com/CMU-IDS-2021/fp--05839-abby-jeff-kyle-will/main/img/kasparov.webp",
+        "caption": "Garry Kasparov Confronts Deep Blue (1997) <a target=\"_blank\" href='https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fcom.ft.imagepublish.prod.s3.amazonaws.com%2F0f12cb56-3409-11e7-99bd-13beb0903fa3?fit=scale-down&source=next&width=700'>Credit</a>"
+      },
+      "start_date": {
+        "year": "1997"
+      },
+      "text": {
+        "headline": "Deep Blue Defeats Garry Kasparov",
+        "text": "</b><p>'I could see the trend... I could see that it's, you know, a one-way street. That's why I was preaching for collaboration with the machines, recognising that in the games' environment, humans [are] doomed.' - <a target=\"_blank\" href='https://www.businessinsider.com/garry-kasparov-talks-about-artificial-intelligence-2017-12'>Garry Kasparov</a></p>"
+      }
+    },
+    {
+      "media": {
+        "url": "https://raw.githubusercontent.com/CMU-IDS-2021/fp--05839-abby-jeff-kyle-will/main/img/sedol.jpg",
+        "caption": "Lee Sedol Confronts AlphaGo (2016) <a target=\"_blank\" href='https://i.ytimg.com/vi/HT-UZkiOLv8/maxresdefault.jpg'>Credit</a>"
+      },
+      "start_date": {
+        "year": "2016"
+      },
+      "text": {
+        "headline": "AlphaGo Defeats Lee Sedol",
+        "text": "</b><p>'...there is an entity that cannot be defeated' - <a target=\"_blank\" href='https://en.yna.co.kr/view/AEN20191127004800315'>Lee Sedol</a></p>"
+      }
+    },
+    {
+      "media": {
+        "url": "https://raw.githubusercontent.com/CMU-IDS-2021/fp--05839-abby-jeff-kyle-will/main/img/watson.jpg",
+        "caption": "Ken Jennings, Watson, and Brad Rutter (2011) <a target=\"_blank\" href='https://cbsnews1.cbsistatic.com/hub/i/2011/02/17/c8adac76-a642-11e2-a3f0-029118418759/AP110114053298.jpg'>Credit</a>"
+      },
+      "start_date": {
+        "year": "2011"
+      },
+      "text": {
+        "headline": "Watson Dethrones Human Jeopardy Champions",
+        "text": "'\"Quiz show contestant\" may be the first job made redundant by Watson, but I'm sure it won't be the last' - <a target=\"_blank\" href='https://slate.com/culture/2011/02/watson-jeopardy-computer-ken-jennings-describes-what-it-s-like-to-play-against-a-machine.html'>Ken Jennings</a></p>"
+      }
+    }
+  ]
+}

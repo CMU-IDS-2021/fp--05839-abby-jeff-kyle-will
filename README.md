@@ -1,6 +1,6 @@
 # CMU Interactive Data Science Final Project
 
-## Project Title: Global Catastrophic Risk
+## Project Title: Artificial Intelligence and Machine Superintelligence
 
 **Online URL**: https://share.streamlit.io/cmu-ids-2021/fp--05839-abby-jeff-kyle-will/main
 

@@ -4,11 +4,13 @@
 #
 # Abby Vorhaus, Jeff Moore, Kyle Dotterrer, Will Borom
 
+import os
 import numpy as np
 import pandas as pd
 import altair as alt
 import streamlit as st
 from vega_datasets import data
+from streamlit_timeline import timeline
 
 # The relative path to the directory in which data is stored
 DATA_PATH = "data/"
@@ -22,22 +24,25 @@ DEFAULT_HEIGHT = 550
 # Colors from Vega color scheme for charts that should not be scaled
 COLOR_SCHEME_BLUE = "#90c1dc"
 
-st.set_page_config(layout="wide")
+# The name of the timeline data file
+TIMELINE_DATA_FILENAME = "timeline.json"
 
+# Allow streamlit to use the whole page
+st.set_page_config(page_title="Artificial Intelligence", layout="wide")
 
 # -----------------------------------------------------------------------------
 # Introduction
 # -----------------------------------------------------------------------------
+
 def render_introduction_content():
     """
     Render the introduction content.
     """
 
     '''
-    # Machine Super Intelligence
+    # Machine Superintelligence
     
-    ### The real reason we haven't heard from the aliens
-    
+    TODO: Compelling introduction content here.
     '''
     
     st.sidebar.header("Digging Deeper")
@@ -46,12 +51,33 @@ def render_introduction_content():
         "but you can keep exploring! Below you will find options " + 
         "for each section that will allow you to explore the data.")
 
+# -----------------------------------------------------------------------------
+# Chapter: History / Timeline
+# -----------------------------------------------------------------------------
+
+def render_history_chapter():
+    """
+    Render the history of artificial intelligence chapter.
+    """
+
+    '''
+    # A Brief History of Artificial Intelligence
+
+    Artificial intelligence may seem like a distinctly modern phenomenon, but research into the subject has been going on for nearly seventy years. Some of major milestones related to the development of machine superintelligence are highlighted in the timeline below.
+    '''
+
+    path = DATA_PATH + TIMELINE_DATA_FILENAME
+    with open(path, "r") as f:
+        data = f.read()
+
+    # Render the timeline
+    timeline(data, height=500)
 
 # -----------------------------------------------------------------------------
 # Chapter: Terminator
 # -----------------------------------------------------------------------------
 
-def render_chapter_one():
+def render_terminator_chapter():
     """
     Render chapter one.
     """
@@ -68,7 +94,7 @@ def render_chapter_one():
 # Chapter: HAL
 # -----------------------------------------------------------------------------
 
-def render_chapter_two():
+def render_hal_chapter():
     """
     Render chapter two.
     """
@@ -110,6 +136,7 @@ def render_chapter_four():
 # -----------------------------------------------------------------------------
 # Conclusion
 # -----------------------------------------------------------------------------
+
 def render_conclusion_content():
     """
     Render the conclusion content.
@@ -122,7 +149,23 @@ def render_conclusion_content():
     
     '''
     
-  
+# -----------------------------------------------------------------------------
+# References
+# -----------------------------------------------------------------------------
+
+def render_references():
+    """
+    Render the references for the project.
+    """
+
+    '''
+    # References
+
+    The works we referenced while working on this project are provided below.
+
+    - McCarthy et al. _A Proposal for the Dartmouth Summer Research Project on Artificial Intelligence._ 1955.
+    '''
+
 # -----------------------------------------------------------------------------
 # Main
 # -----------------------------------------------------------------------------
@@ -130,16 +173,18 @@ def render_conclusion_content():
 def main():
     render_introduction_content()
 
+    render_history_chapter()
+
     # Chapter 1: TODO
-    render_chapter_one()
+    render_terminator_chapter()
 
     # Chapter 2: TODO
-    render_chapter_two()
+    render_hal_chapter()
 
-    # Chapter 4: What would you choose?
-    render_chapter_four()
 
     render_conclusion_content()
+
+    render_references()
 
 # -----------------------------------------------------------------------------
 # Application Entry Point
