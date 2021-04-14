@@ -3,3 +3,4 @@ pandas
 altair
 pyreadstat
 vega_datasets
+streamlit_timeline
