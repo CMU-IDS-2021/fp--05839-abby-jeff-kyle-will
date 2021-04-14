@@ -108,6 +108,32 @@ def render_hal_chapter():
     '''
 
 # -----------------------------------------------------------------------------
+# Chapter: What Would You Choose
+# -----------------------------------------------------------------------------
+
+def render_chapter_four():
+    """
+    Render chapter four.
+    """
+
+    '''
+    ---
+    #  What Do You Choose?
+    
+    In 2017 author Rick Webb wrote an article for NewCo Shift on machine superintelligence and public opinion. In the process of developing
+    this article, he surveyed various populations in the United States. One of the questions posed was "Humanity has discovered a scientific advancement. 
+    Pursuing it gives humanity two possible options: a chance that all of humanity will die instantly, or a chance that poverty, death and disease 
+    will be cured for everyone, forever. Should we pursue it?
+
+    In his survey, Webb put the chance at varying levels to see how the public would respond, but the two results, transcendence or destruction, were always the same. 
+    Now, we will give you a chance to do the same and see how you compare to the rest of the respondents.
+
+    First, select your age and gender assigned at birth. Then, select on of the odds. The odds represent the chance that humanity will be destroyed.
+    Finally, choose whether we as humanity should pursuit the technology or not.
+
+    '''
+
+# -----------------------------------------------------------------------------
 # Conclusion
 # -----------------------------------------------------------------------------
 
@@ -154,6 +180,7 @@ def main():
 
     # Chapter 2: TODO
     render_hal_chapter()
+
 
     render_conclusion_content()
 
