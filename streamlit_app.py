@@ -111,9 +111,9 @@ def render_hal_chapter():
 # Chapter: What Would You Choose
 # -----------------------------------------------------------------------------
 
-def render_chapter_four():
+def render_user_choice():
     """
-    Render chapter four.
+    Render chapter four user choice.
     """
 
     '''
@@ -180,7 +180,9 @@ def main():
 
     # Chapter 2: TODO
     render_hal_chapter()
-
+    
+    # Chapter 4: What would you choose?
+    render_user_choice()
 
     render_conclusion_content()
 
