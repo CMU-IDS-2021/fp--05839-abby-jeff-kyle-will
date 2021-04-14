@@ -26,15 +26,28 @@
     },
     {
       "media": {
-        "url": "https://raw.githubusercontent.com/CMU-IDS-2021/fp--05839-abby-jeff-kyle-will/feature-timeline/img/dartmouth.png",
-        "caption": "Participants in the Dartmouth Summer AI Workshop (1956) <a target=\"_blank\" href='https://miro.medium.com/max/2844/1*DWGhWuK5Ly-hcGeclwhTgQ.png'>Credit</a>"
+        "url": "https://raw.githubusercontent.com/CMU-IDS-2021/fp--05839-abby-jeff-kyle-will/feature-timeline/img/kasparov.webp",
+        "caption": "Garry Kasparov Confronts Deep Blue (1997) <a target=\"_blank\" href='https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fcom.ft.imagepublish.prod.s3.amazonaws.com%2F0f12cb56-3409-11e7-99bd-13beb0903fa3?fit=scale-down&source=next&width=700'>Credit</a>"
       },
       "start_date": {
-        "year": "1956"
+        "year": "1997"
       },
       "text": {
-        "headline": "The Dartmouth Summer Workshop",
-        "text": "</b><p>'...proceed on the basis of the conjecture that every aspect of learning or any other feature of intelligence can in principle be so precisely described that a machine can be made to simulate it'</p></bn><a target=\"_blank\" href='http://www-formal.stanford.edu/jmc/history/dartmouth.pdf'>A Proposal for the Dartmouth Summer Research Project on Artificial Intelligence</a>"
+        "headline": "Deep Blue Defeats Garry Kasparov",
+        "text": "</b><p>'I could see the trend... I could see that it's, you know, a one-way street. That's why I was preaching for collaboration with the machines, recognising that in the games' environment, humans [are] doomed.'</p><p><a target=\"_blank\" href='https://www.businessinsider.com/garry-kasparov-talks-about-artificial-intelligence-2017-12'>Garry Kasparov</p>"
+      }
+    },
+    {
+      "media": {
+        "url": "https://raw.githubusercontent.com/CMU-IDS-2021/fp--05839-abby-jeff-kyle-will/feature-timeline/img/kasparov.webp",
+        "caption": "Lee Sedol Confronts AlphaGo (2016) <a target=\"_blank\" href='https://i.ytimg.com/vi/HT-UZkiOLv8/maxresdefault.jpg'>Credit</a>"
+      },
+      "start_date": {
+        "year": "2016"
+      },
+      "text": {
+        "headline": "AlphaGo Defeats Lee Sedol",
+        "text": "Content Here"
       }
     }
   ]
