@@ -1,0 +1,28 @@
+{
+  "title": {
+      "media": {
+        "url": "https://cdn.britannica.com/00/146200-050-A60812DA/Thinker-Auguste-Rodin-Museum-garden-Paris-1904.jpg",
+        "caption": "Rodin's The Thinker. <a target=\"_blank\" href='https://cdn.britannica.com/00/146200-050-A60812DA/Thinker-Auguste-Rodin-Museum-garden-Paris-1904.jpg'>Credit</a>",
+        "credit": ""
+      },
+      "text": {
+        "headline": "Artificial Intelligence Milestones",
+        "text": ""
+      }
+  },
+  "events": [
+    {
+      "media": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Ferdinand_de_Saussure_by_Jullien_Restored.png/800px-Ferdinand_de_Saussure_by_Jullien_Restored.png",
+        "caption": "The Swiss linguist Ferdinand de Saussure (1857–1913) (<a target=\"_blank\" href='https://en.wikipedia.org/wiki/Ferdinand_de_Saussure'>credits</a>)"
+      },
+      "start_date": {
+        "year": "1916"
+      },
+      "text": {
+        "headline": "Ferdinand de Saussure<br/>Cours de Linguistique Générale",
+        "text": "<br/><p>CHAPTER II: The subject matter of linguistics comprises all manifestations of human speech, whether that of savages or civilized nations, or of archaic, classical or decadent periods. In each period the linguist must consider not only correct speech and flowery language, but all other forms of expression as well. And that is not all: since he is often unable to observe speech directly, he must consider written texts, for only through them can he reach idioms that are remote in time or space.</p><br/><a target=\"_blank\" rel=\"noopener\" onclick=\"this.target='_blank'\" href='https://simondlevy.academic.wlu.edu/files/courses/anth252f2006/saussure.pdf' >Ferdinand de Saussure - Course in General Linguistics.pdf</a>"
+      }
+    }
+  ]
+}
