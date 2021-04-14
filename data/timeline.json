@@ -34,12 +34,12 @@
       },
       "text": {
         "headline": "Deep Blue Defeats Garry Kasparov",
-        "text": "</b><p>'I could see the trend... I could see that it's, you know, a one-way street. That's why I was preaching for collaboration with the machines, recognising that in the games' environment, humans [are] doomed.'</p><p><a target=\"_blank\" href='https://www.businessinsider.com/garry-kasparov-talks-about-artificial-intelligence-2017-12'>Garry Kasparov</p>"
+        "text": "</b><p>'I could see the trend... I could see that it's, you know, a one-way street. That's why I was preaching for collaboration with the machines, recognising that in the games' environment, humans [are] doomed.' - <a target=\"_blank\" href='https://www.businessinsider.com/garry-kasparov-talks-about-artificial-intelligence-2017-12'>Garry Kasparov</a></p>"
       }
     },
     {
       "media": {
-        "url": "https://raw.githubusercontent.com/CMU-IDS-2021/fp--05839-abby-jeff-kyle-will/feature-timeline/img/kasparov.webp",
+        "url": "https://raw.githubusercontent.com/CMU-IDS-2021/fp--05839-abby-jeff-kyle-will/feature-timeline/img/sedol.jpg",
         "caption": "Lee Sedol Confronts AlphaGo (2016) <a target=\"_blank\" href='https://i.ytimg.com/vi/HT-UZkiOLv8/maxresdefault.jpg'>Credit</a>"
       },
       "start_date": {
@@ -47,7 +47,7 @@
       },
       "text": {
         "headline": "AlphaGo Defeats Lee Sedol",
-        "text": "Content Here"
+        "text": "</b><p>'...there is an entity that cannot be defeated' - <a target=\"_blank\" href='https://en.yna.co.kr/view/AEN20191127004800315'>Lee Sedol</a></p>"
       }
     }
   ]
