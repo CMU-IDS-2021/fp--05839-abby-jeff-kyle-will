@@ -10,7 +10,7 @@ import altair as alt
 import streamlit as st
 import matplotlib.pyplot as plt
 from streamlit_timeline import timeline
-from vega_datasets import data
+import vega_datasets 
 import psw
 
 
@@ -248,7 +248,7 @@ def user_selection(df):
                     st.write("Now feel free to explore more about the how the United States public responded to the survey using the sidebar.")
 
 def regions_viz(oddsDf, odds):
-    states = alt.topo_feature(data.us_10m.url, 'states')
+    states = alt.topo_feature(vega_datasets.data.us_10m.url, 'states')
     subtitle = odds + " odds of total destruction of humanity - note percentages are by region"
 
     uschart = alt.Chart(states).mark_geoshape().encode(
