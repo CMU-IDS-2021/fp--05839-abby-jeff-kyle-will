@@ -17,7 +17,7 @@ def create_stacked_bar():
   
   #transform fold is conducted so that we can utilize the stacked bar approach
   #and analyze the huge discrepanacy between what world powers think
-  st.title("World Power Believe on AI Safety and Regulation")
+  st.title("World Power Belief on AI Safety and Regulation")
 
   all_country_data = alt.Chart(COUNTRY_VOTES).mark_bar().encode(
       x=alt.X('Agree:Q', title="Percent Representatives that Want AI Regulation", scale=alt.Scale(domain=[0, 100])),
