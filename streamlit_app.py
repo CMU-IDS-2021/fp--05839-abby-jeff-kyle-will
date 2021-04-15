@@ -4,7 +4,6 @@
 #
 # Abby Vorhaus, Jeff Moore, Kyle Dotterrer, Will Borom
 
-import os
 import numpy as np
 import pandas as pd
 import altair as alt
