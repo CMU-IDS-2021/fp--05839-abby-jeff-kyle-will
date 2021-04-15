@@ -217,12 +217,12 @@ def user_selection(df):
                 #return specific message to user
                 if yes_or_no != "-":
                     if yes_or_no == "Yes":
-                        y_percent = ((selection.at[0, 'Yes'])*100).round(2)
+                        y_percent = ((selection.at[0, 'Yes'])*100).round(1)
                         st.write("You agreed with " + str(y_percent) + " percent of individuals who are " + gender_dict.get(gender_at_birth) + 
                         " and are in the age bracket of " + age_range + " that we should press on despite the risks")
                     elif yes_or_no == "No":
-                        n_percent = ((selection.at[0, 'No'])*100).round(2)
-                        st.write("You agreed with " + str(n_percent)  + " percent of individuals who " + gender_dict.get(gender_at_birth) + 
+                        n_percent = ((selection.at[0, 'No'])*100).round(1)
+                        st.write("You agreed with " + str(n_percent)  + " percent of individuals who are " + gender_dict.get(gender_at_birth) + 
                         " and are in the age bracket of " + age_range +  " that jeopardizing humanity to that degree is simply not worth it")
                     
                     #Build and return Bar chart
@@ -282,22 +282,23 @@ def render_user_choice():
     '''
     ---
     '''
-    coll, colm = st.beta_columns([1.5,5.5])
+    coll, colm = st.beta_columns([2,5.5])
     colm.title('What Do You Choose?')
    
     '''
     
     In 2017 author Rick Webb wrote an article for NewCo Shift on machine superintelligence and public opinion. In the process of developing
-    this article, he surveyed various populations in the United States. One of the questions posed was "Humanity has discovered a scientific advancement. 
-    Pursuing it gives humanity two possible options: a chance that all of humanity will die instantly, or a chance that poverty, death and disease 
-    will be cured for everyone, forever. Should we pursue it?
+    this article, he surveyed various populations in the United States. One of the questions posed was:
+    
+   "Humanity has discovered a scientific advancement. Pursuing it gives humanity two possible options: a chance that all of humanity 
+    will die instantly, or a chance that poverty, death and disease will be cured for everyone, forever. Should we pursue it?"
 
     In his survey, Webb put the chance at varying levels to see how the public would respond, but the two results, transcendence or destruction, were always the same. 
     Now, we will give you a chance to do the same and see how you compare to the rest of the respondents.
 
     First select your age range and sex. This will let you see how you compare amongst others. Don't worry! You can use the sidebar
     later to explore further and compare across different ages and genders as well as look at how different regions across the United States
-    differ in opinion. As a note, the survey only provided the option for male or female so we unfortunately do not have data for other options at this time.
+    differ in opinion. As a note, the survey only provided the option for male or female, so we unfortunately do not have data for other options at this time.
 
     Next, select one of the odds. The odds represent the chance that humanity will be destroyed. For example, 1 in 3 implies that one out
     of every three times, humanity will be completely and totally annihilated by the advancement we achieved. However, the other two times the
