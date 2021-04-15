@@ -188,7 +188,7 @@ def render_popular_perceptions_section():
 
     '''
     TODO: 
-    - Scrape AI articles from google for 2010-2010
+    - Scrape AI articles from google for 2010-2020
     - Create WordClouds for each year, switch charts based on slider or radio button
     - Run sentiment analysis and build overall yearly media sentiment analysis
       - Possibly break it down further into articles by year (10 articles per year)
