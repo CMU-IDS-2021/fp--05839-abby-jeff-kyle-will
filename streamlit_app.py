@@ -166,8 +166,7 @@ def render_hal_chapter():
     The table below shows a document level sentiment analysis of each of the articles that were pulled from Google today.  
     As you can see there is mostly positive sentiment associated with AI from the articles.
     '''
-    sent = psw.getSentiment(articleData)
-    finalSent = psw.getAvgSentiment(sent, articleData)
+    finalSent = pd.read_csv("data/sentiment.csv")
     sentChart = psw.buildChart(finalSent)
     st.write(sentChart)
 
