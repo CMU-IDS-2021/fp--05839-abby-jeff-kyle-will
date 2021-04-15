@@ -48,7 +48,7 @@ def getAvgSentiment(sentiments, data):
 
 def buildChart(data):
     sentChart = alt.Chart(data).mark_bar().encode(
-        alt.X('Sentiment:Q', scale = alt.Scale(domain=(-100, 100))),
+        alt.X('Sentiment:Q', title="Media Sentiment of Articles about AI", scale = alt.Scale(domain=(-100, 100))),
         y="Title:O",
         color=alt.condition(
             alt.datum.Sentiment > 0,
