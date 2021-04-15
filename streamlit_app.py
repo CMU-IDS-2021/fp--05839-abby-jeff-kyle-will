@@ -30,7 +30,7 @@ COLOR_SCHEME_BLUE = "#90c1dc"
 TIMELINE_DATA_FILENAME = "timeline.json"
 
 # Allow streamlit to use the whole page
-st.set_page_config(page_title="Artificial Intelligence", layout="wide")
+st.set_page_config(page_title="Machine Intelligence", layout="wide")
 
 # -----------------------------------------------------------------------------
 # Introduction
@@ -45,14 +45,19 @@ def render_introduction_content():
     # Machine Intelligence: Risks and Opportunities
 
     ---
-    TODO: Compelling introduction content here.
+    TODO: This introduction content can be far more compelling. 
+    
+    Machine intelligence is a complex topic - technically, socially, and ethically. Accordingly, navigating this topic requires a combination of both breadth and depth of understanding that is difficult to come by in most settings.
+
+    In the following article, we seek to provide you with the tools to navigate this topic effectively. What is machine intelligence, and why is it important? What is our current position, and how did we get here? What are the likely future implications? We address each of these questions and more in detail below.
+
+    Before we begin, we make one request of you: approach this topic with an open mind. It is easy to come in with pre-conceived notions of what machine intelligence is or can be. Depending on your background, such notions may or may not be well-founded. This topic might seem like science fiction, but below we will attempt to demonstrate that much of the hype surrounding machine intelligence, both optimistic and pessimistic, is grounded in reality.
     '''
     
     st.sidebar.header("Digging Deeper")
-    st.sidebar.write(
-        "We are only grazing the surface with our main graphics, " +
-        "but you can keep exploring! Below you will find options " + 
-        "for each section that will allow you to explore the data.")
+    st.sidebar.write("We are only grazing the surface with our main graphics, "
+        + "but you can keep exploring! Below you will find options "
+        + "for each section that will allow you to explore the data.")
 
 # -----------------------------------------------------------------------------
 # Chapter: History / Timeline
@@ -60,13 +65,13 @@ def render_introduction_content():
 
 def render_history_chapter():
     """
-    Render the history of artificial intelligence chapter.
+    Render the history of machine intelligence chapter.
     """
 
     '''
-    # A Brief History of Artificial Intelligence
+    # A Brief History of Machine Intelligence
 
-    Artificial intelligence may seem like a distinctly modern phenomenon, but research into the subject has been going on for nearly seventy years. Some of major milestones related to the development of machine superintelligence are highlighted in the timeline below.
+    Machine intelligence may seem like a distinctly modern phenomenon, but research into the subject has been going on for nearly seventy years. Some of major milestones related to the development of machine intelligence are highlighted in the timeline below.
     '''
 
     path = DATA_PATH + TIMELINE_DATA_FILENAME
@@ -80,6 +85,41 @@ def render_history_chapter():
 # Chapter: Paradigm
 # -----------------------------------------------------------------------------
 
+def render_definition_section():
+    """
+    Render the definition section of the paradigm-shift chapter.
+    """
+
+    '''
+    ### Definitions
+
+    What do we mean when we refer to 'machine intelligence'?
+    '''
+
+def render_intelligence_section():
+    """
+    Render the 'importance of intelligence' section of the paradigm-shift chapter.
+    """
+
+    '''
+    ### The Primacy of Intelligence
+
+    Why is intelligence a matter of consequence?
+
+    TODO: This section will contain an interactive visualization
+    '''
+
+def render_substrate_section():
+    """
+    Render the substrate distinction section of the paradigm-shift chapter.
+    """
+
+    '''
+    ### The Potential of Mechanical Minds
+
+    What are the implications of releasing intelligence from the bonds of a biological substrate?
+    '''
+
 def render_paradigm_chapter():
     """
     Render the paradigm shift chapter.
@@ -88,8 +128,16 @@ def render_paradigm_chapter():
     '''
     # Machine Intelligence: A Paradigm Shift
 
-    TODO: Content here.
+    Based on the milestones timeline above, its clear that machine intelligence has demonstrated its skill at defeating humans in the games we play. This may be demoralizing for top players, and makes for an interesting couple of days of news coverage, but is this really cause for concern or trepidation? In other words, one might be skeptical of the potential of machine intelligence on the basis of events that have been hailed a major milestones in its development history. Is it really that big of a deal?
+
+    The answer is an unequivocal 'yes', but justification requires some additional explanation.
     '''
+
+    render_definition_section()
+
+    render_intelligence_section()
+
+    render_substrate_section()
 
 # -----------------------------------------------------------------------------
 # Chapter: Perceptions
@@ -400,7 +448,7 @@ def render_conclusion_content():
     ---
     # Conclusion
     
-    This concludes our exploration of the machine super intelligence! Don't worry, the machines already won.
+    This concludes our discussion of machine intelligence.
     '''
     
 # -----------------------------------------------------------------------------
@@ -415,8 +463,10 @@ def render_references():
     '''
     # References
 
-    The works we referenced while working on this project are provided below.
+    The datasets and prior work we referenced while working on this project are provided below.
 
+    - Bostrom, Nick. [What Happens When Our Computers Get Smarter Than We Are?](https://www.youtube.com/watch?v=MnT1xgZgkpk&t=326s) TED Talk. 2015.
+    - Harris, Sam. [Can We Build AI Without Losing Control Over It?](https://www.youtube.com/watch?v=8nt3edWLgIg) TED Talk. 2016.
     - McCarthy et al. _A Proposal for the Dartmouth Summer Research Project on Artificial Intelligence._ 1955.
     - Muller, Vincent and Bostrom, Nick. Future Progress in Artificial Intelligence: A Survey of Expert Opinion. (2016).
     '''
