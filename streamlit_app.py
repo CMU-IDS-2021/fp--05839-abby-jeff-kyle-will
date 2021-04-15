@@ -109,18 +109,18 @@ def render_hal_chapter():
     ## What is the view of Artificial Intelligence in the media?  
     The following word cloud expresses some of the sentiment that can be seen in recent articles about AI.
     '''
-#     articleData = psw.getData("data/articles.json")
-#     articleText = psw.buildWordCloudText(articleData)
-#     wc = psw.getWordCloud(articleText)
-#     st.write(wc)
+    articleData = psw.getData("data/articles.json")
+    articleText = psw.buildWordCloudText(articleData)
+    wc = psw.getWordCloud(articleText)
+    st.write(wc)
     '''
     The table below shows a document level sentiment analysis of each of the articles that were pulled from Google today.  
     As you can see there is mostly positive sentiment associated with AI from the articles.
     '''
-#     sent = psw.getSentiment(articleData)
-#     finalSent = psw.getAvgSentiment(sent, articleData)
-#     sentChart = psw.buildChart(finalSent)
-#     st.write(sentChart)
+    sent = psw.getSentiment(articleData)
+    finalSent = psw.getAvgSentiment(sent, articleData)
+    sentChart = psw.buildChart(finalSent)
+    st.write(sentChart)
 
 
 
