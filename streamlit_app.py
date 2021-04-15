@@ -107,7 +107,7 @@ def render_hal_chapter():
 
     '''
     '''
-    # What is the view of Artificial Intelligence in the media?  
+    ## What is the view of Artificial Intelligence in the media?  
     The following word cloud expresses some of the sentiment that can be seen in recent articles about AI.
     '''
     articleData = psw.getData("data/articles.json")
