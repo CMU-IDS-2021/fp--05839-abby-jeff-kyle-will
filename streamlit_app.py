@@ -88,9 +88,9 @@ def render_terminator_chapter():
 
     '''
     ---
-    # Terminator 
+    # AI Super Intelligence and Public Policy
     
-    Hasta la vista baby.
+    What do the World Powers think?
     
     '''
     #read in data as csv
