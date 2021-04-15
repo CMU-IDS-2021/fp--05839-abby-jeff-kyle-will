@@ -186,6 +186,15 @@ def render_popular_perceptions_section():
     sentChart = psw.buildChart(finalSent)
     st.write(sentChart)
 
+    '''
+    TODO: 
+    - Scrape AI articles from google for 2010-2010
+    - Create WordClouds for each year, switch charts based on slider or radio button
+    - Run sentiment analysis and build overall yearly media sentiment analysis
+      - Possibly break it down further into articles by year (10 articles per year)
+    
+    '''
+
 def render_professional_perceptions_section():
     """
     Render the academic perceptions section of the perceptions chapter.
