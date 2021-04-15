@@ -4,3 +4,6 @@ altair
 pyreadstat
 vega_datasets
 streamlit_timeline
+matplotlib
+textblob
+wordcloud
