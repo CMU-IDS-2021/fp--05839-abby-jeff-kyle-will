@@ -11,6 +11,7 @@ import altair as alt
 import streamlit as st
 import matplotlib.pyplot as plt
 from streamlit_timeline import timeline
+import psw
 
 # The relative path to the directory in which data is stored
 DATA_PATH = "data/"
@@ -98,14 +99,31 @@ def render_hal_chapter():
     """
     Render chapter two.
     """
-
     '''
     ---
     # HAL 3000 
-    
+
     I know that you and Frank were planning to disconnect me, and I'm afraid that's something I cannot allow to happen.
-    
+
     '''
+    '''
+    What is the view of Artificial Intelligence in the media?  
+    The following word cloud expresses some of the sentiment that can be seen.
+    '''
+    articleData = psw.getData("data/articles.json")
+    articleText = psw.buildWordCloudText(articleData)
+    wc = psw.getWordCloud(articleText)
+    st.write(wc)
+    '''
+    The table below shows a document level sentiment analysis of each of the articles that were pulled from Google today.  
+    As you can see there is mostly positive sentiment associated with AI from the articles.
+    '''
+    sent = psw.getSentiment(articleData)
+    finalSent = psw.getAvgSentiment(sent, articleData)
+    sentChart = psw.buildChart(finalSent)
+    st.write(sentChart)
+
+
 
 # -----------------------------------------------------------------------------
 # Conclusion
