@@ -14,7 +14,7 @@ from streamlit_timeline import timeline
 
 
 # The relative path to the directory in which data is stored
-DATA_PATH = "fp--05839-abby-jeff-kyle-will/data/"
+DATA_PATH = "data/"
 
 # The default height for our visualizations
 DEFAULT_WIDTH = 800
