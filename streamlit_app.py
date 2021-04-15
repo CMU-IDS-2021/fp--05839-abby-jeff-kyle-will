@@ -550,6 +550,7 @@ def render_references():
     - Harris, Sam. [Can We Build AI Without Losing Control Over It?](https://www.youtube.com/watch?v=8nt3edWLgIg) TED Talk. 2016.
     - McCarthy et al. _A Proposal for the Dartmouth Summer Research Project on Artificial Intelligence._ 1955.
     - Muller, Vincent and Bostrom, Nick. Future Progress in Artificial Intelligence: A Survey of Expert Opinion. (2016).
+    - Webb, Rick. Superintelligence and Public Opinion. NewCo Shift. (https://shift.newco.co/2017/04/24/superintelligence-and-public-opinion/). (2017).
     '''
 
 # -----------------------------------------------------------------------------
