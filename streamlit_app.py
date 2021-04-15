@@ -12,8 +12,9 @@ import streamlit as st
 from vega_datasets import data
 from streamlit_timeline import timeline
 
+
 # The relative path to the directory in which data is stored
-DATA_PATH = "data/"
+DATA_PATH = "fp--05839-abby-jeff-kyle-will/data/"
 
 # The default height for our visualizations
 DEFAULT_WIDTH = 800
@@ -38,9 +39,8 @@ def render_introduction_content():
     """
     Render the introduction content.
     """
-
+    st.markdown("<h1 style='text-align: center; color: " + COLOR_SCHEME_BLUE + ";'>Machine Superintelligence</h1>", unsafe_allow_html=True)
     '''
-    # Machine Superintelligence
     
     TODO: Compelling introduction content here.
     '''
@@ -111,14 +111,35 @@ def render_hal_chapter():
 # Chapter: What Would You Choose
 # -----------------------------------------------------------------------------
 
+def user_selection():
+    col1, col2, col3 = st.beta_columns([1,3,1])
+
+    age_range = col2.radio("Choose your age bracket from the provided ranges.", ("-", "18 to 29", "30 to 44", "45 to 59", "60+"))   
+    if age_range != "-":
+        gender_at_birth = col2.radio("Choose your sex.", ("-", "Female", "Male"))
+        if gender_at_birth != "-":
+            odds = col2.radio("Choose the Odds. Remember, this is the chance that humanity will face complete destruction.", 
+                ("-", "1 in 2", "1 in 3", "1 in 4", "1 in 5", "1 in 10")) 
+            if odds != "-":
+                yes_or_no = col2.radio("Given the odds, should we as humanity continue to pursue this advancement?", ("-", "Yes", "No"))
+                if yes_or_no == "Yes":
+                    st.write("cool bro")
+                elif yes_or_no == "No":
+                    st.write("Live to fight another day")
+
+    
+
+
 def render_user_choice():
     """
     Render chapter four user choice.
     """
-
     '''
     ---
-    #  What Do You Choose?
+    '''
+    st.markdown("<h1 style='text-align: center; color: " + COLOR_SCHEME_BLUE + ";'>What Do You Choose?</h1>", unsafe_allow_html=True)
+
+    '''
     
     In 2017 author Rick Webb wrote an article for NewCo Shift on machine superintelligence and public opinion. In the process of developing
     this article, he surveyed various populations in the United States. One of the questions posed was "Humanity has discovered a scientific advancement. 
@@ -128,10 +149,35 @@ def render_user_choice():
     In his survey, Webb put the chance at varying levels to see how the public would respond, but the two results, transcendence or destruction, were always the same. 
     Now, we will give you a chance to do the same and see how you compare to the rest of the respondents.
 
-    First, select your age and gender assigned at birth. Then, select on of the odds. The odds represent the chance that humanity will be destroyed.
-    Finally, choose whether we as humanity should pursuit the technology or not.
+    First select your age range and sex. This will let you see how you compare amongst others. Don't worry! You can use the sidebar
+    later to explore further and compare across different ages and genders as well as look at how different regions across the United States
+    differ in opinion. As a note, the survey only provided the option for male or female so we unfortunately do not have data for other options at this time.
+
+    Next, select one of the odds. The odds represent the chance that humanity will be destroyed. For example, 1 in 3 implies that one out
+    of every three times, humanity will be completely and totally annihilated by the advancement we achieved. However, the other two times the
+    result will be a world with no famine, disease, poverty, suffering, or death - in short a utopia. You decide whether we should continue down the
+    path or not.
 
     '''
+    #
+    
+    #Set up the Radio Button Theme
+    st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
+    st.write('<style>div.row-widget.stRadio > div[role="radiogroup"] > label[data-baseweb="radio"] > div:first-child {background-color:'
+        + COLOR_SCHEME_BLUE + '};</style>', unsafe_allow_html=True)
+    st.markdown(
+    """ <style>
+            div[role="radiogroup"] >  :first-child{
+                display: none !important;
+            } 
+        </style> """, unsafe_allow_html=True)
+
+    #let the use choose their fate
+    user_selection()
+
+    #SideBar
+    
+
 
 # -----------------------------------------------------------------------------
 # Conclusion
