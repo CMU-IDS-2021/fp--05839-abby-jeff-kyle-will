@@ -106,7 +106,15 @@ def render_intelligence_section():
 
     Why is intelligence a matter of consequence?
 
-    TODO: This section will contain an interactive visualization
+    TODO: This section will contain an interactive visualization regarding the shape of the spectrum of intelligence, and its importance in achieving those things we value. Most people are likely walk around with two implicit assumptions: 
+    - The spectrum of intelligence is in some way _observable_; we think that we can make sense of the full spectrum of intelligence
+    - Humans stand at or near the end of the spectrum of intelligence; we are the smartest things about which we have any knowledge
+
+    The assumptions are very likely invalid. There is no reason to think that humans stand anywhere near the zenith of what is possible, nor is there reason to believe the intelligence curve does not extend far beyond what we might currently be able to observe.
+
+    First, we need to establish the fact that intelligence is what distinguishes us from animals over which we (largely) dominate. For instance, apes are far stronger than humans pound-for-pound, yet the fate of the apes on Earth is almost entirely at the discretion of humanity, rather than in the hands of the apes themselves. QUESTION: How might we visualize this distinction?
+
+    Second, we need to impress upon readers just how vast the spectrum of intelligence may actually be. This will likely take the form of a zoom-able plot similar to that in Sam Harris' TED talk (cited below) where we first show the relative distinction between "smart" people and "dumb" people, and then compare this distinction with what a machine intelligence might achieve relative to a "smart" person - the relationship is exponential.
     '''
 
 def render_substrate_section():
@@ -118,6 +126,12 @@ def render_substrate_section():
     ### The Potential of Mechanical Minds
 
     What are the implications of releasing intelligence from the bonds of a biological substrate?
+
+    TODO: This is a section I am particularly excited about. Here, we have the opportunity to impress upon readers the potential of machine intelligence by visualizing the raw power of mechanical minds. I foresee this taking the form of three "panels":
+    
+    - Frequency: Biological neruons fire at 20Hz. The clock speed in your run-of-the-mill laptop is 2GHz. This is a 10,000,000x difference, or seven orders of magnitude. How can we communicate precisely how big this difference is? One idea I am working on is the following: if you plot a sine wave that oscillates at 20Hz and expand its wavelength to the diameter of the Earth, the same sine wave at 2GHz will have a wavelength that is just 4 feet across. Some kind of "zoom" on an embeded globe widget would be cool here.
+    - Speed: Signals propagate in biological axons at ~150 m/s. The same signals propagate at the speed of light within an integrated circuit. QUESTION: How do we communicate this difference in speed?
+    - Capacity: The human cranium imposes tight size limitations on our brains. A mechanical mind that implements a machine intelligence has no such size restrictions. QUESTION: How do we communicate the difference in volume between a human brain and a potential mechanical brain?
     '''
 
 def render_paradigm_chapter():
@@ -143,22 +157,19 @@ def render_paradigm_chapter():
 # Chapter: Perceptions
 # -----------------------------------------------------------------------------
 
-def render_perceptions_chapter():
+def render_popular_perceptions_section():
     """
-    Render chapter two.
+    Render the popular perceptions section of the perceptions chapter.
     """
 
     '''
-    ---
-    # Perceptions versus Reality 
-
-    TODO: Content here.
-    '''
-    
-    '''
-    ## What is the view of Artificial Intelligence in the media? 
+    ### Machine Intelligece in the Popular Media
      
-    The following word cloud expresses some of the sentiment that can be seen in recent articles about AI.
+    How do we characterize the popular public perception of machine intelligence?
+    '''
+
+    '''
+    The following word cloud expresses some of the sentiment that can be seen in recent articles about machine intelligence.
     '''
 
     articleData = psw.getData("data/articles.json")
@@ -174,6 +185,41 @@ def render_perceptions_chapter():
     finalSent = pd.read_csv("data/sentiment.csv")
     sentChart = psw.buildChart(finalSent)
     st.write(sentChart)
+
+def render_professional_perceptions_section():
+    """
+    Render the academic perceptions section of the perceptions chapter.
+    """
+
+    '''
+    ### Machine Intelligence in Professional Settings
+
+    How do we characterize the nature of research work on machine intelligence?
+    '''
+
+    '''
+    TODO: Big idea for this section is a text analysis of academic work on machine intelligence. Specifically, the plan is to do the following:
+    - Scrape PDF documents from the online Journal of Artificial Intelligence Research
+    - Extract text from these PDF documents
+    - Perform topic modeling on the documents (or just the titles? unclear if full text is feasible)
+    - Visualize the distribution of documents over time according to the topic(s) in which they fall
+    '''
+
+def render_perceptions_chapter():
+    """
+    Render the perceptions chapter.
+    """
+
+    '''
+    ---
+    # Perceptions versus Reality 
+
+    TODO: Content here.
+    '''
+    
+    render_popular_perceptions_section()
+
+    render_professional_perceptions_section()
 
 # -----------------------------------------------------------------------------
 # Chapter: Prospects
@@ -198,6 +244,22 @@ gender_dict = {
     "Female": "female",
     "Male" : "male"
 }
+
+def render_expert_sentiment_section():
+    """
+    Render the expert sentiment section of the prospects chapter.
+    """
+
+    '''
+    ### Expert Sentiment on Machine Intelligence
+
+    TODO: This section will visualize some of the results of the 2016 survey of expert opinion on machine intelligence. This is an important section because it is one of the primary data points (aside from the professional analysis section above) that reveals just how high the degree of uncertainty is in the expert community.
+
+    QUESTION(s):
+    - The survey has a number of interesting questions, which ones do we want to visualize? All of them, accessible via dialog?
+    - What is the most effective form factor for these charts?
+    '''
+
 
 def user_selection(df):
     # Center the columns
@@ -282,24 +344,18 @@ def regions_viz(oddsDf, odds):
     )
     return uschart
 
-def render_prospects_chapter():
+def render_user_choice_section():
     """
-    Render chapter four user choice.
+    Render the user choice section of the prospects chapter.
     """
     
-    '''
-    ---
-    # Prospects for Machine Intelligence
-
-    TODO: Content here.
-    '''
-
     # Create centered title content
     # coll, colm = st.beta_columns([2,5.5])
     # colm.title('What Do You Choose?')
    
     '''
-    
+    ### What Would You Choose?
+
     In 2017 author Rick Webb wrote an article for NewCo Shift on machine superintelligence and public opinion. In the process of developing
     this article, he surveyed various populations in the United States. One of the questions posed was:
     
@@ -360,24 +416,35 @@ def render_prospects_chapter():
         else:
             st.write(regions_viz(region10, region_map_select))
 
+def render_prospects_chapter():
+    """
+    Render chapter four user choice.
+    """
+    
+    '''
+    ---
+    # Prospects for Machine Intelligence
+
+    TODO: Content here.
+    '''
+
+    render_expert_sentiment_section()
+
+    render_user_choice_section()
+
 # -----------------------------------------------------------------------------
 # Chapter: Responses and Future Directions
 # -----------------------------------------------------------------------------
 
-def render_responses_chapter():
+def render_world_powers_section():
     """
-    Render the responses chapter.
+    Render the world powers section of the responses chapter.
     """
-
-    '''
-    ---
-    # Responses to Machine Intelligence
     
-    TODO: Content here.
     '''
+    ### Global Response
 
-    '''
-    ### What do the world powers think?
+    What are the sentiments of the world powers regarding artificial intelligence regulation policy?
     '''
 
     # Read in data as csv
@@ -402,7 +469,7 @@ def render_responses_chapter():
     # and analyze the huge discrepanacy between what world powers think
     
     '''
-    ## World Power Believe on AI Safety and Regulation
+    ### National Stance on AI Safety and Regulation
     '''
 
     all_country_data = alt.Chart(COUNTRY_VOTES).mark_bar().encode(
@@ -435,6 +502,20 @@ def render_responses_chapter():
     From the chart above we can see that nearly every major world power agrees that AI imposes enough risk that it should be regulated. There is not one outlier nation that does not think that AI and Robotics are begning to play in increasingly dangerous or volatile role.
     '''
 
+def render_responses_chapter():
+    """
+    Render the responses chapter.
+    """
+
+    '''
+    ---
+    # Responses to Machine Intelligence
+    
+    We have established the sentiments of both experts and members of the public regarding the future prospects of machine intelligence, but what is actually being done to address the inherent issues?
+    '''
+
+    render_world_powers_section()
+
 # -----------------------------------------------------------------------------
 # Conclusion
 # -----------------------------------------------------------------------------
@@ -448,7 +529,7 @@ def render_conclusion_content():
     ---
     # Conclusion
     
-    This concludes our discussion of machine intelligence.
+    TODO: This conclusion needs to be much more compelling. This concludes our discussion of machine intelligence.
     '''
     
 # -----------------------------------------------------------------------------
