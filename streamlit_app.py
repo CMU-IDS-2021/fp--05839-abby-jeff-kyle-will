@@ -14,7 +14,7 @@ from streamlit_timeline import timeline
 
 
 # The relative path to the directory in which data is stored
-DATA_PATH = "fp--05839-abby-jeff-kyle-will/data/"
+DATA_PATH = "data/"
 
 # The default height for our visualizations
 DEFAULT_WIDTH = 800
@@ -39,10 +39,13 @@ def render_introduction_content():
     """
     Render the introduction content.
     """
-    st.markdown("<h1 style='text-align: center; color: " + COLOR_SCHEME_BLUE + ";'>Machine Superintelligence</h1>", unsafe_allow_html=True)
+    coll, colm, colr = st.beta_columns([1,4,1])
+    colm.title('Machine Superintelligence')
+
     '''
-    
+    ---
     TODO: Compelling introduction content here.
+
     '''
     
     st.sidebar.header("Digging Deeper")
@@ -110,10 +113,25 @@ def render_hal_chapter():
 # -----------------------------------------------------------------------------
 # Chapter: What Would You Choose
 # -----------------------------------------------------------------------------
+odds_dict = {"1 in 2": 2, 
+            "1 in 3" : 3, 
+            "1 in 4" : 4, 
+            "1 in 5" : 5, 
+            "1 in 10" : 10}
 
-def user_selection():
+age_dict = {"18 to 29":"18 - 29",
+            "30 to 44": "30 - 44", 
+            "45 to 59": "45 - 59", 
+            "60+" : "60"}
+
+gender_dict = {"Female": "female",
+                "Male" : "male"}
+
+def user_selection(df):
+    # center the columns
     col1, col2, col3 = st.beta_columns([1,3,1])
 
+    # set up the radio buttons
     age_range = col2.radio("Choose your age bracket from the provided ranges.", ("-", "18 to 29", "30 to 44", "45 to 59", "60+"))   
     if age_range != "-":
         gender_at_birth = col2.radio("Choose your sex.", ("-", "Female", "Male"))
@@ -121,13 +139,74 @@ def user_selection():
             odds = col2.radio("Choose the Odds. Remember, this is the chance that humanity will face complete destruction.", 
                 ("-", "1 in 2", "1 in 3", "1 in 4", "1 in 5", "1 in 10")) 
             if odds != "-":
+                #given the parameters get the specified percentages and graph for the user
                 yes_or_no = col2.radio("Given the odds, should we as humanity continue to pursue this advancement?", ("-", "Yes", "No"))
-                if yes_or_no == "Yes":
-                    st.write("cool bro")
-                elif yes_or_no == "No":
-                    st.write("Live to fight another day")
 
-    
+                # retrieve the specified row of data
+                selection = df.loc[(df['Gender at Birth'] == gender_at_birth) & (df['Age Range'] == age_dict.get(age_range))
+                            & (df['Odds'] == odds_dict.get(odds))]
+                selection = selection.reset_index()
+                graph_select = selection.melt(id_vars=['Age Range', 'Gender at Birth'], value_vars=['No','Yes'],
+                                var_name = 'Decision', value_name = 'Percent')
+                #return specific message to user
+                if yes_or_no != "-":
+                    if yes_or_no == "Yes":
+                        y_percent = ((selection.at[0, 'Yes'])*100).round(2)
+                        st.write("You agreed with " + str(y_percent) + " percent of individuals who are " + gender_dict.get(gender_at_birth) + 
+                        " and are in the age bracket of " + age_range + " that we should press on despite the risks")
+                    elif yes_or_no == "No":
+                        n_percent = ((selection.at[0, 'No'])*100).round(2)
+                        st.write("You agreed with " + str(n_percent)  + " percent of individuals who " + gender_dict.get(gender_at_birth) + 
+                        " and are in the age bracket of " + age_range +  " that jeopardizing humanity to that degree is simply not worth it")
+                    
+                    #Build and return Bar chart
+                    graph_title = "Decision Point: Odds " + odds
+                    basic_bar = alt.Chart(graph_select).mark_bar().encode(
+                            x=alt.X('Decision'),
+                            y=alt.Y('Percent:Q', scale=alt.Scale(domain=(0, 1)), axis=alt.Axis(format='%', title='Percentage')),
+                            color=alt.Color('Decision:N',scale=alt.Scale(scheme="redyellowblue")),
+                            tooltip=[alt.Tooltip('Age Range:N'), alt.Tooltip('Gender at Birth:N'), alt.Tooltip('Percent:Q', format='.2%')]
+                        ).properties(
+                            title= graph_title
+                        ).properties(
+                            width=400,
+                            height=350,
+                        ).interactive()
+                    
+                    basic_bar = basic_bar.configure_title(
+                        fontSize=30,
+                        font="IBM Plex Sans")
+
+                    col2.write(basic_bar)
+
+                    st.write("Now feel free to explore more about the how the United States public responded to the survey using the sidebar.")
+
+def regions_viz(oddsDf, odds):
+    states = alt.topo_feature(data.us_10m.url, 'states')
+    subtitle = odds + " odds of total destruction of humanity - note percentages are by region"
+
+    uschart = alt.Chart(states).mark_geoshape().encode(
+            tooltip=['US Region:N', 'State:N', alt.Tooltip('No:Q', format='.2%'), alt.Tooltip('Yes:Q', format='.2%')],
+            color=alt.Color('Percentage That Said No:Q', scale=alt.Scale(scheme="redyellowblue", reverse=True))
+        ).transform_lookup(
+            lookup='id',
+            from_=alt.LookupData(oddsDf, 'id', ['US Region', 'State', 'No', 'Yes', 'Percentage That Said No']),
+        ).properties(
+            width= DEFAULT_WIDTH,
+            height= DEFAULT_HEIGHT,
+        ).project(
+            type='albersUsa'
+        ).properties(
+            title= {"text": ["Should we Continue to Pursue Advancement?"], 
+            "subtitle": subtitle,
+           }
+        )
+
+    uschart = uschart.configure_title(
+        fontSize=30,
+        font="IBM Plex Sans",
+    )
+    return uschart
 
 
 def render_user_choice():
@@ -137,8 +216,9 @@ def render_user_choice():
     '''
     ---
     '''
-    st.markdown("<h1 style='text-align: center; color: " + COLOR_SCHEME_BLUE + ";'>What Do You Choose?</h1>", unsafe_allow_html=True)
-
+    coll, colm = st.beta_columns([1.5,5.5])
+    colm.title('What Do You Choose?')
+   
     '''
     
     In 2017 author Rick Webb wrote an article for NewCo Shift on machine superintelligence and public opinion. In the process of developing
@@ -157,7 +237,6 @@ def render_user_choice():
     of every three times, humanity will be completely and totally annihilated by the advancement we achieved. However, the other two times the
     result will be a world with no famine, disease, poverty, suffering, or death - in short a utopia. You decide whether we should continue down the
     path or not.
-
     '''
     #
     
@@ -173,9 +252,34 @@ def render_user_choice():
         </style> """, unsafe_allow_html=True)
 
     #let the use choose their fate
-    user_selection()
+    selectDf = pd.read_csv(DATA_PATH + "grouped-Ending-Humanity.csv")
+    user_selection(selectDf)
 
     #SideBar
+    st.sidebar.header("What Do You Choose?")
+    st.sidebar.write(
+        "Explore more about how the United States public responded to the survey. You can look at region maps as well as " 
+        + "compare across different ages and genders.")
+    
+    region2 = pd.read_csv(DATA_PATH + "regions2-Ending-Humanity.csv")
+    region3 = pd.read_csv(DATA_PATH + "regions3-Ending-Humanity.csv")
+    region4 = pd.read_csv(DATA_PATH + "regions4-Ending-Humanity.csv")
+    region5 = pd.read_csv(DATA_PATH + "regions5-Ending-Humanity.csv")
+    region10 = pd.read_csv(DATA_PATH + "regions10-Ending-Humanity.csv")
+
+    region_map_select = st.sidebar.selectbox("Select on of the odds to see how different regions across the United States answered the survey question.",
+                        ("-", "1 in 2", "1 in 3", "1 in 4", "1 in 5", "1 in 10"))
+    if region_map_select != "-":
+        if region_map_select == "1 in 2":
+            st.write(regions_viz(region2, region_map_select))
+        elif region_map_select == "1 in 3":
+            st.write(regions_viz(region3, region_map_select))
+        elif region_map_select == "1 in 4":
+            st.write(regions_viz(region4, region_map_select))
+        elif region_map_select == "1 in 5":
+            st.write(regions_viz(region5, region_map_select))
+        else:
+            st.write(regions_viz(region10, region_map_select))
     
 
 
