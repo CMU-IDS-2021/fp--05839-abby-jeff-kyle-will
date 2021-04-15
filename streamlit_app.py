@@ -10,6 +10,7 @@ import altair as alt
 import streamlit as st
 import matplotlib.pyplot as plt
 from streamlit_timeline import timeline
+from vega_datasets import data
 import psw
 
 
