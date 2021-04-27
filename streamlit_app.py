@@ -516,7 +516,7 @@ def render_world_powers_section():
         ["No Safe Tech Training"],
         as_=["% of Companies", "% Value"]
     ).mark_bar().encode(
-        y=alt.Y("% Value:Q", title="% of Companies with Safe Tech Training", scale=alt.Scale(domain=[0, 100])),
+        y=alt.Y("% Value:Q", title="% of Companies without Safe Tech Training", scale=alt.Scale(domain=[0, 100])),
         tooltip=[alt.Tooltip("Country:N", title="Country")], 
         color=alt.Color("% of Companies:N",
             scale = alt.Scale(domain=["No Safe Tech Training"], range=["#714141"])
