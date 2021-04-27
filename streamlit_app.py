@@ -475,6 +475,8 @@ def render_world_powers_section():
             "Security_Incident": "Security Incident", 
             "Safe_Tech_Policies": "Safe Tech Training"
             })
+    
+    COUNTRY_VOTES["No Safe Tech Training"] = 100.0 - COUNTRY_VOTES["Safe Tech Training"]
 
     country_selector = alt.selection_multi(fields=["Country"], init=[{"Country":"Hungary"}])
     
@@ -511,13 +513,13 @@ def render_world_powers_section():
     ).interactive()
 
     by_country3 = alt.Chart(COUNTRY_VOTES).transform_fold(
-        ["Safe Tech Training"],
+        ["No Safe Tech Training"],
         as_=["% of Companies", "% Value"]
     ).mark_bar().encode(
         y=alt.Y("% Value:Q", title="% of Companies with Safe Tech Training", scale=alt.Scale(domain=[0, 100])),
         tooltip=[alt.Tooltip("Country:N", title="Country")], 
         color=alt.Color("% of Companies:N",
-            scale = alt.Scale(domain=["Safe Tech Training"], range=["#714141"])
+            scale = alt.Scale(domain=["No Safe Tech Training"], range=["#714141"])
         )
     ).transform_filter(
         country_selector
