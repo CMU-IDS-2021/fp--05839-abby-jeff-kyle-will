@@ -458,18 +458,22 @@ def render_world_powers_section():
 
     # Read in data as csv
     COUNTRY_VOTES =  pd.read_csv("data/CountryVotesonAI.csv")
-    
+
     # Combine totally agree/tend agree to one agree column for user clarity
     COUNTRY_VOTES["Agree"] = COUNTRY_VOTES["Tend_Agree"] + COUNTRY_VOTES["Totally_Agree"]
-    
+
     # Combine totally disagree/tend disagree to one disagree column for user clarity
     COUNTRY_VOTES["Disagree"] = COUNTRY_VOTES["Tend_Disagree"] + COUNTRY_VOTES["Totally_Disagree"]
+
+    # Rename columns for ease of reference
     COUNTRY_VOTES = COUNTRY_VOTES.rename(
         columns={
             "Totally_Agree": "Totally Agree",
             "Tend_Agree": "Tend Agree",
             "Tend_Disagree": "Tend Disagree",
-            "Totally_Disagree": "Totally Disagree"
+            "Totally_Disagree": "Totally Disagree", 
+            "Security_Incident": "Security Incident", 
+            "Safe_Tech_Policies": "Safe Tech Training"
             })
 
     country_selector = alt.selection_multi(fields=["Country"], init=[{"Country":"Hungary"}])
@@ -481,7 +485,10 @@ def render_world_powers_section():
     ### National Stance on AI Safety and Regulation
     '''
 
+# Transform fold is conducted so that we can utilize the stacked bar approach
+# and analyze the huge discrepanacy between what world powers think
     all_country_data = alt.Chart(COUNTRY_VOTES).mark_bar().encode(
+        tooltip=[alt.Tooltip("Country:N", title="Country")], 
         x=alt.X("Agree:Q", title="Percent Representatives that Want AI Regulation", scale=alt.Scale(domain=[0, 100])),
         y=alt.Y("Country:N", title="Country"), 
         color=alt.condition(country_selector, alt.value("#714141"), alt.value("#d9d9d9"))
@@ -490,21 +497,33 @@ def render_world_powers_section():
     ).interactive()
 
 
-    by_country2 = alt.Chart(COUNTRY_VOTES).transform_fold(
-        ["Agree", "Disagree"],
-        as_=["Sentiment", "Agree/Disagree"]
+    by_country1 = alt.Chart(COUNTRY_VOTES).transform_fold(
+        ["Security Incident"],
+        as_=["% of Companies", "% Value"]
     ).mark_bar().encode(
-        x=alt.X("Country:N", title="Country"),
-        y=alt.Y("Agree/Disagree:Q", title="Is AI Regulation Needed?", scale=alt.Scale(domain=[0, 100])),
+        y=alt.Y("% Value:Q", title="% of Companies with Tech Security Incident", scale=alt.Scale(domain=[0, 100])),
         tooltip=[alt.Tooltip("Country:N", title="Country")], 
-        color=alt.Color("Sentiment:N",
-            scale = alt.Scale(domain=["Agree", "Disagree"], range=["#714141", "#d9d9de"])
+        color=alt.Color("% of Companies:N",
+            scale = alt.Scale(domain=["Security Incident"], range=["#714141"])
         )
     ).transform_filter(
         country_selector
     ).interactive()
 
-    joint_chart = all_country_data | by_country2
+    by_country3 = alt.Chart(COUNTRY_VOTES).transform_fold(
+        ["Safe Tech Training"],
+        as_=["% of Companies", "% Value"]
+    ).mark_bar().encode(
+        y=alt.Y("% Value:Q", title="% of Companies with Safe Tech Training", scale=alt.Scale(domain=[0, 100])),
+        tooltip=[alt.Tooltip("Country:N", title="Country")], 
+        color=alt.Color("% of Companies:N",
+            scale = alt.Scale(domain=["Safe Tech Training"], range=["#714141"])
+        )
+    ).transform_filter(
+        country_selector
+    ).interactive()
+
+    joint_chart = all_country_data | by_country1 | by_country3
     st.write(joint_chart)
 
     '''
