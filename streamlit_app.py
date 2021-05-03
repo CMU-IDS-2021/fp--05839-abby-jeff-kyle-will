@@ -134,9 +134,8 @@ def render_substrate_section():
     - Capacity: The human cranium imposes tight size limitations on our brains. A mechanical mind that implements a machine intelligence has no such size restrictions. QUESTION: How do we communicate the difference in volume between a human brain and a potential mechanical brain?
     '''
     from PIL import Image
-    image = Image.open('img/brain.png')
-    st.image(image, caption='BrainPower of 1x Supercomputer', output_format='PNG')
-    st.image(image, caption='BrainPower of 1000x Humans', output_format='PNG', width=100)
+    image = Image.open('img/brain2.png')
+    st.image(image, caption='BrainPower Comparison', output_format='PNG')
 
 def render_paradigm_chapter():
     """
