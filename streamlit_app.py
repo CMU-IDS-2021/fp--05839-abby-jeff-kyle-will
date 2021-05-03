@@ -141,7 +141,7 @@ def render_substrate_section():
     brain = st.selectbox("Select your brain.", list(brains.keys()))
     st.image(human_brain, caption=brains[brain][1], output_format='PNG', width=brains[brain][0])
     '''
-    - Speed: Signals propagate in biological axons at ~150 m/s. The same signals propagate at the speed of light within an integrated circuit. QUESTION: How do we communicate this difference in speed?
+    - Speed: Signals propagate in biological axons at ~150 m/s. The same signals propagate at the speed of light within an integrated circuit.
     '''
     speedhuman = Image.open('img/speedhuman.png')
     speedairline = Image.open('img/speedairline.png')
