@@ -136,11 +136,11 @@ def render_substrate_section():
     from PIL import Image
     human_brain = Image.open('img/brain.png')
     plots = {
-        "Human": 100,
-        "SuperComputer": 1000,
+        "Human": [20, "Human Brain],
+        "Typical Processor": [700, "Typical Processor"],
     }
     plot = st.selectbox("Select your brain.", list(plots.keys()))
-    st.image(human_brain, caption='BrainPower Comparison', output_format='PNG', width=plots[plot])
+    st.image(human_brain, caption=plots[plot][1], output_format='PNG', width=plots[plot][0])
     '''
     - Speed: Signals propagate in biological axons at ~150 m/s. The same signals propagate at the speed of light within an integrated circuit. QUESTION: How do we communicate this difference in speed?
     '''
