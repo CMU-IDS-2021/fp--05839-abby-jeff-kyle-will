@@ -125,12 +125,12 @@ def render_substrate_section():
     '''
     ### The Potential of Mechanical Minds
 
-    What are the implications of releasing intelligence from the bonds of a biological substrate?
+    What are the implications of releasing intelligence from the bonds of a biological substrate? In this section we will compare Human Beings brain potential to the computerized counterparts. We will begin to see just how vastly computers outperform humans in the areas of brain frequency, speed, and storage capacity.
 
     '''
     
     '''
-    - Frequency: Biological neruons fire at 20Hz. The clock speed in your run-of-the-mill laptop is 2GHz. This is a 10,000,000x difference, or seven orders of magnitude. How can we communicate precisely how big this difference is? One idea I am working on is the following: if you plot a sine wave that oscillates at 20Hz and expand its wavelength to the diameter of the Earth, the same sine wave at 2GHz will have a wavelength that is just 4 feet across. Some kind of "zoom" on an embeded globe widget would be cool here.
+    - Frequency: Biological neruons fire at 20Hz. The clock speed in your run-of-the-mill laptop is 2GHz. This is a 10,000,000x difference, or seven orders of magnitude. Choose the brain type below (HUman, Computer) to see the vast difference between the combined freqneucy of 1000x human brains and that of a typical processor.
     '''
     from PIL import Image
     human_brain = Image.open('img/brain.png')
@@ -141,7 +141,7 @@ def render_substrate_section():
     brain = st.selectbox("Select your frequency.", list(brains.keys()))
     st.image(human_brain, caption=brains[brain][1], output_format='PNG', width=brains[brain][0])
     '''
-    - Speed: Signals propagate in biological axons at ~150 m/s. The same signals propagate at the speed of light within an integrated circuit.
+    - Speed: Signals propagate in biological axons at ~150 m/s. The same signals propagate at the speed of light within an integrated circuit. In this domain, the computer vastly outperforms the human again.
     '''
     speedhuman = Image.open('img/speedhuman.png')
     speedairline = Image.open('img/speedairline.png')
