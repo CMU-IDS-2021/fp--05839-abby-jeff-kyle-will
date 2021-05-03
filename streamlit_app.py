@@ -133,6 +133,7 @@ def render_substrate_section():
     - Speed: Signals propagate in biological axons at ~150 m/s. The same signals propagate at the speed of light within an integrated circuit. QUESTION: How do we communicate this difference in speed?
     - Capacity: The human cranium imposes tight size limitations on our brains. A mechanical mind that implements a machine intelligence has no such size restrictions. QUESTION: How do we communicate the difference in volume between a human brain and a potential mechanical brain?
     '''
+    st.write("img/brain.png")
 
 def render_paradigm_chapter():
     """
