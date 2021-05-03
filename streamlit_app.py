@@ -135,7 +135,7 @@ def render_substrate_section():
     '''
     from PIL import Image
     image = Image.open('img/brain.jpg')
-    st.image(image, caption='Brain')
+    st.image(image, caption='Brain', output_format='PNG')
 
 def render_paradigm_chapter():
     """
