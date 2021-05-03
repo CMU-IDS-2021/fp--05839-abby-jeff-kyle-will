@@ -127,7 +127,6 @@ def render_substrate_section():
 
     What are the implications of releasing intelligence from the bonds of a biological substrate?
 
-    TODO: This is a section I am particularly excited about. Here, we have the opportunity to impress upon readers the potential of machine intelligence by visualizing the raw power of mechanical minds. I foresee this taking the form of three "panels":
     '''
     
     '''
@@ -157,7 +156,7 @@ def render_substrate_section():
     speed = st.selectbox("Select your brain.", list(speeds.keys()))
     st.image(speeds[speed], output_format='PNG')
     '''
-    - Capacity: The human cranium imposes tight size limitations on our brains. A mechanical mind that implements a machine intelligence has no such size restrictions. QUESTION: How do we communicate the difference in volume between a human brain and a potential mechanical brain?
+    - Capacity: The human cranium imposes tight size limitations on our brains. A mechanical mind that implements a machine intelligence has no such size restrictions. QUESTION: How do we communicate the difference in volume between a human brain and a potential mechanical brain? If we look at the typical human brain it can hold on average 2.5 million Gigabytes, whereas a small cloud facility holds about 400 million Gigbytes with all servers leveraged.
     '''
     
     
