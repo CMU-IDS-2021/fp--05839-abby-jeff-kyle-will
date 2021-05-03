@@ -138,7 +138,7 @@ def render_substrate_section():
         "Human": [20, "Human Brain"],
         "Typical Processor": [700, "Typical Processor"],
     }
-    brain = st.selectbox("Select your brain.", list(brains.keys()))
+    brain = st.selectbox("Select your frequency.", list(brains.keys()))
     st.image(human_brain, caption=brains[brain][1], output_format='PNG', width=brains[brain][0])
     '''
     - Speed: Signals propagate in biological axons at ~150 m/s. The same signals propagate at the speed of light within an integrated circuit.
@@ -153,7 +153,7 @@ def render_substrate_section():
         "F35 Fighter Jet": speedF35,
         "Typical Processor": speedprocessor,
     }
-    speed = st.selectbox("Select your brain.", list(speeds.keys()))
+    speed = st.selectbox("Select your speed.", list(speeds.keys()))
     st.image(speeds[speed], output_format='PNG')
     '''
     - Capacity: The human cranium imposes tight size limitations on our brains. A mechanical mind that implements a machine intelligence has no such size restrictions. If we look at the typical human brain it can hold on average 2.5 million Gigabytes, whereas a small cloud facility holds about 400 million Gigbytes with all servers leveraged.
@@ -164,7 +164,7 @@ def render_substrate_section():
         "Human Storage": speedhuman,
         "Small Cloud Facility Storage": storagecomputer,
     }
-    storage = st.selectbox("Select your brain.", list(storages.keys()))
+    storage = st.selectbox("Select your storage capacity.", list(storages.keys()))
     st.image(storages[storage], output_format='PNG')
     
     
