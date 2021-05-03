@@ -134,13 +134,17 @@ def render_substrate_section():
     - Frequency: Biological neruons fire at 20Hz. The clock speed in your run-of-the-mill laptop is 2GHz. This is a 10,000,000x difference, or seven orders of magnitude. How can we communicate precisely how big this difference is? One idea I am working on is the following: if you plot a sine wave that oscillates at 20Hz and expand its wavelength to the diameter of the Earth, the same sine wave at 2GHz will have a wavelength that is just 4 feet across. Some kind of "zoom" on an embeded globe widget would be cool here.
     '''
     from PIL import Image
-    image = Image.open('img/brain2.png')
-    st.image(image, caption='BrainPower Comparison', output_format='PNG')
+    human_brain = Image.open('img/brain2.png')
+    computer_brain = Image.open('img/brain2.png')
+    plots = {
+        "Human": human_brain,
+        "SuperComputer": computer_brain,
+    }
+    plot = st.sidebar.selectbox("Select your brain.", list(plots.keys()))
+    st.image(plots[plot], caption='BrainPower Comparison', output_format='PNG')
     '''
     - Speed: Signals propagate in biological axons at ~150 m/s. The same signals propagate at the speed of light within an integrated circuit. QUESTION: How do we communicate this difference in speed?
     '''
-    image2 = Image.open('img/speed.png')
-    st.image(image2, caption='Brain Speed Comparison', output_format='PNG')
     '''
     - Capacity: The human cranium imposes tight size limitations on our brains. A mechanical mind that implements a machine intelligence has no such size restrictions. QUESTION: How do we communicate the difference in volume between a human brain and a potential mechanical brain?
     '''
