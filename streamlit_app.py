@@ -135,15 +135,25 @@ def render_substrate_section():
     '''
     from PIL import Image
     human_brain = Image.open('img/brain.png')
-    plots = {
+    brains = {
         "Human": [20, "Human Brain"],
         "Typical Processor": [700, "Typical Processor"],
     }
-    plot = st.selectbox("Select your brain.", list(plots.keys()))
-    st.image(human_brain, caption=plots[plot][1], output_format='PNG', width=plots[plot][0])
+    brain = st.selectbox("Select your brain.", list(brains.keys()))
+    st.image(human_brain, caption=brains[brain][1], output_format='PNG', width=brains[brain][0])
     '''
     - Speed: Signals propagate in biological axons at ~150 m/s. The same signals propagate at the speed of light within an integrated circuit. QUESTION: How do we communicate this difference in speed?
     '''
+    speedhuman = Image.open('img/speedhuman.png')
+    speedairline = Image.open('img/speedairline.png')
+    speedF35 = Image.open('img/speedF35.png')
+    speedprocessor = Image.open('img/speedprocessor.png')
+    speeds = {
+        "Human": ,
+        "Typical Processor": ,
+    }
+    speed = st.selectbox("Select your brain.", list(speeds.keys()))
+    st.image(speeds[speed], output_format='PNG')
     '''
     - Capacity: The human cranium imposes tight size limitations on our brains. A mechanical mind that implements a machine intelligence has no such size restrictions. QUESTION: How do we communicate the difference in volume between a human brain and a potential mechanical brain?
     '''
