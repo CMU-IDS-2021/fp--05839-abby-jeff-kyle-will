@@ -135,7 +135,7 @@ def render_substrate_section():
     from PIL import Image
     human_brain = Image.open('img/brain.png')
     brains = {
-        "Human": [20, "Human Brain"],
+        "1000x Human": [20, "1000x Human Brain"],
         "Typical Processor": [700, "Typical Processor"],
     }
     brain = st.selectbox("Select your frequency.", list(brains.keys()))
