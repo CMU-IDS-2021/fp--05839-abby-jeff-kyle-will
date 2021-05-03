@@ -161,8 +161,8 @@ def render_substrate_section():
     storagehuman = Image.open('img/storagehuman.png')
     storagecomputer = Image.open('img/storagecomputer.png')
     storages = {
-        "Human": speedhuman,
-        "Small Cloud Facility": storagecomputer,
+        "Human Storage": speedhuman,
+        "Small Cloud Facility Storage": storagecomputer,
     }
     storage = st.selectbox("Select your brain.", list(storages.keys()))
     st.image(storages[storage], output_format='PNG')
