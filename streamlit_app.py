@@ -156,7 +156,7 @@ def render_substrate_section():
     speed = st.selectbox("Select your brain.", list(speeds.keys()))
     st.image(speeds[speed], output_format='PNG')
     '''
-    - Capacity: The human cranium imposes tight size limitations on our brains. A mechanical mind that implements a machine intelligence has no such size restrictions. QUESTION: How do we communicate the difference in volume between a human brain and a potential mechanical brain? If we look at the typical human brain it can hold on average 2.5 million Gigabytes, whereas a small cloud facility holds about 400 million Gigbytes with all servers leveraged.
+    - Capacity: The human cranium imposes tight size limitations on our brains. A mechanical mind that implements a machine intelligence has no such size restrictions. If we look at the typical human brain it can hold on average 2.5 million Gigabytes, whereas a small cloud facility holds about 400 million Gigbytes with all servers leveraged.
     '''
     
     
