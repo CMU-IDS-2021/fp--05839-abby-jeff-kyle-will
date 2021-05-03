@@ -149,8 +149,10 @@ def render_substrate_section():
     speedF35 = Image.open('img/speedF35.png')
     speedprocessor = Image.open('img/speedprocessor.png')
     speeds = {
-        "Human": ,
-        "Typical Processor": ,
+        "Human": speedhuman,
+        "Commericial Airline": speedairline,
+        "F35 Fighter Jet": speedF35,
+        "Typical Processor": speedprocessor,
     }
     speed = st.selectbox("Select your brain.", list(speeds.keys()))
     st.image(speeds[speed], output_format='PNG')
