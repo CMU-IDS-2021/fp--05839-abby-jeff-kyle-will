@@ -140,7 +140,7 @@ def render_substrate_section():
         "Human": human_brain,
         "SuperComputer": computer_brain,
     }
-    plot = st.sidebar.selectbox("Select your brain.", list(plots.keys()))
+    plot = st.selectbox("Select your brain.", list(plots.keys()))
     st.image(plots[plot], caption='BrainPower Comparison', output_format='PNG')
     '''
     - Speed: Signals propagate in biological axons at ~150 m/s. The same signals propagate at the speed of light within an integrated circuit. QUESTION: How do we communicate this difference in speed?
