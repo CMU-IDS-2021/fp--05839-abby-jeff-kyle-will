@@ -136,7 +136,7 @@ def render_substrate_section():
     from PIL import Image
     human_brain = Image.open('img/brain.png')
     plots = {
-        "Human": [20, "Human Brain],
+        "Human": [20, "Human Brain"],
         "Typical Processor": [700, "Typical Processor"],
     }
     plot = st.selectbox("Select your brain.", list(plots.keys()))
