@@ -528,7 +528,7 @@ def render_world_powers_section():
         tooltip=[alt.Tooltip("Country:N", title="Country")], 
         x=alt.X("Agree:Q", title="Percent Representatives that Want AI Regulation", scale=alt.Scale(domain=[0, 100])),
         y=alt.Y("Country:N", title="Country"), 
-        color=alt.condition(country_selector, alt.value("#714141"), alt.value("#d9d9d9"))
+        color=alt.condition(country_selector, alt.value("#ffbc79"), alt.value("#d9d9d9"))
     ).add_selection(
         country_selector
     ).interactive()
@@ -541,7 +541,7 @@ def render_world_powers_section():
         y=alt.Y("% Value:Q", title="% of Companies with Tech Security Incident", scale=alt.Scale(domain=[0, 100])),
         tooltip=[alt.Tooltip("Country:N", title="Country")], 
         color=alt.Color("% of Companies:N",
-            scale = alt.Scale(domain=["Security Incident"], range=["#714141"])
+            scale = alt.Scale(domain=["Security Incident"], range=["#bcdeea"])
         )
     ).transform_filter(
         country_selector
@@ -554,7 +554,7 @@ def render_world_powers_section():
         y=alt.Y("% Value:Q", title="% of Companies without Safe Tech Training", scale=alt.Scale(domain=[0, 100])),
         tooltip=[alt.Tooltip("Country:N", title="Country")], 
         color=alt.Color("% of Companies:N",
-            scale = alt.Scale(domain=["No Safe Tech Training"], range=["#714141"])
+            scale = alt.Scale(domain=["No Safe Tech Training"], range=["#bcdeea"])
         )
     ).transform_filter(
         country_selector
