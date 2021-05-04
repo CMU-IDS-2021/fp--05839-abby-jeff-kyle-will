@@ -62,6 +62,97 @@
         "headline": "Watson Dethrones Human Jeopardy Champions",
         "text": "'\"Quiz show contestant\" may be the first job made redundant by Watson, but I'm sure it won't be the last' - <a target=\"_blank\" href='https://slate.com/culture/2011/02/watson-jeopardy-computer-ken-jennings-describes-what-it-s-like-to-play-against-a-machine.html'>Ken Jennings</a></p>"
       }
+    },
+    {
+      "media": {
+        "url": "https://raw.githubusercontent.com/CMU-IDS-2021/fp--05839-abby-jeff-kyle-will/main/img/simple_NN.JPG",
+        "caption": "A simple neural network <a target=\"_blank\" href='https://towardsdatascience.com/machine-learning-for-beginners-an-introduction-to-neural-networks-d49f22d238f9'>Credit</a>"
+      },
+      "start_date": {
+        "year": "1944"
+      },
+      "text": {
+        "headline": "McCullough and Pitts describe Neural Nets",
+        "text": "In principle, a neural net is capable of computing any function a digital computer can <a target=\"_blank\" href='https://news.mit.edu/2017/explained-neural-networks-deep-learning-0414'></a></p>"
+      }
+    },
+    {
+      "media": {
+        "url": "https://raw.githubusercontent.com/CMU-IDS-2021/fp--05839-abby-jeff-kyle-will/main/img/perceptron.png",
+        "caption": "A perceptron which is key for neural nets <a target=\"_blank\" href='https://ai.plainenglish.io/the-rise-and-fall-of-the-perceptron-c04ae53ea465'>Credit</a>"
+      },
+      "start_date": {
+        "year": "1957"
+      },
+      "text": {
+        "headline": "First Trainable Neural Network",
+        "text": "Psychologist Frank Rosenblatt demonstrates the <a target=\"_blank\" href='https://news.mit.edu/2017/explained-neural-networks-deep-learning-0414'>Preceptron</a> which had a design similar to the modern nueral net with adjustable weights and thresholds</p>"
+      }
+    },
+    {
+      "media": {
+        "url": "https://raw.githubusercontent.com/CMU-IDS-2021/fp--05839-abby-jeff-kyle-will/main/img/ELIZA_conversation.png",
+        "caption": "ELIZA the first chatbot <a target=\"_blank\" href='https://en.wikipedia.org/wiki/ELIZA#/media/File:ELIZA_conversation.png'>Credit</a>"
+      },
+      "start_date": {
+        "year": "1966"
+      },
+      "text": {
+        "headline": "World's First Chatbot",
+        "text": "ELIZA represented an early implementation of natural language processing created by <a target=\"_blank\" href='https://www.forbes.com/sites/bernardmarr/2018/12/31/the-most-amazing-artificial-intelligence-milestones-so-far/?sh=718245da7753'>Joseph Weizenbaum</a></p>"
+      }
+    },
+    {
+      "media": {
+        "url": "https://raw.githubusercontent.com/CMU-IDS-2021/fp--05839-abby-jeff-kyle-will/main/img/stanley.jpg",
+        "caption": "Stanley created by Stanford University is the first autonomous vehicle to complete the DARPA challenge <a target=\"_blank\" href='https://en.wikipedia.org/wiki/Stanley_(vehicle)#/media/File:Stanley2.JPG'>Credit</a>"
+      },
+      "start_date": {
+        "year": "2005"
+      },
+      "text": {
+        "headline": "Five Vehicles Complete the DARPA Grand Challenge",
+        "text": "Just one year after the <a target=\"_blank\" href='https://news.mit.edu/2017/explained-neural-networks-deep-learning-0414'>DARPA Grand Challenge</a> inception, five vehicles finished the challenge and all but one vehicle surpassed the 11.78 km (7.32 mi) distance completed by the best vehicle in the 2004 race</p>"
+      }
+    },
+    {
+      "media": {
+        "url": "https://raw.githubusercontent.com/CMU-IDS-2021/fp--05839-abby-jeff-kyle-will/main/img/cat.jpg",
+        "caption": "Cat pictures used for learning<a target=\"_blank\" href='https://www.livescience.com/cat-infected-covid-19-from-owner.html'>Credit</a>"
+      },
+      "start_date": {
+        "year": "2012"
+      },
+      "text": {
+        "headline": "Deep Learning Used to Identify Cats",
+        "text": "Researchers at Stanford build on multilayer neural nets in <a target=\"_blank\" href='https://arxiv.org/pdf/1112.6209.pdf&amp'>Building High-Level Features Using Large Scale Unsupervised Learning</a> where unsupervised learning was used to identify cats</p>"
+      }
+    },
+    {
+      "media": {
+        "url": "https://raw.githubusercontent.com/CMU-IDS-2021/fp--05839-abby-jeff-kyle-will/main/img/imagerec.jpg",
+        "caption": "Humans and Computers were given a unique image to copy <a target=\"_blank\" href='https://www.nytimes.com/2015/12/11/science/an-advance-in-artificial-intelligence-rivals-human-vision-abilities.html'>Credit</a>"
+      },
+      "start_date": {
+        "year": "2015"
+      },
+      "text": {
+        "headline": "Machines Can Outperform Humans when Recognizing Images",
+        "text": "The annual <a target=\"_blank\" href='https://www.nytimes.com/2015/12/11/science/an-advance-in-artificial-intelligence-rivals-human-vision-abilities.html'>ImageNet</a> demonstrated that machines could outperform humans for a narrow set of vision-related tasks</p>"
+      }
+    },
+    {
+      "media": {
+        "url": "https://raw.githubusercontent.com/CMU-IDS-2021/fp--05839-abby-jeff-kyle-will/main/img/waymoOne.jpg",
+        "caption": "Waymo One a commercial robotaxi service <a target=\"_blank\" href='https://techcrunch.com/2018/12/05/waymo-launches-self-driving-car-service-waymo-one/'>Credit</a>"
+      },
+      "start_date": {
+        "year": "2018"
+      },
+      "text": {
+        "headline": "Self-driving Cars Hit the Road",
+        "text": "Waymo's self-driving taxi service hits the road in <a target=\"_blank\" href='https://www.forbes.com/sites/bernardmarr/2018/12/31/the-most-amazing-artificial-intelligence-milestones-so-far/?sh=718245da7753'>Phoenix, Arizona</a></p>"
+      }
     }
   ]
 }
