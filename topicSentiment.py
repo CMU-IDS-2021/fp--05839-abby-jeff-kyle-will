@@ -116,17 +116,26 @@ def movies(year):
               "2016":"The rise of technology means that humans will have to be very clever not to be left behind as robots take over. But as human labor loses its value and challenges our purpose, people may find that they aren't wanted by the future at all.",
               "2017":"Young Blade Runner K's discovery of a long-buried secret leads him to track down former Blade Runner Rick Deckard, who's been missing for thirty years.",
               "2020":"Artificial Intelligence has permeated every aspect of planetary life in 2030. Tokyoites experience AI in every aspect of their lives whether medical, finance, transportation or their personal and day-to-day interactions. Many would tell you that AI is indispensable. Yet, as is often the case with technology jumping the gun on ethics and rules AI spins out of control and causes calamity after calamity. The city and the country are in chaos."}
-    years = ["2003", "2004", "2014", "2018", "2016", "2017", "2020"]
+    years = ["2003", "2004", "2014", "2015", "2016", "2017",]
     yearIndex = {"2003":"data/2003 - Matrix Reloaded.jpg",
                 "2004":"data/2004 - i Robot.jpg",
                 "2014":"data/2014 - RoboCop.jpg",
-                "2016":"data/2015 - chappie.jpg",
-                "2017":"data/2016 - Obsolete.jpg",
-                "2018":"data/2017 -Blade_Runner_2049.png",
-                "2019":"data/2020 - AI Amok.jpg"}
-    col1, col2, col3 = st.beta_columns([3,2,3])
+                "2015":"data/2015 - chappie.jpg",
+                "2016":"data/2016 - Obsolete.jpg",
+                "2017":"data/2017 -Blade_Runner_2049.png",
+                "2020":"data/2020 - AI Amok.jpg"}
+    narrative = {"2003":"In 2003, the movie The Matrix Reloaded debuted.  This is a story of a dystopian future where machines have taken over and supplanted humanity.  As you can see in the line chart, public perception shifted from positve to neutral and media artics were only 50% positive.  Did this movie affect the perception of AI?",
+                 "2004":"In 2004, the blockbuster movie i, Robot premiered.  This story, while not wholely positive for AI, did have a robot protagonist that helped save the day with Will Smith. Did the perception of AI change again?",
+                 "2014":"2014 was the year the robots turned on the populace.  In the movie, RoboCop, robots patrol the streets and have run amok, it is a cyborg that helped keep the streets safe.  Are movies and popular media influencing the public about AI?",
+                 "2015":"Another shift in perception as the feelgood movie, Chappie, came out in theaters.  If a robot can feel, do we feel safer around them?",
+                 "2016":"An indie film about how technology is supplanting humans.  Did the small scale of this movie mean that the perception only mildly drop?",
+                 "2017":"Cult classic, BladeRunner, came out in the early 80's and was a movie about a dystopian future.  This sequel came out in 2017 and increased public perception.  Did the love of a continuation of a cult classic offset fear toward AI?",
+                 }
+    col1, col2 = st.beta_columns([3,5])
     if year in years:
         with col1:
             st.image(yearIndex[year], width=300)
         with col2:
             st.write(blurbs[year])
+            st.write()
+            st.write(narrative[year])
