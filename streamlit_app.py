@@ -129,44 +129,50 @@ def render_substrate_section():
     What are the implications of releasing intelligence from the bonds of a biological substrate? In this section we will compare Human Beings brain potential to the computerized counterparts. We will begin to see just how vastly computers outperform humans in the areas of brain frequency, speed, and storage capacity.
 
     '''
-    
-    '''
-    - Frequency: Biological neruons fire at 20Hz. The clock speed in your run-of-the-mill laptop is 2GHz. This is a 10,000,000x difference, or seven orders of magnitude. Choose the brain type below (HUman, Computer) to see the vast difference between the combined freqneucy of 1000x human brains and that of a typical processor.
-    '''
     from PIL import Image
-    human_brain = Image.open('img/brain.png')
-    brains = {
-        "1000x Human": [20, "1000x Human Brain"],
-        "Typical Processor": [700, "Typical Processor"],
-    }
-    brain = st.selectbox("Select your frequency.", list(brains.keys()))
-    st.image(human_brain, caption=brains[brain][1], output_format='PNG', width=brains[brain][0])
-    '''
-    - Speed: Signals propagate in biological axons at ~150 m/s. The same signals propagate at the speed of light within an integrated circuit. In this domain, the computer vastly outperforms the human again.
-    '''
-    speedhuman = Image.open('img/speedhuman.png')
-    speedairline = Image.open('img/speedairline.png')
-    speedF35 = Image.open('img/speedF35.png')
-    speedprocessor = Image.open('img/speedprocessor.png')
-    speeds = {
-        "Human": speedhuman,
-        "Commericial Airline": speedairline,
-        "F35 Fighter Jet": speedF35,
-        "Typical Processor": speedprocessor,
-    }
-    speed = st.selectbox("Select your speed.", list(speeds.keys()))
-    st.image(speeds[speed], output_format='PNG')
-    '''
-    - Capacity: The human cranium imposes tight size limitations on our brains. A mechanical mind that implements a machine intelligence has no such size restrictions. If we look at the typical human brain it can hold on average 2.5 million Gigabytes, whereas a small cloud facility holds about 400 million Gigbytes with all servers leveraged.
-    '''
-    storagehuman = Image.open('img/storagehuman.png')
-    storagecomputer = Image.open('img/storagecomputer.png')
-    storages = {
-        "Human Storage": storagehuman,
-        "Small Cloud Facility Storage": storagecomputer,
-    }
-    storage = st.selectbox("Select your storage capacity.", list(storages.keys()))
-    st.image(storages[storage], output_format='PNG')
+
+    st.sidebar.header("The Potential of Mechanical Minds")
+    st.sidebar.write("Select other options to understand the scale of the differences between a Human Being and a Computer")
+    scale_opt = st.sidebar.selectbox("Select an option", ("Brain", "Speed", "Storage"))
+    if scale_opt == "Brain":
+        '''
+        - Frequency: Biological neruons fire at 20Hz. The clock speed in your run-of-the-mill laptop is 2GHz. This is a 10,000,000x difference, or seven orders of magnitude. Choose the brain type below (Human, Computer) to see the vast difference between the combined freqneucy of 1000x human brains and that of a typical processor.
+        '''
+        human_brain = Image.open('img/brain.png')
+        brains = {
+            "1000x Human": [20, "1000x Human Brain"],
+            "Typical Processor": [700, "Typical Processor"],
+        }
+        brain = st.selectbox("Select your frequency.", list(brains.keys()))
+        st.image(human_brain, caption=brains[brain][1], output_format='PNG', width=brains[brain][0])
+    elif scale_opt == "Speed":
+        '''
+        - Speed: Signals propagate in biological axons at ~150 m/s. The same signals propagate at the speed of light within an integrated circuit. In this domain, the computer vastly outperforms the human again.
+        '''
+        speedhuman = Image.open('img/speedhuman.png')
+        speedairline = Image.open('img/speedairline.png')
+        speedF35 = Image.open('img/speedF35.png')
+        speedprocessor = Image.open('img/speedprocessor.png')
+        speeds = {
+            "Human": speedhuman,
+            "Commericial Airline": speedairline,
+            "F35 Fighter Jet": speedF35,
+            "Typical Processor": speedprocessor,
+        }
+        speed = st.selectbox("Select your speed.", list(speeds.keys()))
+        st.image(speeds[speed], output_format='PNG')
+    else:
+        '''
+        - Capacity: The human cranium imposes tight size limitations on our brains. A mechanical mind that implements a machine intelligence has no such size restrictions. If we look at the typical human brain it can hold on average 2.5 million Gigabytes, whereas a small cloud facility holds about 400 million Gigbytes with all servers leveraged.
+        '''
+        storagehuman = Image.open('img/storagehuman.png')
+        storagecomputer = Image.open('img/storagecomputer.png')
+        storages = {
+            "Human Storage": storagehuman,
+            "Small Cloud Facility Storage": storagecomputer,
+        }
+        storage = st.selectbox("Select your storage capacity.", list(storages.keys()))
+        st.image(storages[storage], output_format='PNG')
     
     
 
