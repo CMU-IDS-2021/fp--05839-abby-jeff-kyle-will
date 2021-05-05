@@ -685,7 +685,7 @@ def render_world_powers_section():
     '''
     ### Global Response
 
-    What are the sentiments of the world powers regarding artificial intelligence regulation policy?
+    What are the sentiments of the world powers, speiciaflly the EU Countries regarding artificial intelligence regulation policy?
     '''
 
     # Read in data as csv
