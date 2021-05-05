@@ -50,7 +50,7 @@ def public():
     sentChart = alt.Chart(sentByYear).mark_line().encode(
         x=alt.X('Year:N'),
         y=alt.Y('Percent:Q', axis=alt.Axis(format='%')),
-        color=alt.Color("Legend:N", legend=alt.Legend(orient='bottom'))
+        color=alt.Color("Legend:N", legend=alt.Legend(orient='bottom'), scale=alt.Scale(scheme="redyellowblue"))
         ).properties(title="What is the perception of AI in the media?")
     line = alt.Chart(pd.DataFrame({' ': [tops]})).mark_rule(color="red").encode(x=' ')
     finalChart = sentChart + line
@@ -59,6 +59,7 @@ def public():
         st.altair_chart(finalChart, use_container_width=True)
     with col2:
         st.dataframe(topByYear[tops])
+    movies(tops)
 
 def buildAcademicData(data):
     df = pd.DataFrame()
@@ -103,6 +104,29 @@ def academic():
     })
     acChart = alt.Chart(source).mark_bar().encode(
         x=alt.X('Year:Q', scale=alt.Scale(domain=(0, 20))),
-        y=alt.Y('Topics:N')).properties(title="What topics are AI researchers focusing on?")
+        y=alt.Y('Topics:N'),
+        color=alt.Color("Topics:N", scale=alt.Scale(scheme='redyellowblue'))).properties(title="What topics are AI researchers focusing on?")
     st.altair_chart(acChart, use_container_width=True)
 
+def movies(year):
+    blurbs = {"2003":"The human city of Zion defends itself against the massive invasion of the machines as Neo fights to end the war at another front while also opposing the rogue Agent Smith.",
+              "2004":"In 2035, a technophobic cop investigates a crime that may have been perpetrated by a robot, which leads to a larger threat to humanity.",
+              "2014":"In 2028 Detroit, when Alex Murphy, a loving husband, father and good cop, is critically injured in the line of duty, the multinational conglomerate OmniCorp sees their chance for a part-man, part-robot police officer.",
+              "2015":"In the near future, crime is patrolled by a mechanized police force. When one police droid, Chappie, is stolen and given new programming, he becomes the first robot with the ability to think and feel for himself.",
+              "2016":"The rise of technology means that humans will have to be very clever not to be left behind as robots take over. But as human labor loses its value and challenges our purpose, people may find that they aren't wanted by the future at all.",
+              "2017":"Young Blade Runner K's discovery of a long-buried secret leads him to track down former Blade Runner Rick Deckard, who's been missing for thirty years.",
+              "2020":"Artificial Intelligence has permeated every aspect of planetary life in 2030. Tokyoites experience AI in every aspect of their lives whether medical, finance, transportation or their personal and day-to-day interactions. Many would tell you that AI is indispensable. Yet, as is often the case with technology jumping the gun on ethics and rules AI spins out of control and causes calamity after calamity. The city and the country are in chaos."}
+    years = ["2003", "2004", "2014", "2018", "2016", "2017", "2020"]
+    yearIndex = {"2003":"data/2003 - Matrix Reloaded.jpg",
+                "2004":"data/2004 - i Robot.jpg",
+                "2014":"data/2014 - RoboCop.jpg",
+                "2016":"data/2015 - chappie.jpg",
+                "2017":"data/2016 - Obsolete.jpg",
+                "2018":"data/2017 -Blade_Runner_2049.png",
+                "2019":"data/2020 - AI Amok.jpg"}
+    col1, col2, col3 = st.beta_columns([3,2,3])
+    if year in years:
+        with col1:
+            st.image(yearIndex[year], width=300)
+        with col2:
+            st.write(blurbs[year])
