@@ -222,7 +222,7 @@ def render_substrate_section():
     st.sidebar.header("The Potential of Mechanical Minds")
     st.sidebar.write("Select other options to understand the scale of the differences between a Human Being and a Computer")
     scale_opt = st.sidebar.selectbox("Select an option", ("Frequency", "Speed", "Storage"))
-    if scale_opt == "Brain":
+    if scale_opt == "Frequency":
         alt_brain = st.sidebar.radio("Look at an alternative magnitude visualization", ("-", "Alternative Magnitude")) 
         '''
         - Frequency: Biological neruons fire at 20Hz. The clock speed in your run-of-the-mill laptop is 2GHz. This is a 10,000,000x difference, or seven orders of magnitude. Choose the brain type below (Human, Computer) to see the vast difference between the combined freqneucy of 1000x human brains and that of a typical processor.
