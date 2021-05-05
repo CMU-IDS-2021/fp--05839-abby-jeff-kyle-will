@@ -290,6 +290,41 @@ gender_dict = {
     "Male" : "male"
 }
 
+si_impact = pd.DataFrame(np.array([[17,24,23,17,18], [28,25,12,12,24], [31,30,20,13,6], [20,40,19,13,8], [24,28,17,13,18]]),
+                                  columns=['Extremely Good', 'Good', 'Neutral', 'Bad', 'Extremely Bad'], 
+                                  index=['Participants of Conference on “Philosophy and Theory of AI”', 
+                                         'Participants of the conferences of “Artificial General Intelligence”', 
+                                         'Members of the Greek Association for Artificial Intelligence', 
+                                         'The 100 ‘Top authors in artificial intelligence’', 'All Groups'])
+def outlooks():
+    colnames = list(si_impact.columns)
+    si = si_impact.reset_index()
+    si = si.rename(columns={'index': 'Group'})
+    si = si.melt(id_vars=['Group'], value_vars=colnames,
+            var_name='Outlook', value_name='Percent')
+    si['Percent'] = si['Percent'].div(100)
+
+    outlook_chart = alt.Chart(si).mark_bar().encode(
+            x=alt.X('sum(Percent)',stack="normalize"),
+            y=alt.Y('Group', title = None),
+            color=alt.Color('Outlook:N',scale=alt.Scale(scheme="redyellowblue")),
+            tooltip=[alt.Tooltip('Group:N'), alt.Tooltip('Outlook:N'), alt.Tooltip('Percent:Q', format='.1%')]
+        ).properties(
+            title='What Experts Expect from the creation of HLMI'
+        ).configure_axis(
+            labelLimit=1000
+        ).properties(
+            width=DEFAULT_WIDTH,
+            height=400
+        )
+
+    outlook_chart = outlook_chart.configure_title(
+        fontSize=20,
+        font="IBM Plex Sans",
+    )
+    return outlook_chart
+
+
 def render_expert_sentiment_section():
     """
     Render the expert sentiment section of the prospects chapter.
@@ -303,7 +338,19 @@ def render_expert_sentiment_section():
     QUESTION(s):
     - The survey has a number of interesting questions, which ones do we want to visualize? All of them, accessible via dialog?
     - What is the most effective form factor for these charts?
+
+    HLMI = Human Level Machine Intelligence
     '''
+    slider_doom = st.slider("Guess the likelihood that if HLMI comes into existence that it will result in an existential catastrophe for the human race.",
+                0.0, 100.0, 0.0)
+    if slider_doom != 0.0:
+        st.write("You guessed " + str(slider_doom) + "%. Across a variety of experts, the predicted likelihood is around 18%.")
+        st.write(outlooks())
+
+    #Sidebar
+    st.sidebar.header("Expert Sentiment on Machine Intelligence")
+    st.sidebar.write("Explore more responses from experts in the Machine Intelligence community.")
+
 
 
 def user_selection(df):
@@ -422,7 +469,7 @@ def create_compare_chart(cdf, odds, ages, genders):
         fontSize=20,
         font="IBM Plex Sans",
     )
-    return compare_chart
+    return compare_chart 
 
 
 def render_user_choice_section():
@@ -430,10 +477,6 @@ def render_user_choice_section():
     Render the user choice section of the prospects chapter.
     """
     
-    # Create centered title content
-    # coll, colm = st.beta_columns([2,5.5])
-    # colm.title('What Do You Choose?')
-   
     '''
     ### What Would You Choose?
 
