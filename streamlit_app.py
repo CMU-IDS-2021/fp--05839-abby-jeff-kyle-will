@@ -761,7 +761,7 @@ def render_world_powers_section():
     st.write(joint_chart)
 
     '''
-    From the chart above we can see that nearly every major world power agrees that AI imposes enough risk that it should be regulated. There is not one outlier nation that does not think that AI and Robotics are begning to play in increasingly dangerous or volatile role.
+    From the chart above we can see that nearly every major EU power agrees that AI imposes enough risk that it should be regulated. There is not one outlier nation that does not think that AI and Robotics are begning to play in increasingly dangerous or volatile role. However, when we inspect each country we can see that each country has had a non-significant amount of cyberseuciryt incidents. Additionally, a large amount of corporations in each country do not have any kind of digital saftey training at work whatsoever. Does this not foreshadow the next catastrophic event? AI is increasing at a rapid rate, yet safety does not seem to be a major concern.
     '''
 
 def render_responses_chapter():
