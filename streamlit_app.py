@@ -24,7 +24,8 @@ DEFAULT_WIDTH = 800
 DEFAULT_HEIGHT = 550
 
 # Colors from Vega color scheme for charts that should not be scaled
-COLOR_SCHEME_BLUE = "#90c1dc"
+COLOR_SCHEME_BLUE = "#bcdeea"
+COLOR_SCHEME_ORANGE = "#ffbc79"
 
 # The name of the timeline data file
 TIMELINE_DATA_FILENAME = "timeline.json"
@@ -388,6 +389,42 @@ def regions_viz(oddsDf, odds):
     )
     return uschart
 
+def prep_grouped_data(cdf):
+    fullgrouptest = cdf.melt(id_vars=['Age Range', 'Gender at Birth', 'Odds'], value_vars=['No','Yes'], var_name = 'Decision', value_name = 'Percent')
+    fullgrouptest['Combined'] = fullgrouptest.apply(lambda x: list([x['Gender at Birth'], x['Age Range'], x['Decision']]), axis=1)
+    fullgrouptest['List'] = fullgrouptest['Combined'].apply(lambda x: ', '.join(map(str,x)))
+    return fullgrouptest
+
+def create_compare_chart(cdf, odds, ages, genders):
+    df_odds = []
+    df_ages = []
+    for odd in odds:
+        df_odds.append(odds_dict[odd])
+    for age in ages:
+        df_ages.append(age_dict[age])
+    
+    cdf = cdf[(cdf['Odds'].isin(df_odds))]
+    cdf = cdf[(cdf['Gender at Birth'].isin(genders))]
+    cdf = cdf[(cdf['Age Range'].isin(df_ages))]
+
+    compare_chart = alt.Chart(cdf).mark_bar().encode(
+            x=alt.X('List:O', title=None),
+            y=alt.Y('Percent', scale=alt.Scale(domain=(0, 1)), axis=alt.Axis(format='%', title='Percentage')),
+            color=alt.Color('Decision',scale=alt.Scale(scheme="redyellowblue")),
+            column='Odds:N',
+            tooltip=[alt.Tooltip('Gender at Birth'), alt.Tooltip('Age Range'), alt.Tooltip('Decision'), alt.Tooltip('Percent:Q', format='.2%')]
+        ).properties(
+            title='Comparing Decisions across different Ages, Genders, and Odds'
+        ).configure_axis(
+            labelLimit=1000
+        )
+    compare_chart = compare_chart.configure_title(
+        fontSize=20,
+        font="IBM Plex Sans",
+    )
+    return compare_chart
+
+
 def render_user_choice_section():
     """
     Render the user choice section of the prospects chapter.
@@ -428,17 +465,21 @@ def render_user_choice_section():
                 display: none !important;
             } 
         </style> """, unsafe_allow_html=True)
-
+    #Color for MultiSelect
+    st.write('<style>div[data-baseweb="select"] div {background-color:'
+        + COLOR_SCHEME_BLUE + ';}</style>', unsafe_allow_html=True)
+    
     # Let the use choose their fate
     selectDf = pd.read_csv(DATA_PATH + "grouped-Ending-Humanity.csv")
     user_selection(selectDf)
 
     # Sidebar
-    st.sidebar.header("What Do You Choose?")
+    st.sidebar.header("What Would You Choose?")
     st.sidebar.write(
         "Explore more about how the United States public responded to the survey. You can look at region maps as well as " 
         + "compare across different ages and genders.")
     
+    #Region Visualization
     region2 = pd.read_csv(DATA_PATH + "regions2-Ending-Humanity.csv")
     region3 = pd.read_csv(DATA_PATH + "regions3-Ending-Humanity.csv")
     region4 = pd.read_csv(DATA_PATH + "regions4-Ending-Humanity.csv")
@@ -446,7 +487,7 @@ def render_user_choice_section():
     region10 = pd.read_csv(DATA_PATH + "regions10-Ending-Humanity.csv")
 
     region_map_select = st.sidebar.selectbox(
-        "Select on of the odds to see how different regions across the United States answered the survey question.",
+        "Select one of the odds to see how different regions across the United States answered the survey question.",
         ("-", "1 in 2", "1 in 3", "1 in 4", "1 in 5", "1 in 10"))
     if region_map_select != "-":
         if region_map_select == "1 in 2":
@@ -459,6 +500,23 @@ def render_user_choice_section():
             st.write(regions_viz(region5, region_map_select))
         else:
             st.write(regions_viz(region10, region_map_select))
+
+    #Comparing tool in the sidebar
+    cdf = pd.read_csv(DATA_PATH + "grouped-Ending-Humanity.csv")
+    cdf = prep_grouped_data(cdf)
+
+    comparing_select_odd = st.sidebar.multiselect("Select one or more odds to compare across.",
+                        ["1 in 2", "1 in 3", "1 in 4", "1 in 5", "1 in 10"])
+    if comparing_select_odd != []:
+        comparing_select_age = st.sidebar.multiselect("Select one or more age groups to compare across.",
+                                ["18 to 29", "30 to 44", "45 to 59", "60+"])
+        comparing_select_gender = st.sidebar.multiselect("Select one or both genders to compare across.",
+                                ["Female", "Male"])
+
+        if comparing_select_age != [] and comparing_select_gender != []:
+            #once all options are present, produce the corresponding chart
+            comparechart = create_compare_chart(cdf, comparing_select_odd, comparing_select_age, comparing_select_gender)
+            st.write(comparechart)
 
 def render_prospects_chapter():
     """
