@@ -136,6 +136,8 @@ def movies(year):
         with col1:
             st.image(yearIndex[year], width=300)
         with col2:
+            st.subheader('Movie Description')
             st.write(blurbs[year])
             st.write()
+            st.subheader('Was there an impact on perception?')
             st.write(narrative[year])
