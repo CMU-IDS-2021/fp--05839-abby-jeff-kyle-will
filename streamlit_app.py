@@ -201,7 +201,7 @@ def magnitude_viz_brain():
         fontSize=30,
         font="IBM Plex Sans",
         anchor='start'
-    )
+    ).configure(background='#FFFFFF')
     
     return(mag_viz)
 
