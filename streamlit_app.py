@@ -4,14 +4,14 @@
 #
 # Abby Vorhaus, Jeff Moore, Kyle Dotterrer, Will Borom
 
-import psw
 import numpy as np
 import pandas as pd
 import altair as alt
 import streamlit as st
 import matplotlib.pyplot as plt
 from streamlit_timeline import timeline
-import vega_datasets 
+import vega_datasets
+import topicSentiment as ts
 
 
 # The relative path to the directory in which data is stored
@@ -205,31 +205,14 @@ def render_popular_perceptions_section():
     '''
 
     '''
-    The following word cloud expresses some of the sentiment that can be seen in recent articles about machine intelligence.
-    '''
-
-    articleData = psw.getData("data/articles.json")
-    articleText = psw.buildWordCloudText(articleData)
-    wc = psw.getWordCloud(articleText)
-    st.write(wc)
+    With the prevalence of research and popular movies about Artificial Intelligence, it would be safe to say that the public has some thoughts and opinions on Artificial Intelligence.
     
-    '''
-    The table below shows a document level sentiment analysis of each of the articles that were pulled from Google today.  
-    As you can see there is mostly positive sentiment associated with AI from the articles.
-    '''
+    Did you know that there were 182 movies that featured Artificial Intelligence in some form from 2000-2020?  With provocative titles such as "AI Amok (2020)" and "Transformers: Age of Extinction (2014), was public perception of AI affected by these movies?  Let's Explore.
     
-    finalSent = pd.read_csv("data/sentiment.csv")
-    sentChart = psw.buildChart(finalSent)
-    st.write(sentChart)
-
+    We pulled all news articles from Nature.com from 2000-2020 that featured AI.  These articles do not include any journal or academic publications.
+    As you can see below the percentage of articles that are positive is almost consistently 100%.  Even looking at the overall perception, which is actually pretty close to neutral in all years, you can TODO:ADD Narrative
     '''
-    TODO: 
-    - Scrape AI articles from google for 2010-2020
-    - Create WordClouds for each year, switch charts based on slider or radio button
-    - Run sentiment analysis and build overall yearly media sentiment analysis
-      - Possibly break it down further into articles by year (10 articles per year)
-    
-    '''
+    ts.public()
 
 def render_professional_perceptions_section():
     """
