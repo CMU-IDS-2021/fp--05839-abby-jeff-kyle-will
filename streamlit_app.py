@@ -140,10 +140,13 @@ def render_substrate_section():
         '''
         human_brain = Image.open('img/brain.png')
         brains = {
-            "10,000x Human": [1, "10,000x Human Brain"],
             "100,000x Human": [10, "100,000x Human Brain"],
-            "1,000,000x Human": [100, "1,000,000x Human Brain"],
-            "Typical Processor": [1000, "Typical Processor"],
+            "500,000x Human": [50, "500,000x Human Brain"],
+            "1,000,000x  Human": [100, "1,000,000x Human Brain"],
+            "2,500,000x  Human": [250, "2,500,000x Human Brain"],
+            "5,000,000x Human": [500, "5,000,000x Human Brain"],
+            "7,500,000x Human": [750, "7,500,000x Human Brain"],
+            "Typical Processor": [1000, "Typical Processor"]
         }
         brain = st.select_slider("Select your frequency.", list(brains.keys()))
         st.image(human_brain, caption=brains[brain][1], output_format='PNG', width=brains[brain][0])
