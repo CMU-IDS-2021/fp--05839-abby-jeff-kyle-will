@@ -118,6 +118,94 @@ def render_intelligence_section():
     Second, we need to impress upon readers just how vast the spectrum of intelligence may actually be. This will likely take the form of a zoom-able plot similar to that in Sam Harris' TED talk (cited below) where we first show the relative distinction between "smart" people and "dumb" people, and then compare this distinction with what a machine intelligence might achieve relative to a "smart" person - the relationship is exponential.
     '''
 
+def magnitude_viz_speed(chart_type):
+    speeds = pd.DataFrame([
+            {'Speed': 300000000, 'Type': 'Computer Signals', 'row': 1},
+            {'Speed': 18000, 'Type': 'F35 Fighter Jet', 'row': 2},
+            {'Speed': 15000, 'Type': 'Commericial Airline', 'row': 3},
+            {'Speed': 150, 'Type': 'Human Being Biological Axons', 'row': 4}
+            ])
+
+    speeds['Log Speed'] = np.log(speeds['Speed'])
+
+    if chart_type == "Speed":
+        speed_viz = alt.Chart(speeds).mark_bar().encode(
+                x=alt.X('Speed:Q', title = "Speed (m/s)"),
+                y=alt.Y('Type:O', title = None),
+                color=alt.Color('Type:O',scale=alt.Scale(scheme="redyellowblue")),
+                tooltip=[alt.Tooltip('Type:O'), alt.Tooltip('Speed:Q')]
+        ).properties(
+            width=30000,
+            height=400,
+        ).properties(title= {
+                    "text": ["Comparing Speeds"], 
+                    "subtitle": "When directly comparing various objects, it is difficult to visually see the difference between the slower objects",
+                }
+        )
+    else:
+        speed_viz = alt.Chart(speeds).mark_bar().encode(
+                x=alt.X('Log Speed:Q', title = "Logarithmic Values of Various Speed (m/s)"),
+                y=alt.Y('Type:O', title = None),
+                color=alt.Color('Type:O',scale=alt.Scale(scheme="redyellowblue")),
+                tooltip=[alt.Tooltip('Type:O'), alt.Tooltip('Speed:Q'), alt.Tooltip('Log Speed:Q')]
+        ).properties(
+            width=10000,
+            height=400,
+        ).properties(title= {
+                    "text": ["Comparing Logarithmic Speeds"], 
+                    "subtitle": "In order to actually visually difference between some of the slower objects, we must convert via logarithm",
+                }
+        )
+    
+    speed_viz = speed_viz.configure_title(
+        fontSize=30,
+        font="IBM Plex Sans",
+        anchor='start'
+    )
+
+    return speed_viz
+
+
+def magnitude_viz_brain():
+    source = pd.DataFrame([
+                {'count': 1, 'Type': 'computer processor', 'row': 1},
+                {'count': 1000, 'Type': '1000 human beings', 'row': 2},
+                {'count': 1000, 'Type': '1000 human beings', 'row': 3},
+                {'count': 1000, 'Type': '1000 human beings', 'row': 4},
+                {'count': 1000, 'Type': '1000 human beings', 'row': 5},
+                {'count': 1000, 'Type': '1000 human beings', 'row': 6},
+                {'count': 1000, 'Type': '1000 human beings', 'row': 7},
+                {'count': 1000, 'Type': '1000 human beings', 'row': 8},
+                {'count': 1000, 'Type': '1000 human beings', 'row': 9},
+                {'count': 1000, 'Type': '1000 human beings', 'row': 10},
+                {'count': 1000, 'Type': '1000 human beings', 'row': 11}
+                ])
+
+    source['emoji'] = [{'1000 human beings': '🛉', 'computer processor': '💻'}[t]*int(cnt) for t,cnt in source[['Type', 'count']].values]
+    source.head()
+
+    mag_viz = alt.Chart(source).mark_text(size=30, align='left').encode(
+            alt.X('count:O', axis=None, scale=alt.Scale(range=[0,100])),
+            alt.Y('row:O', axis = None),
+            alt.Text('emoji:N')
+        ).properties(width=20000, height=400
+        ).transform_calculate(
+            value='0'
+        ).properties(title= {
+            "text": ["Another Look at Clock Speed Magnitudes"], 
+            "subtitle": "Each human icon is equivalent to the combined frequency of 1000 human beings. Scroll to see the full impact.",
+           }
+        )
+
+    mag_viz = mag_viz.configure_title(
+        fontSize=30,
+        font="IBM Plex Sans",
+        anchor='start'
+    )
+    
+    return(mag_viz)
+
+
 def render_substrate_section():
     """
     Render the substrate distinction section of the paradigm-shift chapter.
@@ -134,7 +222,9 @@ def render_substrate_section():
     st.sidebar.header("The Potential of Mechanical Minds")
     st.sidebar.write("Select other options to understand the scale of the differences between a Human Being and a Computer")
     scale_opt = st.sidebar.selectbox("Select an option", ("Frequency", "Speed", "Storage"))
+
     if scale_opt == "Frequency":
+        alt_brain = st.sidebar.radio("Look at an alternative magnitude visualization", ("-", "Alternative Magnitude"))
         '''
         - Frequency: Biological neruons fire at 20Hz. The clock speed in your run-of-the-mill laptop is 2GHz. This is a 10,000,000x difference, or seven orders of magnitude. Choose the brain type below (Human, Computer) to see the vast difference between the combined freqneucy of 1000x human brains and that of a typical processor.
         '''
@@ -150,7 +240,13 @@ def render_substrate_section():
         }
         brain = st.select_slider("Select your frequency.", list(brains.keys()))
         st.image(human_brain, caption=brains[brain][1], output_format='PNG', width=brains[brain][0])
+        '''
+        '''
+        if alt_brain == "Alternative Magnitude":
+            st.write(magnitude_viz_brain())
+        
     elif scale_opt == "Speed":
+        alt_speed = st.sidebar.radio("Look at alternative magnitude visualizations", ("-", "Speed", "Logarithim of Speed"))
         '''
         - Speed: Signals propagate in biological axons at ~150 m/s. The same signals propagate at the speed of light within an integrated circuit. In this domain, the computer vastly outperforms the human again.
         '''
@@ -166,6 +262,12 @@ def render_substrate_section():
         }
         speed = st.select_slider("Select your speed.", list(speeds.keys()))
         st.image(speeds[speed], output_format='PNG')
+
+        if alt_speed == "Speed":
+            st.write(magnitude_viz_speed(alt_speed))
+        elif alt_speed == "Logarithim of Speed":
+            st.write(magnitude_viz_speed(alt_speed))
+
     else:
         '''
         - Capacity: The human cranium imposes tight size limitations on our brains. A mechanical mind that implements a machine intelligence has no such size restrictions. If we look at the typical human brain it can hold on average 2.5 million Gigabytes, whereas a small cloud facility holds about 400 million Gigbytes with all servers leveraged.
