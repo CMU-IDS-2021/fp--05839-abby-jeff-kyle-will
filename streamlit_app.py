@@ -143,7 +143,7 @@ def render_substrate_section():
             "1000x Human": [20, "1000x Human Brain"],
             "Typical Processor": [700, "Typical Processor"],
         }
-        brain = st.selectbox("Select your frequency.", list(brains.keys()))
+        brain = st.select_slider("Select your frequency.", list(brains.keys()))
         st.image(human_brain, caption=brains[brain][1], output_format='PNG', width=brains[brain][0])
     elif scale_opt == "Speed":
         '''
@@ -159,7 +159,7 @@ def render_substrate_section():
             "F35 Fighter Jet": speedF35,
             "Typical Processor": speedprocessor,
         }
-        speed = st.selectbox("Select your speed.", list(speeds.keys()))
+        speed = st.select_slider("Select your speed.", list(speeds.keys()))
         st.image(speeds[speed], output_format='PNG')
     else:
         '''
@@ -171,7 +171,7 @@ def render_substrate_section():
             "Human Storage": storagehuman,
             "Small Cloud Facility Storage": storagecomputer,
         }
-        storage = st.selectbox("Select your storage capacity.", list(storages.keys()))
+        storage = st.select_slider("Select your storage capacity.", list(storages.keys()))
         st.image(storages[storage], output_format='PNG')
     
     
