@@ -224,7 +224,7 @@ def render_professional_perceptions_section():
 
     How do we characterize the nature of research work on machine intelligence?
     '''
-
+    ts.academic()
     '''
     TODO: Big idea for this section is a text analysis of academic work on machine intelligence. Specifically, the plan is to do the following:
     - Scrape PDF documents from the online Journal of Artificial Intelligence Research
