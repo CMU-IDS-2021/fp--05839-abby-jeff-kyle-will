@@ -278,7 +278,7 @@ def render_substrate_section():
             "Human Storage": storagehuman,
             "Small Cloud Facility Storage": storagecomputer,
         }
-        storage = st.select_slider("Select your storage capacity.", list(storages.keys()))
+        storage = st.selectbox("Select your storage capacity.", list(storages.keys()))
         st.image(storages[storage], output_format='PNG')
     
     
