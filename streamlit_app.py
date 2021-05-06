@@ -106,8 +106,8 @@ def spect_intel(slide_val, df, pointsDf):
             x=alt.X('x', title=None, axis=None, scale=alt.Scale(domain=(0, slide_val+0.1))),
             y=alt.Y('exp', title=None, axis=None, scale=alt.Scale(domain=(-2, 8105))),
         ).properties(
-            width = 1000,
-            height = 600
+            width = DEFAULT_WIDTH,
+            height = DEFAULT_HEIGHT
         )
 
     line = alt.Chart(df).mark_line(
@@ -118,8 +118,8 @@ def spect_intel(slide_val, df, pointsDf):
                 x=alt.X('x', title=None, axis=None, scale=alt.Scale(domain=(0, slide_val+0.1))),
                 y=alt.Y('exp', title=None, axis=None, scale=alt.Scale(domain=(-2, 8105))),
             ).properties(
-                width = 1000,
-                height = 600
+                width = DEFAULT_WIDTH,
+                height = DEFAULT_HEIGHT
             )
 
     text = points.mark_text(
@@ -142,11 +142,12 @@ def spect_intel(slide_val, df, pointsDf):
                 title= {
                     "text": ["The Spectrum of Intelligence"], 
                     "subtitle": "Here the blue line represents the non-linear growth of intelligence and where we compare with others on it. " +
-                    "Credit for the concept to Sam Harris and his 2016 TED talk",
+                    "Credit Sam Harris and his 2016 TED talk",
                 }
             ).configure_title(
                     fontSize=40,
-                    font="IBM Plex Sans"
+                    font="IBM Plex Sans",
+                    color='black'
             )
     return finalchart
 
@@ -272,6 +273,7 @@ def magnitude_viz_brain():
         fontSize=35,
         font="IBM Plex Sans",
         anchor='start',
+        color='black'
     )
 
     return mag_viz
