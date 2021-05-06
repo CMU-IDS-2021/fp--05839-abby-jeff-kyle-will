@@ -35,6 +35,26 @@ Machine intelligence is a large topic with many distinct aspects worthy of consi
 
 As with any narrative project, our primary goal is the effective communication of information. To this end, the organizing method for our application is to combine narrative elements with relevant visualizations to produce an engaging user experience. We organize our narrative into distinct thematic sections (which we refer to as "chapters"), each of which deals with a particular aspect of the topic of machine intelligence. The objective of each section, along with the specifics of the methods we used to realize the objective, are described below in further detail. 
 
+**Defining Machine Intelligence**
+
+TODO
+
+**Machine Intelligence as a Paradigm Shift**
+
+TODO
+
+**The Evolution of Machine Intelligence**
+
+TODO
+
+**Prospects for Machine Intelligence**
+
+TODO
+
+**Responding to Potential Risks**
+
+TODO
+
 ### Results
 
 The visualizations your system produces and any data to help evaluate your approach. For example, you might describe a case study that illustrates how your visualization(s) to address your chosen problem.
@@ -45,7 +65,7 @@ What has the audience learned from your work? What new insights or practices has
 
 ### Future Work
 
-A description of how your application could be extended or refined.
+A 
 
 ### References
 
@@ -55,4 +75,4 @@ TODO
 
 The general references that we utilized during our research for this project are listed below.
 
-TODO
+- Bostrom, Nick. _Superintelligence: Paths, Dangers, Strategies_ 2014.
