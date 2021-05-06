@@ -468,9 +468,9 @@ def render_perceptions_chapter():
 
     '''
     ---
-    # Perceptions versus Reality 
-
-    TODO: Content here.
+    # Perceptions versus Reality
+    
+    How much do we really know about machine intelligence or Artificial Intelligence? What are the perceptions of AI that guide humanity toward the future?  Are we thinking positiviely? Negatively? Are we neutral?
     '''
     
     render_popular_perceptions_section()
