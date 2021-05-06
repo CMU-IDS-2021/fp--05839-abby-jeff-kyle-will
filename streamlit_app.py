@@ -130,7 +130,8 @@ def spect_intel(slide_val, df, pointsDf):
                 font="IBM Plex Sans",
                 fontSize = 15,
                 fontWeight= 'bolder',
-                clip=True
+                clip=True,
+                color="#ffbc79"
             ).encode(
                 text='Type'
             )
