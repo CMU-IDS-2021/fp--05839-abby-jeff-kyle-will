@@ -15,9 +15,9 @@
 
 ### Introduction
 
-Machine intelligence, and the prospect of machine superintelligence, is one of the most consequential issues of our generation. While it stands to reason that machine intelligence might prove remarkably beneficial to humanity, there is also a non-negligible probability that its inception might spell the end of life as we know it.
+Machine intelligence, and the prospect of machine superintelligence, is one of the most consequential issues of our generation. While it stands to reason that machine intelligence might prove remarkably beneficial to humanity, there is also a non-negligible probability that its inception might spell the end of life as we know it. The juxtaposition of these two potential outcomes is one of aspects of this topic that makes it susceptible to hijacking by emotional appeals and arguments. In this project, we aim to provide readers with a deeper understanding of both the risks and opportunities posed by the development of machine intelligence in a rigorous, data-driven manner.
 
-On a more general level, the problem we address in this project extends beyond just the field of machine intelligence to a broader issue. Why is machine intelligence a difficult topic about which to communicate effectively? We believe the answer lies in the following observations:
+**Aside** On a more general level, the problem we address in this project extends beyond just the field of machine intelligence to a broader issue. Why is machine intelligence a difficult topic about which to communicate effectively? We believe the answer lies in the following observations:
 
 - Machine intelligence is a topic that demands some level of technical competence to fully understand.
 - Machine intelligence has great potential for disruptive effects in our society. People (in a general sense) are naturally unreceptive to radical ideas that predict massive changes in their mode of living. Furthermore, expectations regarding machine intelligence have been warped by continued attention to relatively-unimportant aspects of the field in the public sphere.
@@ -44,27 +44,57 @@ Machine intelligence is a large topic with many distinct aspects worthy of consi
 
 As with any narrative project, our primary goal is the effective communication of information. To this end, the organizing method for our application is to combine narrative elements with relevant visualizations to produce an engaging user experience. We organize our narrative into distinct thematic sections (which we refer to as "chapters"), each of which deals with a particular aspect of the topic of machine intelligence. The objective of each section, along with the specifics of the methods we used to realize the objective, are described below in further detail. 
 
-**Defining Machine Intelligence**
+#### Defining Machine Intelligence
 
-We begin our narrative with a definition of machine intelligence. On its own, a definition is far from informative or compelling. To address this, we combine our definition of machine intelligence with an overview of the technical and social milestones in the field. This serves to contextualize the remainder of the narrative and gives the reader some of the background knowledge that is assumed later in the narrative.
+ We begin our narrative with a definition of machine intelligence along with some background information that is useful in contextualizing the rest of the narrative.
 
-The obvious choice for presenting time series information in this manner is an interactive timeline. While searching for ways to create timelines in streamlit, we found the `streamlit_timeline` library, which makes generating aesthetically pleasing timelines in streamlit applications simple. Once we had the infrastructure in place, all that remained was populating the timeline with events of interest.
+**Dataset(s)** Multiple Sources.
 
-**Machine Intelligence as a Paradigm Shift**
+**Method** On its own, a definition is far from informative or compelling. To address this, we combine our definition of machine intelligence with an overview of the technical and social milestones in the field. This serves to contextualize the remainder of the narrative and gives the reader some of the background knowledge that is assumed later in the narrative.
 
-TODO
+The obvious choice for presenting time series information in this manner is an interactive timeline. While searching for ways to create timelines in streamlit, we found the `streamlit_timeline` library, which makes generating aesthetically pleasing timelines in streamlit applications simple. Once we had the infrastructure in place, all that remained was populating the timeline with events of interest. We selected a diverse set of events for the timeline, including both cultural and technical milestones. The one thing that all of the events have in common, however, is that it is difficult to make an immediate connection between the capabilities of machine intelligence implied by the event and the capabilities that potential disruptive capabilities of the technology. This design is deliberate. Our goal is for users of the application to come away from this section with the feeling that while the milestones in machine intelligence are interesting achievements, they do not necessarily represent a cause for an increased degree of attention. In other words, one is left with the question: "is this a topic that is really worth worrying about"? It is to this question that we turn in the next section.
 
-**The Evolution of Machine Intelligence**
+#### Machine Intelligence as a Paradigm Shift
 
-TODO
+The purpose of the next chapter of our narrative is to impress upon our users the idea that, far from being just another new technology, machine intelligence will likely represent a true paradigm shift for human civilization.
 
-**Prospects for Machine Intelligence**
+**Dataset(s)** Prior Analysis by Nick Bostrom.
 
-TODO
+**Method** The first issue we tackle in this section is the primacy of intelligence - why does intelligence, as an abstract concept, matter to us? The fist part of this section is entirely narrative; we failed to formulate a compelling visualization that illustrates the idea: "intelligence is what allows us to achieve what we value," but the idea is simple enough on its own. Following this, we attempt to demonstrate the fact that our human understanding of the spectrum of intelligence is likely altogether too narrow. To this end, we utilize an interactive line chart that makes the revelation of the relative position of human intelligence and machine intelligence dynamic.
 
-**Responding to Potential Risks**
+Following this section on the primacy of intelligence, we attempt to impress upon readers some degree of justification for the claim that the capabilities of machine intelligence will far outstrip human intelligence. We adopt the approach of enumerating some of the distinctions between biological and machine substrates, specifically:
 
-TODO
+- Processing Speed: Biological neurons fire at approximately 150hz. The processor in a standard desktop computer operates at 2GHz - a frequency that is 7 orders of magnitude greater.
+- Propagation Speed: Signals propagate in biological axons at a rate of 200m/s. In contrast, the signals in an integrated circuit that power a machine intelligence propagate at the speed of light.
+- Capacity: Intelligence in biological substrate is bound by fundamental biological limits. For instance, the total size of the human brain is fundamentally limited by the size of our cranium, as well as our potential for energy input and output bandwidth. Intelligence in machine substrate faces no such limitations.
+
+For each of these dimensions, we attempt to illustrate the distinction in magnitude between the capabilities of a machine intelligence and human intelligence. To this end, we use a combination of easily-digestible graphics and bar charts. In aggregate, we hope that users come away from these visualizations with the felt sense that machine intelligence is indeed a technology with impressive potential.
+
+#### Evolving Perceptions of Machine Intelligence
+
+In the next chapter of our narrative, we consider perceptions of machine intelligence from both popular and professional points of view.
+
+**Dataset(s)** Nature (popular articles dataset), Journal of Artificial Intelligence Research (professional articles dataset)
+
+**Method** Our goal in this section is impart two important ideas regarding how 
+
+**Limitations** In our application, we failed to 
+
+#### Prospects for Machine Intelligence
+
+**Dataset(s)** [Artificial Intelligence, American Attitudes and Trends](https://governanceai.github.io/US-Public-Opinion-Report-Jan-2019/addresults.html)
+
+#### Responding to Potential Risks
+
+In the final chapter of the narrative we consider the ongoing response to the development of machine intelligence.
+
+**Dataset(s)** [EU Data Eurostat](https://ec.europa.eu/eurostat/web/main/data/database)
+
+**Method** In this section we attempt to visualize one aspect of the global response to the development of machine intelligence. Specifically, we consider the results of a poll of political leaders from the European Union who were presented with questions regarding their thoughts on regulation of machine intelligence research efforts. We plot the results of this poll in a bar chart, illustrating widespread consensus on the topic.
+
+In addition, we present a case study of self-driving car regulation. The purpose of this case study is to provide a data point on how issues of regulation of autonomous systems have been handled in the past. Obviously the connection between a narrow application of autonomy like self-driving vehicles and general machine intelligence regulation is somewhat tenuous, but we felt this was necessary considering the scarcity of data on this particular sub-topic (see below).
+
+**Limitations** There is a noticeable lack of data available on the topic of AI regulation and oversight efforts. We made the most of the one dataset that we were able to find on the subject, but the total information content this provided was somewhat disappointing. We would like to have more to say on this particular aspect of the narrative.
 
 ### Results
 
@@ -102,6 +132,7 @@ The general references that we utilized during our research for this project are
 - Bostrom, Nick. [The Future of Machine Intelligence](https://www.youtube.com/watch?v=8xwESiI6uKA). 2017.
 - Bostrom, Nick. _Superintelligence: Paths, Dangers, Strategies_ 2014.
 - Bostrom, Nick. [What Happens When Our Computers Get Smarter Than We Are?](https://www.youtube.com/watch?v=MnT1xgZgkpk&t=326s) TED Talk. 2015.
+- [EU Data Eurostat](https://ec.europa.eu/eurostat/web/main/data/database). 2021.
 - Harris, Sam. [Can We Build AI Without Losing Control Over It?](https://www.youtube.com/watch?v=8nt3edWLgIg) TED Talk. 2016.
 - Harris, Sam and Russel, Stuart. [The Dawn of Artificial Intelligence](https://samharris.org/podcasts/the-dawn-of-artificial-intelligence1/). 2016.
 - Harris, Sam and Yudkowsky, Eliezer. [AI: Racing Toward the Brink](https://intelligence.org/2018/02/28/sam-harris-and-eliezer-yudkowsky/). 2018.
