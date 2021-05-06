@@ -19,7 +19,9 @@ Machine intelligence, and the prospect of machine superintelligence, is one of t
 
 ### Related Work
 
-A description of prior research or work related to your project.
+One of the primary reasons that we selected this topic is the inadequacy of prior work that we perceive in this area. This is not to say that all existing sources of information on machine intelligence are inadequate; on the contrary many high-quality sources exist, and we used several of these to develop our application. The issue lies in the degree of accessibility of these sources, or rather their lack of accessibility. Most work on the topic of machine intelligence is in the form of journal articles, academic papers, or full-length books. Journal articles and academic papers are largely inaccessible to a popular audience by their very nature - they are intended to be read by an audience that is already familiar with the field. Books, while intended for a popular audience, often suffer lower readership than other potential mediums because of the greater investment of time and effort they require. In this project we aim to begin to fill this gap by combining the rigor the aforementioned sources with a greater degree of accessibility.
+
+Our interest in was topic is inspired by a variety of sources. Among the most prolific and influential voices on the topic of machine intelligence is the philosopher Nick Bostrom, whose work dominates the [reference](#references) section.
 
 ### Methods
 
@@ -37,7 +39,9 @@ As with any narrative project, our primary goal is the effective communication o
 
 **Defining Machine Intelligence**
 
-TODO
+We begin our narrative with a definition of machine intelligence. On its own, a definition is far from informative or compelling. To address this, we combine our definition of machine intelligence with an overview of the technical and social milestones in the field. This serves to contextualize the remainder of the narrative and gives the reader some of the background knowledge that is assumed later in the narrative.
+
+The obvious choice for presenting time series information in this manner is an interactive timeline. While searching for ways to create timelines in streamlit, we found the `streamlit_timeline` library, which makes generating aesthetically pleasing timelines in streamlit applications simple. Once we had the infrastructure in place, all that remained was populating the timeline with events of interest.
 
 **Machine Intelligence as a Paradigm Shift**
 
@@ -71,8 +75,22 @@ A
 
 The datasets that we utilized to generate the visualizations in our application are listed below.
 
-TODO
+- [Journal of Artificial Intelligence Research](https://www.jair.org/index.php/jair).
+- Muller, Vincent and Bostrom, Nick. [Future Progress in Artificial Intelligence: A Survey of Expert Opinion](https://www.nickbostrom.com/papers/survey.pdf). (2016).
+- [Nature](https://www.nature.com/).
+- Webb, Rick. [Superintelligence and Public Opinion.](https://shift.newco.co/2017/04/24/superintelligence-and-public-opinion/). NewCo Shift. (2017).
+- Zhang, Baobao and Dafoe, Allan. [Artificial Intelligence, American Attitudes and Trends](https://governanceai.github.io/US-Public-Opinion-Report-Jan-2019/addresults.html). 2019.
 
 The general references that we utilized during our research for this project are listed below.
 
+- Armstrong, Stuart and Bostrom, Nick and Shulman, Carl. [Racing to the Precipice: A Model of Artificial Intelligence Development](http://www.fhi.ox.ac.uk/wp-content/uploads/Racing-to-the-precipice-a-model-of-artificial-intelligence-development.pdf). 2013.
+- Bostrom, Nick. [The Superintelligent Will: Motivation and Instrumental Rationality in Advanced Artificial Agents](https://www.nickbostrom.com/superintelligentwill.pdf). 2012.
+- Bostrom, Nick. [Existential Risks: Analyzing Human Extinction Scenarios and Related Hazards](https://www.nickbostrom.com/existential/risks.html). 2002.
 - Bostrom, Nick. _Superintelligence: Paths, Dangers, Strategies_ 2014.
+- Bostrom, Nick. [What Happens When Our Computers Get Smarter Than We Are?](https://www.youtube.com/watch?v=MnT1xgZgkpk&t=326s) TED Talk. 2015.
+- Harris, Sam. [Can We Build AI Without Losing Control Over It?](https://www.youtube.com/watch?v=8nt3edWLgIg) TED Talk. 2016.
+- Harris, Sam and Russel, Stuart. [The Dawn of Artificial Intelligence](https://samharris.org/podcasts/the-dawn-of-artificial-intelligence1/). 2016.
+- Harris, Sam and Yudkowsky, Eliezer. [AI: Racing Toward the Brink](https://intelligence.org/2018/02/28/sam-harris-and-eliezer-yudkowsky/). 2018.
+- [Machine Intelligence Research Institute](https://intelligence.org/).
+- McCarthy et al. _A Proposal for the Dartmouth Summer Research Project on Artificial Intelligence._ 1955.
+- Yudkowsky, Eliezer. [AI Alignment: Why it's Hard, and Where to Start](https://www.youtube.com/watch?v=EUjc1WuyPT8).
