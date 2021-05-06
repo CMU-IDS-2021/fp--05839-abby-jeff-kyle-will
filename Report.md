@@ -102,7 +102,15 @@ The visualizations your system produces and any data to help evaluate your appro
 
 ### Discussion
 
-What has the audience learned from your work? What new insights or practices has your system enabled? Informal observations of use that help evaluate your system are encouraged.
+Overall, we hope that users of our application come away with the following realizations:
+
+- Machine intelligence is not a modern phenomenon; research on this topic has been ongoing for nearly seventy years, at varying degrees of intensity.
+- The events and milestones related to machine intelligence that are covered in the popular media are not necessarily indicative of the increasing capacity of the technology, nor of its potential.
+- There is very strong evidence to support the idea that machine intelligence will represent a globally-disruptive technological innovation.
+- Public sentiment surrounding machine intelligence may be shaped to greater degree by popular culture than by actual technical developments within the field.
+- Experts in the field of machine intelligence have not reached any strong consensus regarding the point in the future we can expect to achieve general machine intelligence.
+- The general public has a surprisingly-high tolerance for potential destruction of the human race as a result of the development of machine intelligence.
+- Most national powers agree that _something_ should be done to address the growing capabilities of machine intelligence, but are not yet prepared to actually implement concrete policies to this effect.
 
 ### Future Work
 
