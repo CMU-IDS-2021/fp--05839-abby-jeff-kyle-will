@@ -343,11 +343,21 @@ def render_substrate_section():
         '''
         - Capacity: The human cranium imposes tight size limitations on our brains. A mechanical mind that implements a machine intelligence has no such size restrictions. If we look at the typical human brain it can hold on average 2.5 million Gigabytes, whereas a small cloud facility holds about 400 million Gigbytes with all servers leveraged.
         '''
-        storagehuman = Image.open('img/storagehuman.png')
-        storagecomputer = Image.open('img/storagecomputer.png')
+        storagehuman = Image.open('img/HumanStorage.png')
+        storage4 = Image.open('img/4ServerStorage.png')
+        storage9 = Image.open('img/9ServerStorage.png')
+        storage16 = Image.open('img/16ServerStorage.png')
+        storage25 = Image.open('img/25ServerStorage.png')
+        storage81 = Image.open('img/81ServerStorage.png')
+        storage156 = Image.open('img/156ServerStorage.png')
         storages = {
             "Human Storage": storagehuman,
-            "Small Cloud Facility Storage": storagecomputer,
+            "4x 2U Server Rack": storage4,
+            "9x 2U Server Rack": storage9,
+            "16x 2U Server Rack": storage16,
+            "25x 2U Server Rack": storage25,
+            "81x 2U Server Rack": storage81,
+            "156x 2U Server Rack": storage156,
         }
         storage = st.select_slider("Select your storage capacity.", list(storages.keys()))
         st.image(storages[storage], output_format='PNG')
@@ -391,10 +401,10 @@ def render_popular_perceptions_section():
     '''
     With the prevalence of research and popular movies about Artificial Intelligence, it would be safe to say that the public has some thoughts and opinions on Artificial Intelligence.
     
-    Did you know that there were 182 movies that featured Artificial Intelligence in some form from 2000-2020?  With provocative titles such as "AI Amok (2020)" and "Transformers: Age of Extinction (2014), was public perception of AI affected by these movies?  Let's Explore.
+    Did you know that there were 182 movies that featured Artificial Intelligence in some form from 2000-2020?  With provocative titles such as "AI Amok (2020)" and "RoboCop (2014), was public perception of AI affected by these movies?  Let's Explore.
     
     We pulled all news articles from Nature.com from 2000-2020 that featured AI.  These articles do not include any journal or academic publications.
-    As you can see below the percentage of articles that are positive is almost consistently 100%.  Even looking at the overall perception, which is actually pretty close to neutral in all years, you can TODO:ADD Narrative
+    As you can see below the percentage of articles that are positive is almost consistently 100%.  Even looking at the overall perception, which is actually pretty close to neutral in all years, one possible explanation is that this media company is very good at keeping a neutral tone in this topic.  However, there are a few popular movies that may have affected the public perception of Artificial Intelligence and caused the sentiment analysis of these articles to trend toward neutral from the positvive.
     '''
     ts.public()
 
@@ -408,7 +418,18 @@ def render_professional_perceptions_section():
 
     How do we characterize the nature of research work on machine intelligence?
     '''
+    ts.academic()
+    topics = ["Language Models",
+              "Cloud-Based ML Frameworks",
+              "AI Based Multi-Lingual Translation",
+              "Autonomous AI Decision Making",
+              "Multi-Agent Pathfinding"]
 
+
+    st.sidebar.header("Tracking Academic Research")
+    st.sidebar.write("Select each option to observe the shift in research priorities.")
+    pTopic = st.sidebar.selectbox("Select an option", topics)
+    ts.topicTimeline(pTopic)
     '''
     TODO: Big idea for this section is a text analysis of academic work on machine intelligence. Specifically, the plan is to do the following:
     - Scrape PDF documents from the online Journal of Artificial Intelligence Research
@@ -756,7 +777,7 @@ def render_world_powers_section():
     '''
     ### Global Response
 
-    What are the sentiments of the world powers regarding artificial intelligence regulation policy?
+    What are the sentiments of the world powers, speiciaflly the EU Countries regarding artificial intelligence regulation policy?
     '''
 
     # Read in data as csv
@@ -832,7 +853,7 @@ def render_world_powers_section():
     st.write(joint_chart)
 
     '''
-    From the chart above we can see that nearly every major world power agrees that AI imposes enough risk that it should be regulated. There is not one outlier nation that does not think that AI and Robotics are begning to play in increasingly dangerous or volatile role.
+    From the chart above we can see that nearly every major EU power agrees that AI imposes enough risk that it should be regulated. There is not one outlier nation that does not think that AI and Robotics are begning to play in increasingly dangerous or volatile role. However, when we inspect each country we can see that each country has had a non-significant amount of cyberseuciryt incidents. Additionally, a large amount of corporations in each country do not have any kind of digital saftey training at work whatsoever. Does this not foreshadow the next catastrophic event? AI is increasing at a rapid rate, yet safety does not seem to be a major concern.
     '''
 
 def render_responses_chapter():
