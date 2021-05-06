@@ -272,7 +272,7 @@ def render_substrate_section():
         '''
         - Capacity: The human cranium imposes tight size limitations on our brains. A mechanical mind that implements a machine intelligence has no such size restrictions. If we look at the typical human brain it can hold on average 2.5 million Gigabytes, whereas a small cloud facility holds about 400 million Gigbytes with all servers leveraged.
         '''
-        storagehuman = Image.open('img/storagehuman.png')
+        storagehuman = Image.open('img/HumanStorage.png')
         storage4 = Image.open('img/4ServerStorage.png')
         storage9 = Image.open('img/9ServerStorage.png')
         storage16 = Image.open('img/16ServerStorage.png')
@@ -288,7 +288,7 @@ def render_substrate_section():
             "81x 2U Server Rack": storage81,
             "156x 2U Server Rack": storage156,
         }
-        storage = st.selectbox("Select your storage capacity.", list(storages.keys()))
+        storage = st.select_slider("Select your storage capacity.", list(storages.keys()))
         st.image(storages[storage], output_format='PNG')
     
     
