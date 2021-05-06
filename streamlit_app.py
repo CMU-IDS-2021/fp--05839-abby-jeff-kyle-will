@@ -45,14 +45,12 @@ def render_introduction_content():
     '''
     # Machine Intelligence: Risks and Opportunities
 
-    ---
-    TODO: This introduction content can be far more compelling. 
-    
-    Machine intelligence is a complex topic - technically, socially, and ethically. Accordingly, navigating this topic requires a combination of both breadth and depth of understanding that is difficult to come by in most settings.
+    ---    
+    Machine intelligence is a complex topic - technically, socially, politically, and ethically. Because of this complexity, navigating this topic requires a combination of both breadth and depth of understanding that is difficult to come by in most settings.
 
-    In the following article, we seek to provide you with the tools to navigate this topic effectively. What is machine intelligence, and why is it important? What is our current position, and how did we get here? What are the likely future implications? We address each of these questions and more in detail below.
+    In this application, we seek to provide you with the tools to navigate this topic effectively. What is machine intelligence, and why is it important? What is our current position, and how did we get here? What are the likely future implications, and what are we currently doing to shape this future? We address each of these questions and more in detail below.
 
-    Before we begin, we make one request of you: approach this topic with an open mind. It is easy to come in with pre-conceived notions of what machine intelligence is or can be. Depending on your background, such notions may or may not be well-founded. This topic might seem like science fiction, but below we will attempt to demonstrate that much of the hype surrounding machine intelligence, both optimistic and pessimistic, is grounded in reality.
+    Before we begin, we make one request of you: approach this topic with an open mind. It is easy to come in with pre-conceived notions of what machine intelligence is, what it is not, and what it can be. Depending on your background, such notions may or may not be well-founded. This topic might seem like science fiction, but below we will attempt to demonstrate that much of the hype surrounding machine intelligence, both optimistic and pessimistic, is grounded in data and the best technical understanding we currently possess.
     '''
     
     st.sidebar.header("Digging Deeper")
@@ -61,16 +59,16 @@ def render_introduction_content():
         + "for each section that will allow you to explore the data.")
 
 # -----------------------------------------------------------------------------
-# Chapter: History / Timeline
+# Chapter: Definition / History
 # -----------------------------------------------------------------------------
 
-def render_history_chapter():
+def render_definition_chapter():
     """
-    Render the history of machine intelligence chapter.
+    Render the definition / history of machine intelligence chapter.
     """
 
     '''
-    # A Brief History of Machine Intelligence
+    # Defining Machine Intelligence
 
     Machine intelligence may seem like a distinctly modern phenomenon, but research into the subject has been going on for nearly seventy years. Some of major milestones related to the development of machine intelligence are highlighted in the timeline below.
     '''
@@ -85,17 +83,6 @@ def render_history_chapter():
 # -----------------------------------------------------------------------------
 # Chapter: Paradigm
 # -----------------------------------------------------------------------------
-
-def render_definition_section():
-    """
-    Render the definition section of the paradigm-shift chapter.
-    """
-
-    '''
-    ### Definitions
-
-    What do we mean when we refer to 'machine intelligence'?
-    '''
 
 def spect_intel(slide_val, df, pointsDf):
     points = alt.Chart(pointsDf).mark_circle(
@@ -378,8 +365,6 @@ def render_paradigm_chapter():
 
     The answer is an unequivocal 'yes', but justification requires some additional explanation.
     '''
-
-    render_definition_section()
 
     render_intelligence_section()
 
@@ -957,7 +942,7 @@ def main():
 
     render_introduction_content()
 
-    render_history_chapter()
+    render_definition_chapter()
 
     render_paradigm_chapter()
 
