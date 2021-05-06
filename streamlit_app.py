@@ -420,13 +420,6 @@ def render_popular_perceptions_section():
     '''
 
 def render_professional_perceptions_section():
-    """
-    Render the academic perceptions section of the perceptions chapter.
-    """
-
-    '''
-    """"""
-
     '''
     
     
@@ -466,30 +459,6 @@ def render_professional_perceptions_section():
     The AI Based Multi-Lingual topic seems to be trending upward from 2020 into 2021.  That is an interesting observation that could be related to the COVID-19 pandemic.  As many people are teleworking, is there a greater call for instant translation of multiple languages?  Is this a boon to humanity as we strive to counter the virus that is destroying our world?
     
     Autonomous AI Decision Making is also trending up in 2021.  The optimistic view of this is that AI will help derive vaccine genomes to help with stopping the virus, the pessimistic view is that the AI will start making decisions that could negatively impact us.  Who knows what the future holds?
-    '''
-    
-    ### Machine Intelligence in Professional Settings
-
-    How do we characterize the nature of research work on machine intelligence?
-    '''
-    ts.academic()
-    topics = ["Language Models",
-              "Cloud-Based ML Frameworks",
-              "AI Based Multi-Lingual Translation",
-              "Autonomous AI Decision Making",
-              "Multi-Agent Pathfinding"]
-
-
-    st.sidebar.header("Tracking Academic Research")
-    st.sidebar.write("Select each option to observe the shift in research priorities.")
-    pTopic = st.sidebar.selectbox("Select an option", topics)
-    ts.topicTimeline(pTopic)
-    '''
-    TODO: Big idea for this section is a text analysis of academic work on machine intelligence. Specifically, the plan is to do the following:
-    - Scrape PDF documents from the online Journal of Artificial Intelligence Research
-    - Extract text from these PDF documents
-    - Perform topic modeling on the documents (or just the titles? unclear if full text is feasible)
-    - Visualize the distribution of documents over time according to the topic(s) in which they fall
     '''
 
 def render_perceptions_chapter():
