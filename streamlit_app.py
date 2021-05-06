@@ -97,6 +97,72 @@ def render_definition_section():
     What do we mean when we refer to 'machine intelligence'?
     '''
 
+def spect_intel(slide_val, df, pointsDf):
+    points = alt.Chart(pointsDf).mark_circle(
+            color="#ffbc79",
+            size=300,
+            clip=True
+        ).encode(
+            x=alt.X('x', title=None, axis=None, scale=alt.Scale(domain=(0, slide_val+0.1))),
+            y=alt.Y('exp', title=None, axis=None, scale=alt.Scale(domain=(-2, 8105))),
+        ).properties(
+            width = DEFAULT_WIDTH,
+            height = DEFAULT_HEIGHT
+        )
+
+    line = alt.Chart(df).mark_line(
+                color="#bcdeea",
+                size= 7,
+                clip=True
+            ).encode(
+                x=alt.X('x', title=None, axis=None, scale=alt.Scale(domain=(0, slide_val+0.1))),
+                y=alt.Y('exp', title=None, axis=None, scale=alt.Scale(domain=(-2, 8105))),
+            ).properties(
+                width = DEFAULT_WIDTH,
+                height = DEFAULT_HEIGHT
+            )
+
+    text = points.mark_text(
+                align='right',
+                baseline='middle',
+                dx=-10,
+                dy= -15,
+                font="IBM Plex Sans",
+                fontSize = 15,
+                fontWeight= 'bolder',
+                clip=True
+            ).encode(
+                text='Type'
+            )
+
+    finalchart = line + points + text
+
+    finalchart = finalchart.properties(
+                background='#f2f2f2',
+                title= {
+                    "text": ["The Spectrum of Intelligence"], 
+                    "subtitle": "Here the blue line represents the non-linear growth of intelligence and where we compare with others on it. " +
+                    "Credit Sam Harris and his 2016 TED talk",
+                }
+            ).configure_title(
+                    fontSize=40,
+                    font="IBM Plex Sans",
+                    color='black'
+            )
+    return finalchart
+
+def gen_exp():
+    df = pd.DataFrame(np.random.randint(0, 11, size = 1000), columns=['x'])
+    df['exp'] = np.exp(df['x'])
+    pointsDf = pd.DataFrame([
+        {'x': 1, 'Type': 'Chicken'},
+        {'x': 5, 'Type': 'Average Human'},
+        {'x': 6, 'Type': 'Aboslute Best of Humanity'},
+        {'x': 9, 'Type': 'Where AI is Heading'}
+        ])
+    pointsDf['exp'] = np.exp(pointsDf['x'])
+    return df, pointsDf
+
 def render_intelligence_section():
     """
     Render the 'importance of intelligence' section of the paradigm-shift chapter.
@@ -117,6 +183,11 @@ def render_intelligence_section():
 
     Second, we need to impress upon readers just how vast the spectrum of intelligence may actually be. This will likely take the form of a zoom-able plot similar to that in Sam Harris' TED talk (cited below) where we first show the relative distinction between "smart" people and "dumb" people, and then compare this distinction with what a machine intelligence might achieve relative to a "smart" person - the relationship is exponential.
     '''
+    df, pointsDf = gen_exp()
+    slider_spect_intelligence = st.slider("Slide to reveal the shape of the spectrum of intelligence",
+                0, 9, 0)
+    st.write(spect_intel(slider_spect_intelligence, df, pointsDf))
+
 
 def magnitude_viz_speed(chart_type):
     speeds = pd.DataFrame([
@@ -195,15 +266,17 @@ def magnitude_viz_brain():
             "text": ["Another Look at Clock Speed Magnitudes"], 
             "subtitle": "Each human icon is equivalent to the combined frequency of 1000 human beings. Scroll to see the full impact.",
            }
-        )
+        ).properties(background='#f2f2f2')
+
 
     mag_viz = mag_viz.configure_title(
-        fontSize=30,
+        fontSize=35,
         font="IBM Plex Sans",
-        anchor='start'
-    ).configure(background='#FFFFFF')
-    
-    return(mag_viz)
+        anchor='start',
+        color='black'
+    )
+
+    return mag_viz
 
 
 def render_substrate_section():
@@ -280,13 +353,13 @@ def render_substrate_section():
         storage81 = Image.open('img/81ServerStorage.png')
         storage156 = Image.open('img/156ServerStorage.png')
         storages = {
-            "Human Storage": storagehuman,
+            "Human": storagehuman,
             "4x 2U Server Rack": storage4,
             "9x 2U Server Rack": storage9,
             "16x 2U Server Rack": storage16,
             "25x 2U Server Rack": storage25,
             "81x 2U Server Rack": storage81,
-            "156x 2U Server Rack": storage156,
+            "Small Cloud Facility": storage156,
         }
         storage = st.select_slider("Select your storage capacity.", list(storages.keys()))
         st.image(storages[storage], output_format='PNG')
@@ -323,29 +396,53 @@ def render_popular_perceptions_section():
 
     '''
     ### Machine Intelligece in the Popular Media
-     
+    
+    
     How do we characterize the popular public perception of machine intelligence?
     '''
 
     '''
     With the prevalence of research and popular movies about Artificial Intelligence, it would be safe to say that the public has some thoughts and opinions on Artificial Intelligence.
     
-    Did you know that there were 182 movies that featured Artificial Intelligence in some form from 2000-2020?  With provocative titles such as "AI Amok (2020)" and "RoboCop (2014), was public perception of AI affected by these movies?  Let's Explore.
+    Did you know that there were 182 movies that featured Artificial Intelligence in some form from 2000-2020?  With provocative titles such as "AI Amok" (2020) and "RoboCop" (2014), was public perception of AI affected by these movies?  Let's Explore the perception of machine intelligence in the media..
     
-    We pulled all news articles from Nature.com from 2000-2020 that featured AI.  These articles do not include any journal or academic publications.
-    As you can see below the percentage of articles that are positive is almost consistently 100%.  Even looking at the overall perception, which is actually pretty close to neutral in all years, one possible explanation is that this media company is very good at keeping a neutral tone in this topic.  However, there are a few popular movies that may have affected the public perception of Artificial Intelligence and caused the sentiment analysis of these articles to trend toward neutral from the positvive.
+    We pulled all news articles from Nature.com from 2000-2020 that featured Artificial Intelligence.  These articles do not include any journal or academic publications.  We then performed a sentiment analysis on the content in the articles to judge the overarching sentiment of the reporting and tallied the number of positve articles vs negative articles.
+    
+    As you can see below the percentage of articles that are positive is almost consistently 100%.  Even when looking at the overall perception, you can see that it is actually pretty close to neutral in all years. There are a few explanations that could answer the question, but lets see if there is a correlation between hit-movies and the perception in news media.  
+    
+    Were there popular movies that may have affected the public perception of Artificial Intelligence and caused the sentiment analysis of these articles to trend toward neutral from the positvive.  Slide the bar to the right and see.
+    
+    ### Sentiment and Perception in the Public Media
     '''
     ts.public()
 
-def render_professional_perceptions_section():
-    """
-    Render the academic perceptions section of the perceptions chapter.
-    """
-
     '''
+    Many of the media articles are slightly above neutral. This can be intepreted a few ways in that we can infer that humanity is wary of AI and machine intelligence or that we are playing a wait and see game.  It could be a combination of both.   Can we really say that the future of machine intelligence or Artificial Intelligence is bleak?  Should we be afraid?  Let's explore what is being researched in the field of AI.
+    '''
+
+def render_professional_perceptions_section():
+    '''
+    
+    
     ### Machine Intelligence in Professional Settings
 
     How do we characterize the nature of research work on machine intelligence?
+    
+    Research in the field of Artificial Intelligence is growing quickly. Over the last 8 years, there have been over 500 publications regarding Artificial Intelligence and related topics from a single journal source: the Journal of Artificial Intelligence Research.  
+    
+    We looked at the title of each article and built a topic model to gather the most popular 5 topics.  Using this model, we discovered that almost 20% of the articles published on these fields of research. 
+    
+    The first chart shows us how many articles are being published in a given year that are on the most popular topics.  AI Based Multi-Lingual translation is a field that is expanding quickly and some avenues of research are developing on the fly audio translation from multiple languages.  
+    
+    Autonomous AI Decision Making is the prodcess of making decision without human oversight.  Some focus areas are healthcare, where, according to Science Direct, "clinical decisions are made without human oversight."  
+    
+    Cloud-Based ML Frameworks is an area of research that seeks to create robust and modular cloud based systems to do machine learning.  
+    
+    Language Models is another aspect of research that is focused on predicting words.  This may sound simple, but languages have many rules and grammatical foibles that make this difficult. 
+    
+    The last popular topic is Multi-agent pathfinding.  This area of research is based on calculating the best path for multiple objects in realt time.  Imagine a machine intelligence trying to calculate the most optimal route for every care on the road. 
+    
+    As you can see in the chart below, there are a number of research papers that are on one of the top-5 topics.  As you move the slider over you can see how things change over time.  For a different perspective, you can track a single topic from the sidebar and follow the research pattern over time.
     '''
     ts.academic()
     topics = ["Language Models",
@@ -360,11 +457,9 @@ def render_professional_perceptions_section():
     pTopic = st.sidebar.selectbox("Select an option", topics)
     ts.topicTimeline(pTopic)
     '''
-    TODO: Big idea for this section is a text analysis of academic work on machine intelligence. Specifically, the plan is to do the following:
-    - Scrape PDF documents from the online Journal of Artificial Intelligence Research
-    - Extract text from these PDF documents
-    - Perform topic modeling on the documents (or just the titles? unclear if full text is feasible)
-    - Visualize the distribution of documents over time according to the topic(s) in which they fall
+    The AI Based Multi-Lingual topic seems to be trending upward from 2020 into 2021.  That is an interesting observation that could be related to the COVID-19 pandemic.  As many people are teleworking, is there a greater call for instant translation of multiple languages?  Is this a boon to humanity as we strive to counter the virus that is destroying our world?
+    
+    Autonomous AI Decision Making is also trending up in 2021.  The optimistic view of this is that AI will help derive vaccine genomes to help with stopping the virus, the pessimistic view is that the AI will start making decisions that could negatively impact us.  Who knows what the future holds?
     '''
 
 def render_perceptions_chapter():
@@ -374,9 +469,9 @@ def render_perceptions_chapter():
 
     '''
     ---
-    # Perceptions versus Reality 
-
-    TODO: Content here.
+    # Perceptions versus Reality
+    
+    How much do we really know about machine intelligence or Artificial Intelligence? What are the perceptions of AI that guide humanity toward the future?  Are we thinking positiviely? Negatively? Are we neutral?
     '''
     
     render_popular_perceptions_section()
@@ -704,9 +799,9 @@ def render_world_powers_section():
     """
     
     '''
-    ### Global Response
+    ### Global Response and Status
 
-    What are the sentiments of the world powers, speiciaflly the EU Countries regarding artificial intelligence regulation policy?
+    What are the sentiments of the world powers, specifically the EU Countries regarding artificial intelligence regulation policy? Furthermore, what are they doing about it?
     '''
 
     # Read in data as csv
@@ -732,16 +827,7 @@ def render_world_powers_section():
     COUNTRY_VOTES["No Safe Tech Training"] = 100.0 - COUNTRY_VOTES["Safe Tech Training"]
 
     country_selector = alt.selection_multi(fields=["Country"], init=[{"Country":"Hungary"}])
-    
-    # Transform fold is conducted so that we can utilize the stacked bar approach
-    # and analyze the huge discrepanacy between what world powers think
-    
-    '''
-    ### National Stance on AI Safety and Regulation
-    '''
 
-# Transform fold is conducted so that we can utilize the stacked bar approach
-# and analyze the huge discrepanacy between what world powers think
     all_country_data = alt.Chart(COUNTRY_VOTES).mark_bar().encode(
         tooltip=[alt.Tooltip("Country:N", title="Country")], 
         x=alt.X("Agree:Q", title="Percent Representatives that Want AI Regulation", scale=alt.Scale(domain=[0, 100])),
@@ -754,11 +840,11 @@ def render_world_powers_section():
 
     by_country1 = alt.Chart(COUNTRY_VOTES).transform_fold(
         ["Security Incident"],
-        as_=["% of Companies", "% Value"]
+        as_=["Digital Safety Metric", "% Value"]
     ).mark_bar().encode(
         y=alt.Y("% Value:Q", title="% of Companies with Tech Security Incident", scale=alt.Scale(domain=[0, 100])),
         tooltip=[alt.Tooltip("Country:N", title="Country")], 
-        color=alt.Color("% of Companies:N",
+        color=alt.Color("Digital Safety Metric:N",
             scale = alt.Scale(domain=["Security Incident"], range=["#bcdeea"])
         )
     ).transform_filter(
@@ -767,11 +853,11 @@ def render_world_powers_section():
 
     by_country3 = alt.Chart(COUNTRY_VOTES).transform_fold(
         ["No Safe Tech Training"],
-        as_=["% of Companies", "% Value"]
+        as_=["Digital Safety Metric", "% Value"]
     ).mark_bar().encode(
         y=alt.Y("% Value:Q", title="% of Companies without Safe Tech Training", scale=alt.Scale(domain=[0, 100])),
         tooltip=[alt.Tooltip("Country:N", title="Country")], 
-        color=alt.Color("% of Companies:N",
+        color=alt.Color("Digital Safety Metric:N",
             scale = alt.Scale(domain=["No Safe Tech Training"], range=["#bcdeea"])
         )
     ).transform_filter(
@@ -782,8 +868,28 @@ def render_world_powers_section():
     st.write(joint_chart)
 
     '''
-    From the chart above we can see that nearly every major EU power agrees that AI imposes enough risk that it should be regulated. There is not one outlier nation that does not think that AI and Robotics are begning to play in increasingly dangerous or volatile role. However, when we inspect each country we can see that each country has had a non-significant amount of cyberseuciryt incidents. Additionally, a large amount of corporations in each country do not have any kind of digital saftey training at work whatsoever. Does this not foreshadow the next catastrophic event? AI is increasing at a rapid rate, yet safety does not seem to be a major concern.
+    From the chart above we can see that nearly every major EU power agrees that AI imposes enough risk that it should be regulated. There is not one outlier nation that does not think that AI and Robotics are begning to play in increasingly dangerous or volatile role. However, when we inspect each country we can see that each country has had a non-trivial amount of cyber security incidents. Additionally, a large handful of corporations in each country do not have any kind of digital saftey training at work whatsoever. Does this not foreshadow the next catastrophic event? AI is increasing at a rapid rate, yet safety does not seem to be a major concern. Select the US Case Study option on the sidebar to the left to view first hand how lack of regulation is letting AI get out of hand.
     '''
+
+    st.sidebar.header("Global Respons and Status")
+    case_study_select = st.sidebar.radio("Select the case study to learn more.", ("-", "US Case Study"))
+    if case_study_select == "US Case Study":
+        '''
+        ### US Case Study: Self-Driving Cars and their Lack of Regulation
+        Now that we've taken a look at what our counterparts in the EU believe, let's take a look back at America and a specific policy-case, "Self-Driving Cars". Traditionally, the regulation governing what cars are allowed to make it out onto the roadways is the FMVSS or Federal Motor Vehicle Safety Standards. These laws cover a wide array of aspects. However, they cover nothing to do with self-driving cars such as cyber-attacks, proper testing, software updates, emergency scenarios, etc. In September 2017, the House of Representatives did propose additional requirements to the FMVSS for autonomous cars, however, this proposal did not make it past the Senate. A Presidential Administration largely focused on minimal regulation certainly did not help the issue.
+        '''
+        '''
+        But who would possibly want less regulation on such a dangerous endeavor? 
+        '''
+        '''
+        The answer is businesses and the locations that want to attract them. Two of the hotbeds for self-driving car research are Arizona and our own state Pennsylvania. Contrary to popular belief, the location in Pittsburgh is not solely due to NREC or CMU, but rather Pennsylvania's loose regulations on self-driving car testing. 
+        '''
+        '''
+        You may be surprised to find that several incidents have occurred including an event in 2018 when a self-driving car slammed into an unsuspecting driver. The incidents get much more grave. Looking to make self-driving cars cheaper, Uber disabled what is called a LIDAR system in one of their Arizona vehicles. Without the costly system the car hit and killed a pedestrian. 
+        '''
+        '''
+        So when is enough? Clearly, these businesses only have testing, training, and profits in mind. Perhaps, the local governments do too. Regulation is needed on a larger scale, however, it is largely non-existent. 
+        '''
 
 def render_responses_chapter():
     """
