@@ -141,3 +141,33 @@ def movies(year):
             st.write()
             st.subheader('Was there an impact on perception?')
             st.write(narrative[year])
+            
+            
+def flipProfData(data):
+    topics = ["Language Models",
+              "Cloud-Based ML Frameworks",
+              "AI Based Multi-Lingual Translation",
+              "Autonomous AI Decision Making",
+              "Multi-Agent Pathfinding"]
+    newData = data.drop("Topics", axis=1)
+    newData = newData.T
+    newData.columns = topics
+    return newData
+
+def topicTimeline(topic):
+    unfixedData = pd.read_json("data/academicTopics.txt")
+    data = buildAcademicData(unfixedData)
+    data = flipProfData(data)
+    nData = data[topic]
+    years = ['2013','2014', '2015', '2016',
+             '2017','2018', '2019', '2020', '2021']
+    source = pd.DataFrame({
+        'Years' : years,
+        'Number of Articles' : nData.T
+    })
+    line = alt.Chart(source).mark_line(color='fcac64').encode(
+        x= 'Years',
+        y='Number of Articles:Q').properties(title="What topics are AI researchers focusing on?")
+
+    st.write(f'Lets look at {topic} over time.')
+    st.altair_chart(line, use_container_width=True)
