@@ -12,6 +12,7 @@ import matplotlib.pyplot as plt
 from streamlit_timeline import timeline
 import vega_datasets
 import topicSentiment as ts
+from PIL import Image
 
 
 # The relative path to the directory in which data is stored
@@ -290,7 +291,6 @@ def render_substrate_section():
     What are the implications of releasing intelligence from the bonds of a biological substrate? In this section we will compare Human Beings brain potential to the computerized counterparts. We will begin to see just how vastly computers outperform humans in the areas of brain frequency, speed, and storage capacity.
 
     '''
-    from PIL import Image
 
     st.sidebar.header("The Potential of Mechanical Minds")
     st.sidebar.write("Select other options to understand the scale of the differences between a Human Being and a Computer")
@@ -863,11 +863,13 @@ def render_world_powers_section():
         The answer is businesses and the locations that want to attract them. Two of the hotbeds for self-driving car research are Arizona and our own state Pennsylvania. Contrary to popular belief, the location in Pittsburgh is not solely due to NREC or CMU, but rather Pennsylvania's loose regulations on self-driving car testing. 
         '''
         '''
-        You may be surprised to find that several incidents have occurred including an event in 2018 when a self-driving car slammed into an unsuspecting driver. The incidents get much more grave. Looking to make self-driving cars cheaper, Uber disabled what is called a LIDAR system in one of their Arizona vehicles. Without the costly system the car hit and killed a pedestrian. 
+        You may be surprised to find that several incidents have occurred right here in Pittsburgh including an event in 2018 when a self-driving car slammed into an unsuspecting driver. The incidents get much more grave. Looking to make self-driving cars cheaper, Uber disabled what is called a LIDAR system in one of their Arizona vehicles. Without the costly system the car hit and killed a pedestrian. 
         '''
         '''
         So when is enough? Clearly, these businesses only have testing, training, and profits in mind. Perhaps, the local governments do too. Regulation is needed on a larger scale, however, it is largely non-existent. 
         '''
+        crash = Image.open('img/Ubercrash.jpg')
+        st.image(crash)
 
 def render_responses_chapter():
     """
@@ -925,6 +927,7 @@ def render_references():
     - Spedomoter png image, https://www.pngkey.com/pngs/speedometer/
     - Paul Reber, Human Brain Storage, 2010, https://www.scientificamerican.com/article/what-is-the-memory-capacity/
     - EU Data Eurostat, 2021, https://ec.europa.eu/eurostat/web/main/data/database
+    - Richard Waters, Uber crash, 2017, https://www.ft.com/content/89692fee-1181-11e7-80f4-13e067d5072c
     '''
 
 # -----------------------------------------------------------------------------
