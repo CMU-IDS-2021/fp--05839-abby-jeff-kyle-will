@@ -100,7 +100,33 @@ In addition, we present a case study of self-driving car regulation. The purpose
 
 ### Results
 
-The visualizations your system produces and any data to help evaluate your approach. For example, you might describe a case study that illustrates how your visualization(s) to address your chosen problem.
+Examples of the visualizations we produced for each chapter of our narrative are provided below.
+
+#### Defining Machine Intelligence
+
+![Machine Intelligence Milestones](report-img/Timeline.PNG)
+
+#### Machine Intelligence as a Paradigm Shift
+
+![Spectrum of Intelligence](report-img/Spectrum.PNG)
+![Magnitude - Frequency](report-img/MagnitudeFrequency.JPG)
+![Magnitude - Speed](report-img/MagnitudeSpeed.JPG)
+
+#### Evolving Perceptions of Machine Intelligence
+
+![Popular Coverage](report-img/PopularCoverage.JPG)
+![Professional Attention](report-img/ProfessionalAttention.JPG)
+
+#### Prospects for Machine Intelligence
+
+![Expert Sentiment](report-img/ExpertSentiment.JPG)
+![Basic Operation Achievement](report-img/BasicOperationAchievement.JPG)
+![Comparing Odds](report-img/ComparingOdds.JPG)
+![Regional Pursuit of Advancement](report-img/RegionalPursuitAdvancement.JPG)
+
+#### Responding to Potential Risks
+
+![Global Response](report-img/GlobalResponse.PNG)
 
 ### Discussion
 
