@@ -124,7 +124,7 @@ def movies(year):
                 "2016":"data/2016 - Obsolete.jpg",
                 "2017":"data/2017 -Blade_Runner_2049.png",
                 "2020":"data/2020 - AI Amok.jpg"}
-    narrative = {"2003":"In 2003, the movie The Matrix Reloaded debuted.  This is a story of a dystopian future where machines have taken over and supplanted humanity.  As you can see in the line chart, public perception shifted from positve to neutral and media artics were only 50% positive.  Did this movie affect the perception of AI?",
+    narrative = {"2003":"In 2003, the movie The Matrix Reloaded debuted.  This is a story of a dystopian future where machines have taken over and supplanted humanity.  As you can see in the line chart, public perception shifted from positve to neutral and media articles were only 50% positive.  Did this movie affect the perception of AI?",
                  "2004":"In 2004, the blockbuster movie i, Robot premiered.  This story, while not wholely positive for AI, did have a robot protagonist that helped save the day with Will Smith. Did the perception of AI change again?",
                  "2014":"2014 was the year the robots turned on the populace.  In the movie, RoboCop, robots patrol the streets and have run amok, it is a cyborg that helped keep the streets safe.  Are movies and popular media influencing the public about AI?",
                  "2015":"Another shift in perception as the feelgood movie, Chappie, came out in theaters.  If a robot can feel, do we feel safer around them?",
