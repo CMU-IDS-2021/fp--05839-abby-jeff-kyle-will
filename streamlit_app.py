@@ -353,13 +353,13 @@ def render_substrate_section():
         storage81 = Image.open('img/81ServerStorage.png')
         storage156 = Image.open('img/156ServerStorage.png')
         storages = {
-            "Human Storage": storagehuman,
+            "Human": storagehuman,
             "4x 2U Server Rack": storage4,
             "9x 2U Server Rack": storage9,
             "16x 2U Server Rack": storage16,
             "25x 2U Server Rack": storage25,
             "81x 2U Server Rack": storage81,
-            "156x 2U Server Rack": storage156,
+            "Small Cloud Facility": storage156,
         }
         storage = st.select_slider("Select your storage capacity.", list(storages.keys()))
         st.image(storages[storage], output_format='PNG')
@@ -827,11 +827,11 @@ def render_world_powers_section():
 
     by_country1 = alt.Chart(COUNTRY_VOTES).transform_fold(
         ["Security Incident"],
-        as_=["% of Companies", "% Value"]
+        as_=["Digital Safety Metric", "% Value"]
     ).mark_bar().encode(
         y=alt.Y("% Value:Q", title="% of Companies with Tech Security Incident", scale=alt.Scale(domain=[0, 100])),
         tooltip=[alt.Tooltip("Country:N", title="Country")], 
-        color=alt.Color("% of Companies:N",
+        color=alt.Color("Digital Safety Metric:N",
             scale = alt.Scale(domain=["Security Incident"], range=["#bcdeea"])
         )
     ).transform_filter(
@@ -840,11 +840,11 @@ def render_world_powers_section():
 
     by_country3 = alt.Chart(COUNTRY_VOTES).transform_fold(
         ["No Safe Tech Training"],
-        as_=["% of Companies", "% Value"]
+        as_=["Digital Safety Metric", "% Value"]
     ).mark_bar().encode(
         y=alt.Y("% Value:Q", title="% of Companies without Safe Tech Training", scale=alt.Scale(domain=[0, 100])),
         tooltip=[alt.Tooltip("Country:N", title="Country")], 
-        color=alt.Color("% of Companies:N",
+        color=alt.Color("Digital Safety Metric:N",
             scale = alt.Scale(domain=["No Safe Tech Training"], range=["#bcdeea"])
         )
     ).transform_filter(
