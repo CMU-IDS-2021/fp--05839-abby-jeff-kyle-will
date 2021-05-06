@@ -403,12 +403,21 @@ def render_popular_perceptions_section():
     '''
     With the prevalence of research and popular movies about Artificial Intelligence, it would be safe to say that the public has some thoughts and opinions on Artificial Intelligence.
     
-    Did you know that there were 182 movies that featured Artificial Intelligence in some form from 2000-2020?  With provocative titles such as "AI Amok (2020)" and "RoboCop (2014), was public perception of AI affected by these movies?  Let's Explore.
+    Did you know that there were 182 movies that featured Artificial Intelligence in some form from 2000-2020?  With provocative titles such as "AI Amok" (2020) and "RoboCop" (2014), was public perception of AI affected by these movies?  Let's Explore the perception of machine intelligence in the media..
     
-    We pulled all news articles from Nature.com from 2000-2020 that featured AI.  These articles do not include any journal or academic publications.
-    As you can see below the percentage of articles that are positive is almost consistently 100%.  Even looking at the overall perception, which is actually pretty close to neutral in all years, one possible explanation is that this media company is very good at keeping a neutral tone in this topic.  However, there are a few popular movies that may have affected the public perception of Artificial Intelligence and caused the sentiment analysis of these articles to trend toward neutral from the positvive.
+    We pulled all news articles from Nature.com from 2000-2020 that featured Artificial Intelligence.  These articles do not include any journal or academic publications.  We then performed a sentiment analysis on the content in the articles to judge the overarching sentiment of the reporting and tallied the number of positve articles vs negative articles.
+    
+    As you can see below the percentage of articles that are positive is almost consistently 100%.  Even when looking at the overall perception, you can see that it is actually pretty close to neutral in all years. There are a few explanations that could answer the question, but lets see if there is a correlation between hit-movies and the perception in news media.  
+    
+    Were there popular movies that may have affected the public perception of Artificial Intelligence and caused the sentiment analysis of these articles to trend toward neutral from the positvive.  Slide the bar to the right and see.
+    
+    ### Sentiment and Perception in the Public Media
     '''
     ts.public()
+
+    '''
+    Many of the media articles are slightly above neutral. This can be intepreted a few ways in that we can infer that humanity is wary of AI and machine intelligence or that we are playing a wait and see game.  It could be a combination of both.   Can we really say that the future of machine intelligence or Artificial Intelligence is bleak?  Should we be afraid?  Let's explore what is being researched in the field of AI.
+    '''
 
 def render_professional_perceptions_section():
     """
@@ -416,6 +425,49 @@ def render_professional_perceptions_section():
     """
 
     '''
+    """"""
+
+    '''
+    
+    
+    ### Machine Intelligence in Professional Settings
+
+    How do we characterize the nature of research work on machine intelligence?
+    
+    Research in the field of Artificial Intelligence is growing quickly. Over the last 8 years, there have been over 500 publications regarding Artificial Intelligence and related topics from a single journal source: the Journal of Artificial Intelligence Research.  
+    
+    We looked at the title of each article and built a topic model to gather the most popular 5 topics.  Using this model, we discovered that almost 20% of the articles published on these fields of research. 
+    
+    The first chart shows us how many articles are being published in a given year that are on the most popular topics.  AI Based Multi-Lingual translation is a field that is expanding quickly and some avenues of research are developing on the fly audio translation from multiple languages.  
+    
+    Autonomous AI Decision Making is the prodcess of making decision without human oversight.  Some focus areas are healthcare, where, according to Science Direct, "clinical decisions are made without human oversight."  
+    
+    Cloud-Based ML Frameworks is an area of research that seeks to create robust and modular cloud based systems to do machine learning.  
+    
+    Language Models is another aspect of research that is focused on predicting words.  This may sound simple, but languages have many rules and grammatical foibles that make this difficult. 
+    
+    The last popular topic is Multi-agent pathfinding.  This area of research is based on calculating the best path for multiple objects in realt time.  Imagine a machine intelligence trying to calculate the most optimal route for every care on the road. 
+    
+    As you can see in the chart below, there are a number of research papers that are on one of the top-5 topics.  As you move the slider over you can see how things change over time.  For a different perspective, you can track a single topic from the sidebar and follow the research pattern over time.
+    '''
+    ts.academic()
+    topics = ["Language Models",
+              "Cloud-Based ML Frameworks",
+              "AI Based Multi-Lingual Translation",
+              "Autonomous AI Decision Making",
+              "Multi-Agent Pathfinding"]
+
+
+    st.sidebar.header("Tracking Academic Research")
+    st.sidebar.write("Select each option to observe the shift in research priorities.")
+    pTopic = st.sidebar.selectbox("Select an option", topics)
+    ts.topicTimeline(pTopic)
+    '''
+    The AI Based Multi-Lingual topic seems to be trending upward from 2020 into 2021.  That is an interesting observation that could be related to the COVID-19 pandemic.  As many people are teleworking, is there a greater call for instant translation of multiple languages?  Is this a boon to humanity as we strive to counter the virus that is destroying our world?
+    
+    Autonomous AI Decision Making is also trending up in 2021.  The optimistic view of this is that AI will help derive vaccine genomes to help with stopping the virus, the pessimistic view is that the AI will start making decisions that could negatively impact us.  Who knows what the future holds?
+    '''
+    
     ### Machine Intelligence in Professional Settings
 
     How do we characterize the nature of research work on machine intelligence?
