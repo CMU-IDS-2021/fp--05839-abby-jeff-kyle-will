@@ -70,6 +70,10 @@ def render_definition_chapter():
     '''
     # Defining Machine Intelligence
 
+    What do we mean by "machine intelligence"? The definition of the term has evolved somewhat with the technical capabilities in the field.
+    '''
+
+    '''
     Machine intelligence may seem like a distinctly modern phenomenon, but research into the subject has been going on for nearly seventy years. Some of major milestones related to the development of machine intelligence are highlighted in the timeline below.
     '''
 
