@@ -6,7 +6,7 @@
 
 **Final Report URL**: https://github.com/CMU-IDS-2021/fp--05839-abby-jeff-kyle-will/blob/main/Report.md
 
-**Video Overview URL**: TODO
+**Video Overview URL**: https://github.com/CMU-IDS-2021/fp--05839-abby-jeff-kyle-will/blob/main/App_Overview_Video.mp4
 
 ![image](https://user-images.githubusercontent.com/68480789/117331843-245df780-ae65-11eb-8a13-bd21e0c27bef.png)
 
