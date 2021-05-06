@@ -405,7 +405,6 @@ def render_popular_perceptions_section():
 def render_professional_perceptions_section():
     '''
     
-    
     ### Machine Intelligence in Professional Settings
 
     How do we characterize the nature of research work on machine intelligence?
