@@ -424,7 +424,7 @@ def render_professional_perceptions_section():
     
     Research in the field of Artificial Intelligence is growing quickly. Over the last 8 years, there have been over 500 publications regarding Artificial Intelligence and related topics from a single journal source: the Journal of Artificial Intelligence Research.  
     
-    We looked at the title of each article and built a topic model to gather the most popular 5 topics.  Using this model, we discovered that almost 20% of the articles published on these fields of research. 
+    We looked at the title of each article and built a topic model to gather the most popular 5 topics.  Using this model, we discovered that greater than 30% of the articles published on these fields of research. 
     
     The first chart shows us how many articles are being published in a given year that are on the most popular topics.  AI Based Multi-Lingual translation is a field that is expanding quickly and some avenues of research are developing on the fly audio translation from multiple languages.  
     
