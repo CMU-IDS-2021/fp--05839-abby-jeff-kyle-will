@@ -51,6 +51,6 @@ Machine intelligence stands to become one of the most disruptive innovations of 
 ### Final deliverables
 
 - [x] All code for the project should be in the repo.
-- [ ] A 5 minute video demonstration.
+- [x] A 5 minute video demonstration.
 - [x] Update Readme according to Canvas instructions.
-- [ ] A detailed [project report](Report.md). The contact should submit the video and report as a PDF on Canvas.
+- [x] A detailed [project report](Report.md). The contact should submit the video and report as a PDF on Canvas.
