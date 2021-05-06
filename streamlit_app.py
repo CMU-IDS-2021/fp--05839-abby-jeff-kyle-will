@@ -407,8 +407,10 @@ def render_popular_perceptions_section():
     '''
 
 def render_professional_perceptions_section():
+    """
+    Render professional perceptions
+    """
     '''
-    
     
     ### Machine Intelligence in Professional Settings
 
