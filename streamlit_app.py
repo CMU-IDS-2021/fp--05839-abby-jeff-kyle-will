@@ -117,7 +117,8 @@ def spect_intel(slide_val, df, pointsDf):
                 font="IBM Plex Sans",
                 fontSize = 15,
                 fontWeight= 'bolder',
-                clip=True
+                clip=True,
+                color="#ffbc79"
             ).encode(
                 text='Type'
             )
@@ -125,7 +126,6 @@ def spect_intel(slide_val, df, pointsDf):
     finalchart = line + points + text
 
     finalchart = finalchart.properties(
-                background='#f2f2f2',
                 title= {
                     "text": ["The Spectrum of Intelligence"], 
                     "subtitle": "Here the blue line represents the non-linear growth of intelligence and where we compare with others on it. " +
@@ -134,7 +134,6 @@ def spect_intel(slide_val, df, pointsDf):
             ).configure_title(
                     fontSize=40,
                     font="IBM Plex Sans",
-                    color='black'
             )
     return finalchart
 
@@ -249,10 +248,7 @@ def magnitude_viz_brain():
         ).properties(width=20000, height=400
         ).transform_calculate(
             value='0'
-        ).properties(title= {
-            "text": ["Another Look at Clock Speed Magnitudes"], 
-            "subtitle": "Each human icon is equivalent to the combined frequency of 1000 human beings. Scroll to see the full impact.",
-           }
+        ).properties(title="Another Look at the Frequency Magnitude", 
         ).properties(background='#f2f2f2')
 
 
@@ -303,6 +299,7 @@ def render_substrate_section():
         '''
         '''
         if alt_brain == "Alternative Magnitude":
+            st.write("Each human icon is equivalent to the combined frequency of 1000 human beings. Scroll to see the full impact.")
             st.write(magnitude_viz_brain())
         
     elif scale_opt == "Speed":
@@ -521,6 +518,35 @@ def outlooks():
     )
     return outlook_chart
 
+def dev_hmli():
+    progess = pd.DataFrame(np.array([47.9, 42.0, 42.0, 39.6, 37.3, 35.5, 34.9, 32.5,29.0, 29.0, 23.7, 21.3, 20.7, 17.8, 13.6, 4.1, 2.6]), 
+                                columns=['Percent'],
+                               index=['Cognitive Science', 'Integrated Cognitive Architectures', 'Algorithms Revealed by Computational Neuroscience',
+                                      'Artificial Neural Networks', 'Faster Computing Hardware', 'Large-scale Datasets', 'Embodied systems',
+                                      'Other method(s) currently completely unknown', 'Whole Brain Emulation', 'Evolutionary Algorithms or Systems',
+                                      'Other method(s) currently known to at least one investigator', 'Logic-based Systems', 
+                                      'Algorithmic Complexity Theory', 'No method will ever contribute to this aim', 'Swarm Intelligence',
+                                      'Robotics', 'Bayesian Nets'])
+    progess = progess.reset_index()
+
+
+    devhmli = alt.Chart(progess).mark_bar().encode(
+            x=alt.X('index:O', title = None),
+            y=alt.Y('Percent:Q', title = 'Percent Likelihood that the Topic Will Impact the Development of HLMI'),
+            color=alt.Color('index:O',scale=alt.Scale(scheme="redyellowblue")),
+            tooltip=[alt.Tooltip('index:O'), alt.Tooltip('Percent:Q')]
+        ).properties(
+            width=DEFAULT_WIDTH,
+            height=DEFAULT_HEIGHT,
+        ).properties(
+            title= "What Will Impact the Development of HLMI"
+        ).configure_axis(
+            labelLimit=1000
+        ).configure_title(
+            fontSize=20,
+            font="IBM Plex Sans",
+        ).interactive()
+    return devhmli
 
 def render_expert_sentiment_section():
     """
@@ -547,7 +573,85 @@ def render_expert_sentiment_section():
     #Sidebar
     st.sidebar.header("Expert Sentiment on Machine Intelligence")
     st.sidebar.write("Explore more responses from experts in the Machine Intelligence community.")
+    hlmi = st.sidebar.selectbox("Select an option to view more visualizations based on expert opinions.", 
+        ("-", "What Will Impact the Development of HLMI", "Simulate Learning", "Basic Operations", "Brain Architecture"))
 
+    if hlmi == "What Will Impact the Development of HLMI":
+        st.write(dev_hmli())
+    elif hlmi == "Simulate Learning":
+        names = ['Today','Within 10 years', 'Between 11 and 25 years', 'Between 26 and 50 years', 'More than 50 years', 'Never']
+        size = [0,5,2,11,41,41]
+        percents = ['Today: 0%', 'Within 10 years: 5%','Between 11 and 25 years: 2%','Between 26 and 50 years: 11%',
+                    'More than 50 years: 41%', 'Never: 41%']
+        
+        fig= plt.figure()
+
+        # Create a circle at the center of the plot
+        my_circle = plt.Circle( (0,0), 0.7, color='white')
+
+        # Give color names
+        wedges, texts = plt.pie(size, labels=percents, colors=['#e75a3b','#fa9e5d','#faf8c1','#d7eeec','#81b5d5','#3f58a6'])
+        p = plt.gcf()
+        p.gca().add_artist(my_circle)
+
+        plt.legend(wedges, names,
+                title="How Soon Will We Achieve This",
+                loc="center left",
+                bbox_to_anchor=(1.2, -0.3, 0.5, 1))
+
+        # Show the graph
+        st.header("The Earliest Machines Will be Able to Simulate Learning and Every Other Aspect of Human Intelligence")
+        st.pyplot(fig)
+    
+    elif hlmi == "Basic Operations":
+        names = ['Today','Within 10 years', 'Between 11 and 25 years', 'Between 26 and 50 years', 'More than 50 years', 'Never']
+        size = [6,12,10,21,29,21]
+        percents = ['Today: 6%', 'Within 10 years: 12%','Between 11 and 25 years: 10%','Between 26 and 50 years: 21%',
+                    'More than 50 years: 29%', 'Never: 21%']
+        
+        fig = plt.figure()
+
+        # Create a circle at the center of the plot
+        my_circle = plt.Circle( (0,0), 0.7, color='white')
+
+        # Give color names
+        wedges, texts = plt.pie(size, labels=percents, colors=['#e75a3b','#fa9e5d','#faf8c1','#d7eeec','#81b5d5','#3f58a6'])
+        p = plt.gcf()
+        p.gca().add_artist(my_circle)
+
+        plt.legend(wedges, names,
+                title="How Soon Will We Achieve This",
+                loc="center left",
+                bbox_to_anchor=(1.2, -0.3, 0.5, 1))
+
+        # Show the graph
+        st.header("The Earliest We Will Understand the Basic Operations of the Human Brain Sufficiently to Create Machine Simulation of Human Thought")
+        st.pyplot(fig)
+
+    elif hlmi == 'Brain Architecture':
+        names = ['Today','Within 10 years', 'Between 11 and 25 years', 'Between 26 and 50 years', 'More than 50 years', 'Never']
+        size = [0,11,14,22,40,14]
+        percents = ['Today: 0%', 'Within 10 years: 11%','Between 11 and 25 years: 14%','Between 26 and 50 years: 22%',
+                    'More than 50 years: 40%', 'Never: 14%']
+        
+        fig = plt.figure()
+
+        # Create a circle at the center of the plot
+        my_circle = plt.Circle( (0,0), 0.7, color='white')
+
+        # Give color names
+        wedges, texts = plt.pie(size, labels=percents, colors=['#e75a3b','#fa9e5d','#faf8c1','#d7eeec','#81b5d5','#3f58a6'])
+        p = plt.gcf()
+        p.gca().add_artist(my_circle)
+
+        plt.legend(wedges, names,
+                title="How Soon Will We Achieve This",
+                loc="center left",
+                bbox_to_anchor=(1.2, -0.3, 0.5, 1))
+
+        # Show the graph
+        st.header("The Earliest We Will Understand the Architecture and Structure of the Brain Sufficiently to Create Machine Simulation of Human Thought")
+        st.pyplot(fig)
 
 
 def user_selection(df):
@@ -926,6 +1030,12 @@ def render_references():
     - Muller, Vincent and Bostrom, Nick. Future Progress in Artificial Intelligence: A Survey of Expert Opinion. (2016).
     - Webb, Rick. [Superintelligence and Public Opinion.](https://shift.newco.co/2017/04/24/superintelligence-and-public-opinion/) NewCo Shift. (2017).
     - Baobao Zhang & Allan Dafoe Artificial Intelligence, American Attitudes and Trends https://governanceai.github.io/US-Public-Opinion-Report-Jan-2019/addresults.html
+    - Timothy Lee B, Self-Driving Car Article, 2018 https://arstechnica.com/cars/2018/04/the-way-we-regulate-self-driving-cars-is-broken-heres-how-to-fix-it/
+    - Brain png image, https://www.cleanpng.com/png-drawing-cartoon-character-human-brain-7352936/
+    - Box png image, https://toppng.com/free-image/cardboard-box-PNG-free-PNG-Images_30993
+    - Spedomoter png image, https://www.pngkey.com/pngs/speedometer/
+    - Paul Reber, Human Brain Storage, 2010, https://www.scientificamerican.com/article/what-is-the-memory-capacity/
+    - EU Data Eurostat, 2021, https://ec.europa.eu/eurostat/web/main/data/database
     '''
 
 # -----------------------------------------------------------------------------

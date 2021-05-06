@@ -130,7 +130,7 @@ def movies(year):
                  "2015":"Another shift in perception as the feelgood movie, Chappie, came out in theaters.  If a robot can feel, do we feel safer around them?",
                  "2016":"An indie film about how technology is supplanting humans.  Did the small scale of this movie mean that the perception only mildly drop?",
                  "2017":"Cult classic, BladeRunner, came out in the early 80's and was a movie about a dystopian future.  This sequel came out in 2017 and increased public perception.  Did the love of a continuation of a cult classic offset fear toward AI?",
-                 }
+                 "2020":""}
     col1, col2 = st.beta_columns([3,5])
     if year in years:
         with col1:
