@@ -118,6 +118,94 @@ def render_intelligence_section():
     Second, we need to impress upon readers just how vast the spectrum of intelligence may actually be. This will likely take the form of a zoom-able plot similar to that in Sam Harris' TED talk (cited below) where we first show the relative distinction between "smart" people and "dumb" people, and then compare this distinction with what a machine intelligence might achieve relative to a "smart" person - the relationship is exponential.
     '''
 
+def magnitude_viz_speed(chart_type):
+    speeds = pd.DataFrame([
+            {'Speed': 300000000, 'Type': 'Computer Signals', 'row': 1},
+            {'Speed': 18000, 'Type': 'F35 Fighter Jet', 'row': 2},
+            {'Speed': 15000, 'Type': 'Commericial Airline', 'row': 3},
+            {'Speed': 150, 'Type': 'Human Being Biological Axons', 'row': 4}
+            ])
+
+    speeds['Log Speed'] = np.log(speeds['Speed'])
+
+    if chart_type == "Speed":
+        speed_viz = alt.Chart(speeds).mark_bar().encode(
+                x=alt.X('Speed:Q', title = "Speed (m/s)"),
+                y=alt.Y('Type:O', title = None),
+                color=alt.Color('Type:O',scale=alt.Scale(scheme="redyellowblue")),
+                tooltip=[alt.Tooltip('Type:O'), alt.Tooltip('Speed:Q')]
+        ).properties(
+            width=30000,
+            height=400,
+        ).properties(title= {
+                    "text": ["Comparing Speeds"], 
+                    "subtitle": "When directly comparing various objects, it is difficult to visually see the difference between the slower objects",
+                }
+        )
+    else:
+        speed_viz = alt.Chart(speeds).mark_bar().encode(
+                x=alt.X('Log Speed:Q', title = "Logarithmic Values of Various Speed (m/s)"),
+                y=alt.Y('Type:O', title = None),
+                color=alt.Color('Type:O',scale=alt.Scale(scheme="redyellowblue")),
+                tooltip=[alt.Tooltip('Type:O'), alt.Tooltip('Speed:Q'), alt.Tooltip('Log Speed:Q')]
+        ).properties(
+            width=10000,
+            height=400,
+        ).properties(title= {
+                    "text": ["Comparing Logarithmic Speeds"], 
+                    "subtitle": "In order to actually visually difference between some of the slower objects, we must convert via logarithm",
+                }
+        )
+    
+    speed_viz = speed_viz.configure_title(
+        fontSize=30,
+        font="IBM Plex Sans",
+        anchor='start'
+    )
+
+    return speed_viz
+
+
+def magnitude_viz_brain():
+    source = pd.DataFrame([
+                {'count': 1, 'Type': 'computer processor', 'row': 1},
+                {'count': 1000, 'Type': '1000 human beings', 'row': 2},
+                {'count': 1000, 'Type': '1000 human beings', 'row': 3},
+                {'count': 1000, 'Type': '1000 human beings', 'row': 4},
+                {'count': 1000, 'Type': '1000 human beings', 'row': 5},
+                {'count': 1000, 'Type': '1000 human beings', 'row': 6},
+                {'count': 1000, 'Type': '1000 human beings', 'row': 7},
+                {'count': 1000, 'Type': '1000 human beings', 'row': 8},
+                {'count': 1000, 'Type': '1000 human beings', 'row': 9},
+                {'count': 1000, 'Type': '1000 human beings', 'row': 10},
+                {'count': 1000, 'Type': '1000 human beings', 'row': 11}
+                ])
+
+    source['emoji'] = [{'1000 human beings': '🛉', 'computer processor': '💻'}[t]*int(cnt) for t,cnt in source[['Type', 'count']].values]
+    source.head()
+
+    mag_viz = alt.Chart(source).mark_text(size=30, align='left').encode(
+            alt.X('count:O', axis=None, scale=alt.Scale(range=[0,100])),
+            alt.Y('row:O', axis = None),
+            alt.Text('emoji:N')
+        ).properties(width=20000, height=400
+        ).transform_calculate(
+            value='0'
+        ).properties(title= {
+            "text": ["Another Look at Clock Speed Magnitudes"], 
+            "subtitle": "Each human icon is equivalent to the combined frequency of 1000 human beings. Scroll to see the full impact.",
+           }
+        )
+
+    mag_viz = mag_viz.configure_title(
+        fontSize=30,
+        font="IBM Plex Sans",
+        anchor='start'
+    ).configure(background='#FFFFFF')
+    
+    return(mag_viz)
+
+
 def render_substrate_section():
     """
     Render the substrate distinction section of the paradigm-shift chapter.
@@ -133,19 +221,32 @@ def render_substrate_section():
 
     st.sidebar.header("The Potential of Mechanical Minds")
     st.sidebar.write("Select other options to understand the scale of the differences between a Human Being and a Computer")
-    scale_opt = st.sidebar.selectbox("Select an option", ("Brain", "Speed", "Storage"))
-    if scale_opt == "Brain":
+    scale_opt = st.sidebar.selectbox("Select an option", ("Frequency", "Speed", "Storage"))
+
+    if scale_opt == "Frequency":
+        alt_brain = st.sidebar.radio("Look at an alternative magnitude visualization", ("-", "Alternative Magnitude"))
         '''
         - Frequency: Biological neruons fire at 20Hz. The clock speed in your run-of-the-mill laptop is 2GHz. This is a 10,000,000x difference, or seven orders of magnitude. Choose the brain type below (Human, Computer) to see the vast difference between the combined freqneucy of 1000x human brains and that of a typical processor.
         '''
         human_brain = Image.open('img/brain.png')
         brains = {
-            "1000x Human": [20, "1000x Human Brain"],
-            "Typical Processor": [700, "Typical Processor"],
+            "100,000x Human": [10, "100,000x Human Brain"],
+            "500,000x Human": [50, "500,000x Human Brain"],
+            "1,000,000x  Human": [100, "1,000,000x Human Brain"],
+            "2,500,000x  Human": [250, "2,500,000x Human Brain"],
+            "5,000,000x Human": [500, "5,000,000x Human Brain"],
+            "7,500,000x Human": [750, "7,500,000x Human Brain"],
+            "Typical Processor": [1000, "Typical Processor"]
         }
-        brain = st.selectbox("Select your frequency.", list(brains.keys()))
+        brain = st.select_slider("Select your frequency.", list(brains.keys()))
         st.image(human_brain, caption=brains[brain][1], output_format='PNG', width=brains[brain][0])
+        '''
+        '''
+        if alt_brain == "Alternative Magnitude":
+            st.write(magnitude_viz_brain())
+        
     elif scale_opt == "Speed":
+        alt_speed = st.sidebar.radio("Look at alternative magnitude visualizations", ("-", "Speed", "Logarithim of Speed"))
         '''
         - Speed: Signals propagate in biological axons at ~150 m/s. The same signals propagate at the speed of light within an integrated circuit. In this domain, the computer vastly outperforms the human again.
         '''
@@ -159,19 +260,35 @@ def render_substrate_section():
             "F35 Fighter Jet": speedF35,
             "Typical Processor": speedprocessor,
         }
-        speed = st.selectbox("Select your speed.", list(speeds.keys()))
+        speed = st.select_slider("Select your speed.", list(speeds.keys()))
         st.image(speeds[speed], output_format='PNG')
+
+        if alt_speed == "Speed":
+            st.write(magnitude_viz_speed(alt_speed))
+        elif alt_speed == "Logarithim of Speed":
+            st.write(magnitude_viz_speed(alt_speed))
+
     else:
         '''
         - Capacity: The human cranium imposes tight size limitations on our brains. A mechanical mind that implements a machine intelligence has no such size restrictions. If we look at the typical human brain it can hold on average 2.5 million Gigabytes, whereas a small cloud facility holds about 400 million Gigbytes with all servers leveraged.
         '''
-        storagehuman = Image.open('img/storagehuman.png')
-        storagecomputer = Image.open('img/storagecomputer.png')
+        storagehuman = Image.open('img/HumanStorage.png')
+        storage4 = Image.open('img/4ServerStorage.png')
+        storage9 = Image.open('img/9ServerStorage.png')
+        storage16 = Image.open('img/16ServerStorage.png')
+        storage25 = Image.open('img/25ServerStorage.png')
+        storage81 = Image.open('img/81ServerStorage.png')
+        storage156 = Image.open('img/156ServerStorage.png')
         storages = {
             "Human Storage": storagehuman,
-            "Small Cloud Facility Storage": storagecomputer,
+            "4x 2U Server Rack": storage4,
+            "9x 2U Server Rack": storage9,
+            "16x 2U Server Rack": storage16,
+            "25x 2U Server Rack": storage25,
+            "81x 2U Server Rack": storage81,
+            "156x 2U Server Rack": storage156,
         }
-        storage = st.selectbox("Select your storage capacity.", list(storages.keys()))
+        storage = st.select_slider("Select your storage capacity.", list(storages.keys()))
         st.image(storages[storage], output_format='PNG')
     
     
@@ -213,10 +330,10 @@ def render_popular_perceptions_section():
     '''
     With the prevalence of research and popular movies about Artificial Intelligence, it would be safe to say that the public has some thoughts and opinions on Artificial Intelligence.
     
-    Did you know that there were 182 movies that featured Artificial Intelligence in some form from 2000-2020?  With provocative titles such as "AI Amok (2020)" and "Transformers: Age of Extinction (2014), was public perception of AI affected by these movies?  Let's Explore.
+    Did you know that there were 182 movies that featured Artificial Intelligence in some form from 2000-2020?  With provocative titles such as "AI Amok (2020)" and "RoboCop (2014), was public perception of AI affected by these movies?  Let's Explore.
     
     We pulled all news articles from Nature.com from 2000-2020 that featured AI.  These articles do not include any journal or academic publications.
-    As you can see below the percentage of articles that are positive is almost consistently 100%.  Even looking at the overall perception, which is actually pretty close to neutral in all years, you can TODO:ADD Narrative
+    As you can see below the percentage of articles that are positive is almost consistently 100%.  Even looking at the overall perception, which is actually pretty close to neutral in all years, one possible explanation is that this media company is very good at keeping a neutral tone in this topic.  However, there are a few popular movies that may have affected the public perception of Artificial Intelligence and caused the sentiment analysis of these articles to trend toward neutral from the positvive.
     '''
     ts.public()
 
@@ -230,7 +347,18 @@ def render_professional_perceptions_section():
 
     How do we characterize the nature of research work on machine intelligence?
     '''
+    ts.academic()
+    topics = ["Language Models",
+              "Cloud-Based ML Frameworks",
+              "AI Based Multi-Lingual Translation",
+              "Autonomous AI Decision Making",
+              "Multi-Agent Pathfinding"]
 
+
+    st.sidebar.header("Tracking Academic Research")
+    st.sidebar.write("Select each option to observe the shift in research priorities.")
+    pTopic = st.sidebar.selectbox("Select an option", topics)
+    ts.topicTimeline(pTopic)
     '''
     TODO: Big idea for this section is a text analysis of academic work on machine intelligence. Specifically, the plan is to do the following:
     - Scrape PDF documents from the online Journal of Artificial Intelligence Research
@@ -578,7 +706,7 @@ def render_world_powers_section():
     '''
     ### Global Response
 
-    What are the sentiments of the world powers regarding artificial intelligence regulation policy?
+    What are the sentiments of the world powers, speiciaflly the EU Countries regarding artificial intelligence regulation policy?
     '''
 
     # Read in data as csv
@@ -654,7 +782,7 @@ def render_world_powers_section():
     st.write(joint_chart)
 
     '''
-    From the chart above we can see that nearly every major world power agrees that AI imposes enough risk that it should be regulated. There is not one outlier nation that does not think that AI and Robotics are begning to play in increasingly dangerous or volatile role.
+    From the chart above we can see that nearly every major EU power agrees that AI imposes enough risk that it should be regulated. There is not one outlier nation that does not think that AI and Robotics are begning to play in increasingly dangerous or volatile role. However, when we inspect each country we can see that each country has had a non-significant amount of cyberseuciryt incidents. Additionally, a large amount of corporations in each country do not have any kind of digital saftey training at work whatsoever. Does this not foreshadow the next catastrophic event? AI is increasing at a rapid rate, yet safety does not seem to be a major concern.
     '''
 
 def render_responses_chapter():
