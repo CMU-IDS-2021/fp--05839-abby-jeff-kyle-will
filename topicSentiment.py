@@ -99,11 +99,11 @@ def academic():
     year = st.select_slider("Select the year to see the popular topics in AI research.", list(years.keys()))
     nData = acData[int(year)]
     source = pd.DataFrame({
-        'Year' : nData.T,
+        'Number of Topics' : nData.T,
         'Topics' : acData['Topics']
     })
     acChart = alt.Chart(source).mark_bar().encode(
-        x=alt.X('Year:Q', scale=alt.Scale(domain=(0, 20))),
+        x=alt.X('Number of Topics:Q', scale=alt.Scale(domain=(0, 20))),
         y=alt.Y('Topics:N'),
         color=alt.Color("Topics:N", scale=alt.Scale(scheme='redyellowblue'))).properties(title="What topics are AI researchers focusing on?")
     st.altair_chart(acChart, use_container_width=True)
