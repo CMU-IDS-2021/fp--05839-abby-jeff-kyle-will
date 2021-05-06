@@ -104,27 +104,46 @@ Examples of the visualizations we produced for each chapter of our narrative are
 
 #### Defining Machine Intelligence
 
+The timeline we created for this chapter of the narrative is pictured below.
+
 ![Machine Intelligence Milestones](report-img/Timeline.PNG)
 
 #### Machine Intelligence as a Paradigm Shift
 
+The chart we produced to convey the scale of the spectrum of intelligence is pictured below.
+
 ![Spectrum of Intelligence](report-img/Spectrum.PNG)
+
+Some examples of the magnitude comparisons we visualized are pictured below.
+
 ![Magnitude - Frequency](report-img/MagnitudeFrequency.JPG)
 ![Magnitude - Speed](report-img/MagnitudeSpeed.JPG)
 
 #### Evolving Perceptions of Machine Intelligence
 
+An example of our analysis of popular coverage of machine intelligence is pictured below.
+
 ![Popular Coverage](report-img/PopularCoverage.JPG)
+
+An example of our analysis of professional coverage of machine intelligence is pictured below.
+
 ![Professional Attention](report-img/ProfessionalAttention.JPG)
 
 #### Prospects for Machine Intelligence
 
+Some examples of our visualization of the results of the survey of expert opinion are pictured below.
+
 ![Expert Sentiment](report-img/ExpertSentiment.JPG)
 ![Basic Operation Achievement](report-img/BasicOperationAchievement.JPG)
+
+Some examples of the visualization of the results of the survey of public opinion are pictured below.
+
 ![Comparing Odds](report-img/ComparingOdds.JPG)
 ![Regional Pursuit of Advancement](report-img/RegionalPursuitAdvancement.JPG)
 
 #### Responding to Potential Risks
+
+The visualization we created to describe the state of global response to machine intelligence is pictured below.
 
 ![Global Response](report-img/GlobalResponse.PNG)
 
