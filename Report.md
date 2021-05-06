@@ -17,6 +17,13 @@
 
 Machine intelligence, and the prospect of machine superintelligence, is one of the most consequential issues of our generation. While it stands to reason that machine intelligence might prove remarkably beneficial to humanity, there is also a non-negligible probability that its inception might spell the end of life as we know it.
 
+On a more general level, the problem we address in this project extends beyond just the field of machine intelligence to a broader issue. Why is machine intelligence a difficult topic about which to communicate effectively? We believe the answer lies in the following observations:
+
+- Machine intelligence is a topic that demands some level of technical competence to fully understand.
+- Machine intelligence has great potential for disruptive effects in our society. People (in a general sense) are naturally unreceptive to radical ideas that predict massive changes in their mode of living. Furthermore, expectations regarding machine intelligence have been warped by continued attention to relatively-unimportant aspects of the field in the public sphere.
+
+Machine intelligence is not the only topic that meets these criteria. Indeed, many other important issues facing humanity appear to present a similar character: resource depletion and ecological destruction and nuclear weapons development provide two additional examples. How do we communicate effectively about topics like this? Topics that obviously deserve attention and demand that we bring our keenest intellect to bear upon them, yet actively resist treatment that is unhindered by bias?
+
 ### Related Work
 
 One of the primary reasons that we selected this topic is the inadequacy of prior work that we perceive in this area. This is not to say that all existing sources of information on machine intelligence are inadequate; on the contrary many high-quality sources exist, and we used several of these to develop our application. The issue lies in the degree of accessibility of these sources, or rather their lack of accessibility. Most work on the topic of machine intelligence is in the form of journal articles, academic papers, or full-length books. Journal articles and academic papers are largely inaccessible to a popular audience by their very nature - they are intended to be read by an audience that is already familiar with the field. Books, while intended for a popular audience, often suffer lower readership than other potential mediums because of the greater investment of time and effort they require. In this project we aim to begin to fill this gap by combining the rigor the aforementioned sources with a greater degree of accessibility.
@@ -69,7 +76,12 @@ What has the audience learned from your work? What new insights or practices has
 
 ### Future Work
 
-A 
+We are pleased with both the analyses we performed and the visualizations we produced on the basis of these analyses in our finished product. Much work remains to be done on the topic of effective communication of the current state and future implications of machine intelligence. We identify the following potential areas for future work:
+
+- Additional Popular Data Sources: TODO
+- Additional Academic Data Sources: TODO
+- Narrow Intelligence: TODO
+- Decision Theory: TODO
 
 ### References
 

@@ -71,11 +71,14 @@ def render_definition_chapter():
     '''
     # Defining Machine Intelligence
 
-    What do we mean by "machine intelligence"? The definition of the term has evolved somewhat with the technical capabilities in the field.
+    What do we mean by "machine intelligence"? The definition of the term has evolved somewhat with the technical capabilities in the field, but for the purposes of our exploration, we will simply use the term to mean *the realization of general intelligence capabilities in non-biological substrate*. There are two salient components of this definition:
+    - We are concerned with _general_ intelligence; the other side of the spectrum, _narrow_ intelligence, poses its own set of risks and opportunities, but these are not our focus here
+    - The substrate in which intelligence is achieved is immaterial; this implies that the term "machine" is used only loosely here, and that the form factor in which machine intelligence is realized might be far from what we might expect
     '''
 
     '''
-    Machine intelligence may seem like a distinctly modern phenomenon, but research into the subject has been going on for nearly seventy years. Some of major milestones related to the development of machine intelligence are highlighted in the timeline below.
+    ### A Brief History
+    Machine intelligence may seem like a distinctly modern phenomenon, but research into the subject has been going on for nearly seventy years. To get a better idea of what machine intelligence is and where it came from, we highlight some of the major milestones in the development of machine intelligence in the timeline below.
     '''
 
     path = DATA_PATH + TIMELINE_DATA_FILENAME
@@ -84,6 +87,12 @@ def render_definition_chapter():
 
     # Render the timeline
     timeline(data, height=500)
+
+    '''
+    ### Cars, Cats, and Playing Games
+
+    After examining the events in the timeline above, one might be left with the impression that machine intelligence is little more than a novelty. We see that the technology is capable of helping us in our daily endeavors, perhaps by recognizing cat pictures and driving us where we need to go. While it does appear that machine intelligence has the capacity to surpass humans, it appears this phenomenon only occurs in narrow, game-playing settings that are hardly of interest to most. It is a long way from the chessboard to global domination; is machine intelligence truly a technology with vast disruptive potential?
+    '''
 
 # -----------------------------------------------------------------------------
 # Chapter: Paradigm
@@ -133,8 +142,7 @@ def spect_intel(slide_val, df, pointsDf):
     finalchart = finalchart.properties(
                 title= {
                     "text": ["The Spectrum of Intelligence"], 
-                    "subtitle": "Here the blue line represents the non-linear growth of intelligence and where we compare with others on it. " +
-                    "Credit Sam Harris and his 2016 TED talk",
+                    "subtitle": "Will Humans always be the Smartest Things Around?"
                 }
             ).configure_title(
                     fontSize=40,
@@ -148,8 +156,8 @@ def gen_exp():
     pointsDf = pd.DataFrame([
         {'x': 1, 'Type': 'Chicken'},
         {'x': 5, 'Type': 'Average Human'},
-        {'x': 6, 'Type': 'Aboslute Best of Humanity'},
-        {'x': 9, 'Type': 'Where AI is Heading'}
+        {'x': 6, 'Type': 'John von Neumann'},
+        {'x': 9, 'Type': 'Machine Superintelligence'}
         ])
     pointsDf['exp'] = np.exp(pointsDf['x'])
     return df, pointsDf
@@ -162,22 +170,19 @@ def render_intelligence_section():
     '''
     ### The Primacy of Intelligence
 
-    Why is intelligence a matter of consequence?
-
-    TODO: This section will contain an interactive visualization regarding the shape of the spectrum of intelligence, and its importance in achieving those things we value. Most people are likely walk around with two implicit assumptions: 
-    - The spectrum of intelligence is in some way _observable_; we think that we can make sense of the full spectrum of intelligence
-    - Humans stand at or near the end of the spectrum of intelligence; we are the smartest things about which we have any knowledge
-
-    The assumptions are very likely invalid. There is no reason to think that humans stand anywhere near the zenith of what is possible, nor is there reason to believe the intelligence curve does not extend far beyond what we might currently be able to observe.
-
-    First, we need to establish the fact that intelligence is what distinguishes us from animals over which we (largely) dominate. For instance, apes are far stronger than humans pound-for-pound, yet the fate of the apes on Earth is almost entirely at the discretion of humanity, rather than in the hands of the apes themselves. QUESTION: How might we visualize this distinction?
-
-    Second, we need to impress upon readers just how vast the spectrum of intelligence may actually be. This will likely take the form of a zoom-able plot similar to that in Sam Harris' TED talk (cited below) where we first show the relative distinction between "smart" people and "dumb" people, and then compare this distinction with what a machine intelligence might achieve relative to a "smart" person - the relationship is exponential.
+    **Intelligence Allows us to get What we Want** Why is intelligence a matter of consequence? An answer to this question requires that we recognize that intelligence is the foundational source of power and control in the world. Intelligence is what allows us to attain the things we value in this world. Consider for example the diction between humans and the many members of the animal kingdom over which we (largely) dominate. Apes are far stronger than humans, pound-for-pound. Tigers are faster and have much sharper teeth. Ants represent a far larger proportion of the Earth's overall biomass. Yet in each of these cases, the fate of the this animal on Earth is almost entirely at the discretion of humanity, rather than in the hands of the animal itself. The common factor in each comparison is human intelligence - the fact that we are the most intellectually-competent species around.
+    
+    **Human Intelligence is Nothing Special** So humans are the smartest species around, will this always be the case? There is no reason to think that this is so, or even that humans stand anywhere _near_ the zenith of what is possible. In fact, there is reason to believe that the intelligence curve extends far beyond what we might currently be able to observe and understand. What would be the implications for humanity if the spectrum of intelligence actually resembles something like the visualization below?
     '''
+
     df, pointsDf = gen_exp()
-    slider_spect_intelligence = st.slider("Slide to reveal the shape of the spectrum of intelligence",
+    slider_spect_intelligence = st.slider("Slide to Explore the Shape of the Intelligence Spectrum",
                 0, 9, 0)
     st.write(spect_intel(slider_spect_intelligence, df, pointsDf))
+
+    '''
+    This visualization is not meant to actually quantify potential differences in level of intelligence, but merely highlight the fact that we (humans) might not even be able to conceive of the types of intelligence that are possible because of our own narrow viewpoint. However, is there any reason to believe that machine intelligence stands a chance of progressing to this point?
+    '''
 
 
 def magnitude_viz_speed(chart_type):
@@ -360,9 +365,9 @@ def render_paradigm_chapter():
     """
 
     '''
-    # Machine Intelligence: A Paradigm Shift
+    # A Paradigm Shift
 
-    Based on the milestones timeline above, its clear that machine intelligence has demonstrated its skill at defeating humans in the games we play. This may be demoralizing for top players, and makes for an interesting couple of days of news coverage, but is this really cause for concern or trepidation? In other words, one might be skeptical of the potential of machine intelligence on the basis of events that have been hailed a major milestones in its development history. Is it really that big of a deal?
+    Based on the milestones timeline above, its clear that machine intelligence has demonstrated its prowess in select areas of human endeavor. This may be demoralizing for the world's Chess and Go players, and makes for an interesting couple of days of news coverage, but is this really cause for concern or trepidation? In other words, one might be skeptical of the potential of machine intelligence on the basis of events that have been hailed a major milestones in its development history. Is it really that big of a deal?
 
     The answer is an unequivocal 'yes', but justification requires some additional explanation.
     '''
