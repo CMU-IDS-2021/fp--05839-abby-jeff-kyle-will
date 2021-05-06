@@ -292,7 +292,7 @@ def render_substrate_section():
     if scale_opt == "Frequency":
         alt_brain = st.sidebar.radio("Look at an alternative magnitude visualization", ("-", "Alternative Magnitude"))
         '''
-        - Frequency: Biological neruons fire at 20Hz. The clock speed in your run-of-the-mill laptop is 2GHz. This is a 10,000,000x difference, or seven orders of magnitude. Choose the brain type below (Human, Computer) to see the vast difference between the combined freqneucy of 1000x human brains and that of a typical processor.
+        - Frequency: Biological neruons fire at 20Hz. The clock speed in your run-of-the-mill laptop is 2GHz. This is a 10,000,000x difference, or seven orders of magnitude. Choose the brain type below (Human, Computer) to see the vast difference between the combined frequency of 1000x human brains and that of a typical processor.
         '''
         human_brain = Image.open('img/brain.png')
         brains = {
@@ -576,7 +576,14 @@ def render_expert_sentiment_section():
     matter experts in artificial and machine intelligence. These questions were not only attempting to gauge the likelihood of achieveing
     high level machine intelligence (HLMI), but also to assess the outcome of such an achievement if it was to occur.
 
-    Here we highlight some of the key results from the 2016 survey. 
+    Here we highlight some of the key results from the 2016 survey. The survey had 550 participants hand selected due to their background.
+    Participants included participants of the conference on “Philosophy and Theory of AI”, participants of the conferences of “Artificial General Intelligence”,
+    members of the Greek Association for Artificial Intelligence, and individuals from the 100 ‘top authors in artificial intelligence’ by ‘citation’.
+    Perhaps the most interesting result from the survey was the uncertainty among experts of the prospect of HLMI and its consequences.
+
+    Below is a slidebar that ranges from 0 to 100. It represents the probability of existential catastrophe if we as a human race develop
+    high level machine intelligence. We want you to guess what you think this probability is by manipulating the slider. Then, you can 
+    compare your guess to the experts as well as see a breakdown of opinion by background.
 
     '''
     slider_doom = st.slider("Guess the likelihood that if HLMI comes into existence that it will result in an existential catastrophe for the human race.",
