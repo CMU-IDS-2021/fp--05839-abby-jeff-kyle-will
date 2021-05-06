@@ -143,6 +143,7 @@ def spect_intel(slide_val, df, pointsDf):
                 title= {
                     "text": ["The Spectrum of Intelligence"], 
                     "subtitle": "Will Humans always be the Smartest Things Around?"
+
                 }
             ).configure_title(
                     fontSize=40,
@@ -567,19 +568,30 @@ def render_expert_sentiment_section():
     '''
     ### Expert Sentiment on Machine Intelligence
 
-    TODO: This section will visualize some of the results of the 2016 survey of expert opinion on machine intelligence. This is an important section because it is one of the primary data points (aside from the professional analysis section above) that reveals just how high the degree of uncertainty is in the expert community.
+    The conjecture that **every aspect of learning** can be simulated by a machine if it is describe precisely enough forms the base of
+    the pursuit of artificial intelligence. This concept helps define how current research in AI approaches continued development in the field.
+    But, what does achieving true AI and beyond that super intelligence actually mean? And how soon can we expect to see it?
 
-    QUESTION(s):
-    - The survey has a number of interesting questions, which ones do we want to visualize? All of them, accessible via dialog?
-    - What is the most effective form factor for these charts?
+    This became the premise for a series of surveys and questionaries created by Vincent Muller and Nick Bostrom and directed at subject
+    matter experts in artificial and machine intelligence. These questions were not only attempting to gauge the likelihood of achieveing
+    high level machine intelligence (HLMI), but also to assess the outcome of such an achievement if it was to occur.
 
-    HLMI = Human Level Machine Intelligence
+    Here we highlight some of the key results from the 2016 survey. 
+
     '''
     slider_doom = st.slider("Guess the likelihood that if HLMI comes into existence that it will result in an existential catastrophe for the human race.",
                 0.0, 100.0, 0.0)
     if slider_doom != 0.0:
-        st.write("You guessed " + str(slider_doom) + "%. Across a variety of experts, the predicted likelihood is around 18%.")
+        st.write("You guessed " + str(slider_doom) + "%. Across a variety of experts, the predicted likelihood of high level machine intelligence resulting in existential catastrophe is around 18%.")
         st.write(outlooks())
+        '''
+        Whether the experts placed their predictions higher or lower than yours, the larger takeaway is this: **the probability is non-zero**. In fact,
+        it is roughly one in five. The debate about whether we will ever reach HLMI is unresolved among experts. Some
+        believe HLMI and other critical aspects that would be required to achieve HLMI will never exist. Others feel we could see these
+        achievements within a few decades. You can explore more with the sidebar. 
+
+        One piece is absolutely clear. **We have no idea what the consequences of high level machine intelligence will be**.
+        '''
 
     #Sidebar
     st.sidebar.header("Expert Sentiment on Machine Intelligence")
@@ -588,6 +600,13 @@ def render_expert_sentiment_section():
         ("-", "What Will Impact the Development of HLMI", "Simulate Learning", "Basic Operations", "Brain Architecture"))
 
     if hlmi == "What Will Impact the Development of HLMI":
+        '''
+        '''
+        '''
+        Advancements in every field are made daily, but only some will be able to directly contribute to our development of high level machine 
+        intelligence. Below are a variety of fields that experts feel could directly contribute to the body of knowledge required to achieve
+        HLMI. Note percenatges are not normalized.
+        '''
         st.write(dev_hmli())
     elif hlmi == "Simulate Learning":
         names = ['Today','Within 10 years', 'Between 11 and 25 years', 'Between 26 and 50 years', 'More than 50 years', 'Never']
@@ -613,6 +632,10 @@ def render_expert_sentiment_section():
         # Show the graph
         st.header("The Earliest Machines Will be Able to Simulate Learning and Every Other Aspect of Human Intelligence")
         st.pyplot(fig)
+        '''
+        While no one believes we can currently simulate true human-like learning, more than half of the experts believe it is achieveable.
+        This is a foundational building block for achieving HLMI, and how a machine could rapidly outpace the abilities of any human. 
+        '''
     
     elif hlmi == "Basic Operations":
         names = ['Today','Within 10 years', 'Between 11 and 25 years', 'Between 26 and 50 years', 'More than 50 years', 'Never']
@@ -638,6 +661,11 @@ def render_expert_sentiment_section():
         # Show the graph
         st.header("The Earliest We Will Understand the Basic Operations of the Human Brain Sufficiently to Create Machine Simulation of Human Thought")
         st.pyplot(fig)
+        '''
+        The basic operations of the brain, though still immensely complex, are likely the most feasible to achieve. Some experts believe
+        we already have a sufficient enough understanding to percisely describe and thus replicate these operations today. This achievement is
+        the first major step towards HLMI.  
+        '''
 
     elif hlmi == 'Brain Architecture':
         names = ['Today','Within 10 years', 'Between 11 and 25 years', 'Between 26 and 50 years', 'More than 50 years', 'Never']
@@ -663,6 +691,11 @@ def render_expert_sentiment_section():
         # Show the graph
         st.header("The Earliest We Will Understand the Architecture and Structure of the Brain Sufficiently to Create Machine Simulation of Human Thought")
         st.pyplot(fig)
+        '''
+        The architecture of the brain, still eludes our full understanding though most experts believe we will reach a point of full 
+        understanding in the next few decades. This would provide us insight into how the organizational control of our brain is structured,
+        and will likely be key in developing machine intelligence beyond the capacity of our own in all regards, not just in a few areas. 
+        '''
 
 
 def user_selection(df):
@@ -692,11 +725,11 @@ def user_selection(df):
                     if yes_or_no == "Yes":
                         y_percent = ((selection.at[0, "Yes"])*100).round(1)
                         st.write("You agreed with " + str(y_percent) + " percent of individuals who are " + gender_dict.get(gender_at_birth) + 
-                        " and are in the age bracket of " + age_range + " that we should press on despite the risks")
+                        " and are in the age bracket of " + age_range + " that we should press on despite the risks.")
                     elif yes_or_no == "No":
                         n_percent = ((selection.at[0, "No"])*100).round(1)
                         st.write("You agreed with " + str(n_percent)  + " percent of individuals who are " + gender_dict.get(gender_at_birth) + 
-                        " and are in the age bracket of " + age_range +  " that jeopardizing humanity to that degree is simply not worth it")
+                        " and are in the age bracket of " + age_range +  " that jeopardizing humanity to that degree is simply not worth it.")
                     
                     # Build and return Bar chart
                     graph_title = "Decision Point: Odds " + odds
@@ -718,7 +751,13 @@ def user_selection(df):
 
                     col2.write(basic_bar)
 
-                    st.write("Now feel free to explore more about the how the United States public responded to the survey using the sidebar.")
+                    '''
+                    Even in the most extreme cases, many feel a case can be made to keep exploring. Existential risks, and by extention the true extinction of 
+                    the human race, is difficult to fathom. Moreover, human beings are notoriously bad a conceptually understanding odds. It is possible
+                     with a rewording or restructuring of the question, the outcome may be different. But, as long as a non-trivial portion of society 
+                     continues to support unburdened progress with disregard for the risks, humankind will remain **at the mercy of the unintended consequences - good or bad**. 
+                     Now feel free to explore more about the how the United States public responded to the survey using the sidebar.")
+                    '''
 
 def regions_viz(oddsDf, odds):
     states = alt.topo_feature(vega_datasets.data.us_10m.url, 'states')
@@ -845,6 +884,14 @@ def render_user_choice_section():
         "Select one of the odds to see how different regions across the United States answered the survey question.",
         ("-", "1 in 2", "1 in 3", "1 in 4", "1 in 5", "1 in 10"))
     if region_map_select != "-":
+        '''
+        '''
+        '''
+        Below is a map of the United States broken into regions to better observe how the distribution of beliefs about the path
+        humanity should take changes as one traverses the country. It is intereseting to see distinct differences in the regions that
+        are in some cases fairly extreme. Various factors play a role in why these differences exist from ethnic backgrounds to religion. 
+        Colors indicate the proportion of the population in each region that believe we should **not** pursue advancement and jeopardize the human race.
+        '''
         if region_map_select == "1 in 2":
             st.write(regions_viz(region2, region_map_select))
         elif region_map_select == "1 in 3":
@@ -869,6 +916,12 @@ def render_user_choice_section():
                                 ["Female", "Male"])
 
         if comparing_select_age != [] and comparing_select_gender != []:
+            '''
+            '''
+            '''
+            The graphs here provide further exploration to the bar graph seen after you made your decision about pursuing advancement.
+            Now you can investigate how age, gender, and the odds themselves influence how individuals make their decisions.
+            '''
             #once all options are present, produce the corresponding chart
             comparechart = create_compare_chart(cdf, comparing_select_odd, comparing_select_age, comparing_select_gender)
             st.write(comparechart)
