@@ -1050,6 +1050,9 @@ def render_references():
     - Paul Reber, Human Brain Storage, 2010, https://www.scientificamerican.com/article/what-is-the-memory-capacity/
     - EU Data Eurostat, 2021, https://ec.europa.eu/eurostat/web/main/data/database
     - Richard Waters, Uber crash, 2017, https://www.ft.com/content/89692fee-1181-11e7-80f4-13e067d5072c
+    - Nature, https://www.nature.com
+    - Journal of Artificial Intelligence Research, https://www.jair.org/
+    - Internet Movie Database (IMDb), https://www.imdb.com/
     '''
 
 # -----------------------------------------------------------------------------
