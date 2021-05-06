@@ -86,6 +86,7 @@ The general references that we utilized during our research for this project are
 - Armstrong, Stuart and Bostrom, Nick and Shulman, Carl. [Racing to the Precipice: A Model of Artificial Intelligence Development](http://www.fhi.ox.ac.uk/wp-content/uploads/Racing-to-the-precipice-a-model-of-artificial-intelligence-development.pdf). 2013.
 - Bostrom, Nick. [The Superintelligent Will: Motivation and Instrumental Rationality in Advanced Artificial Agents](https://www.nickbostrom.com/superintelligentwill.pdf). 2012.
 - Bostrom, Nick. [Existential Risks: Analyzing Human Extinction Scenarios and Related Hazards](https://www.nickbostrom.com/existential/risks.html). 2002.
+- Bostrom, Nick. [The Future of Machine Intelligence](https://www.youtube.com/watch?v=8xwESiI6uKA). 2017.
 - Bostrom, Nick. _Superintelligence: Paths, Dangers, Strategies_ 2014.
 - Bostrom, Nick. [What Happens When Our Computers Get Smarter Than We Are?](https://www.youtube.com/watch?v=MnT1xgZgkpk&t=326s) TED Talk. 2015.
 - Harris, Sam. [Can We Build AI Without Losing Control Over It?](https://www.youtube.com/watch?v=8nt3edWLgIg) TED Talk. 2016.
