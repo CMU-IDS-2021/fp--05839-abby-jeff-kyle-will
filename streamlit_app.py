@@ -1079,7 +1079,7 @@ def render_conclusion_content():
     ---
     # Conclusion
     
-    TODO: This conclusion needs to be much more compelling. This concludes our discussion of machine intelligence.
+    This concludes our exploration of machine intelligence. In the narrative above, we saw some of major milestones in the technology's development, along with some accompanying evidence that suggests the disruptive potential it has. Next, we compared coverage of machine intelligence research in popular media with its treatment in academic settings. We then explored the sentiments regarding the long-term prospects of machine intelligence from both expert and non-expert sources. Finally, we examined the current state of the response to advances in machine intelligence in the form of national-level policies.
     '''
     
 # -----------------------------------------------------------------------------
