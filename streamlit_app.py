@@ -344,7 +344,11 @@ def render_professional_perceptions_section():
               "Autonomous AI Decision Making",
               "Multi-Agent Pathfinding"]
 
-    ts.topicTimeline(topics[0])
+
+    st.sidebar.header("Tracking Academic Research")
+    st.sidebar.write("Select each option to observe the shift in research priorities.")
+    pTopic = st.sidebar.selectbox("Select an option", topics)
+    ts.topicTimeline(pTopic)
     '''
     TODO: Big idea for this section is a text analysis of academic work on machine intelligence. Specifically, the plan is to do the following:
     - Scrape PDF documents from the online Journal of Artificial Intelligence Research

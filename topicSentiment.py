@@ -169,5 +169,5 @@ def topicTimeline(topic):
         x= 'Years',
         y='Number of Articles:Q').properties(title="What topics are AI researchers focusing on?")
 
-    st.write(f'Lets look at {topic} over time.')
+    st.write(f'Lets look at {topic} research over time.')
     st.altair_chart(line, use_container_width=True)
