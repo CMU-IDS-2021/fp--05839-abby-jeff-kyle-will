@@ -942,7 +942,6 @@ def render_prospects_chapter():
     ---
     # Prospects for Machine Intelligence
 
-    TODO: Content here.
     '''
 
     render_expert_sentiment_section()
