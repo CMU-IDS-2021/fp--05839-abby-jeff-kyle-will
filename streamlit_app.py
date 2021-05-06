@@ -799,9 +799,9 @@ def render_world_powers_section():
     """
     
     '''
-    ### Global Response
+    ### Global Response and Status
 
-    What are the sentiments of the world powers, speiciaflly the EU Countries regarding artificial intelligence regulation policy?
+    What are the sentiments of the world powers, specifically the EU Countries regarding artificial intelligence regulation policy? Furthermore, what are they doing about it?
     '''
 
     # Read in data as csv
@@ -827,16 +827,7 @@ def render_world_powers_section():
     COUNTRY_VOTES["No Safe Tech Training"] = 100.0 - COUNTRY_VOTES["Safe Tech Training"]
 
     country_selector = alt.selection_multi(fields=["Country"], init=[{"Country":"Hungary"}])
-    
-    # Transform fold is conducted so that we can utilize the stacked bar approach
-    # and analyze the huge discrepanacy between what world powers think
-    
-    '''
-    ### National Stance on AI Safety and Regulation
-    '''
 
-# Transform fold is conducted so that we can utilize the stacked bar approach
-# and analyze the huge discrepanacy between what world powers think
     all_country_data = alt.Chart(COUNTRY_VOTES).mark_bar().encode(
         tooltip=[alt.Tooltip("Country:N", title="Country")], 
         x=alt.X("Agree:Q", title="Percent Representatives that Want AI Regulation", scale=alt.Scale(domain=[0, 100])),
@@ -877,8 +868,28 @@ def render_world_powers_section():
     st.write(joint_chart)
 
     '''
-    From the chart above we can see that nearly every major EU power agrees that AI imposes enough risk that it should be regulated. There is not one outlier nation that does not think that AI and Robotics are begning to play in increasingly dangerous or volatile role. However, when we inspect each country we can see that each country has had a non-significant amount of cyberseuciryt incidents. Additionally, a large amount of corporations in each country do not have any kind of digital saftey training at work whatsoever. Does this not foreshadow the next catastrophic event? AI is increasing at a rapid rate, yet safety does not seem to be a major concern.
+    From the chart above we can see that nearly every major EU power agrees that AI imposes enough risk that it should be regulated. There is not one outlier nation that does not think that AI and Robotics are begning to play in increasingly dangerous or volatile role. However, when we inspect each country we can see that each country has had a non-trivial amount of cyber security incidents. Additionally, a large handful of corporations in each country do not have any kind of digital saftey training at work whatsoever. Does this not foreshadow the next catastrophic event? AI is increasing at a rapid rate, yet safety does not seem to be a major concern. Select the US Case Study option on the sidebar to the left to view first hand how lack of regulation is letting AI get out of hand.
     '''
+
+    st.sidebar.header("Global Respons and Status")
+    case_study_select = st.sidebar.radio("Select the case study to learn more.", ("-", "US Case Study"))
+    if case_study_select == "US Case Study":
+        '''
+        ### US Case Study: Self-Driving Cars and their Lack of Regulation
+        Now that we've taken a look at what our counterparts in the EU believe, let's take a look back at America and a specific policy-case, "Self-Driving Cars". Traditionally, the regulation governing what cars are allowed to make it out onto the roadways is the FMVSS or Federal Motor Vehicle Safety Standards. These laws cover a wide array of aspects. However, they cover nothing to do with self-driving cars such as cyber-attacks, proper testing, software updates, emergency scenarios, etc. In September 2017, the House of Representatives did propose additional requirements to the FMVSS for autonomous cars, however, this proposal did not make it past the Senate. A Presidential Administration largely focused on minimal regulation certainly did not help the issue.
+        '''
+        '''
+        But who would possibly want less regulation on such a dangerous endeavor? 
+        '''
+        '''
+        The answer is businesses and the locations that want to attract them. Two of the hotbeds for self-driving car research are Arizona and our own state Pennsylvania. Contrary to popular belief, the location in Pittsburgh is not solely due to NREC or CMU, but rather Pennsylvania's loose regulations on self-driving car testing. 
+        '''
+        '''
+        You may be surprised to find that several incidents have occurred including an event in 2018 when a self-driving car slammed into an unsuspecting driver. The incidents get much more grave. Looking to make self-driving cars cheaper, Uber disabled what is called a LIDAR system in one of their Arizona vehicles. Without the costly system the car hit and killed a pedestrian. 
+        '''
+        '''
+        So when is enough? Clearly, these businesses only have testing, training, and profits in mind. Perhaps, the local governments do too. Regulation is needed on a larger scale, however, it is largely non-existent. 
+        '''
 
 def render_responses_chapter():
     """
