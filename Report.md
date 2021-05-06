@@ -84,7 +84,21 @@ In the next chapter of our narrative, we consider perceptions of machine intelli
 
 #### Prospects for Machine Intelligence
 
-**Dataset(s)** [Artificial Intelligence, American Attitudes and Trends](https://governanceai.github.io/US-Public-Opinion-Report-Jan-2019/addresults.html)
+In the penultimate chapter of our narrative, we present 
+
+**Dataset(s)**
+- [The Future of Machine Intelligence](https://www.youtube.com/watch?v=8xwESiI6uKA) (expert opinion dataset
+- [Artificial Intelligence, American Attitudes and Trends](https://governanceai.github.io/US-Public-Opinion-Report-Jan-2019/addresults.html) (public opinion dataset)
+
+**Method** Our goal in this section is to communicate two ideas that are critical to our narrative:
+- Experts in machine intelligence research have not reached a consensus on important issues in the field, including the timeline for achieving general machine intelligence.
+- The general public demonstrates a remarkable degree of tolerance for risk of global catastrophe as a result of machine intelligence research and development. The degree of this tolerance various with demographic factors.
+
+To communicate these ideas, we visualize the results of two surveys. The first is a survey of experts in the field of machine intelligence. We utilize a combination of bar charts and donut charts to visualize these results. One point of potential interest here is that our visualization of the results of this survey is significantly more engaging and aesthetically pleasing than the plots produced by the authors of the original survey (we mean no disrespect of course, they simply had different priorities in their work).
+
+The second survey is an interesting one; in it, respondents were asked to consider the prospect of continuing research in the field of machine intelligence, with the knowledge that continuing to do so might lead to one of two outcomes: utopia or destruction of humanity. We present the results of this survey in an interactive manner, by first posing the question to users of our application and only then displaying the results and how they stacked up with other respondents. We believe that users of our application will be impressed by the degree of risk that their neighbors are willing to tolerate when it comes to the topic of machine intelligence and potential human extinction.
+
+Finally, in addition to this interactive treatment, we provide a fine-grained breakdown of the results of the survey based on a variety of demographic factors, including geography.
 
 #### Responding to Potential Risks
 
