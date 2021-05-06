@@ -97,6 +97,71 @@ def render_definition_section():
     What do we mean when we refer to 'machine intelligence'?
     '''
 
+def spect_intel(slide_val, df, pointsDf):
+    points = alt.Chart(pointsDf).mark_circle(
+            color="#ffbc79",
+            size=300,
+            clip=True
+        ).encode(
+            x=alt.X('x', title=None, axis=None, scale=alt.Scale(domain=(0, slide_val+0.1))),
+            y=alt.Y('exp', title=None, axis=None, scale=alt.Scale(domain=(-2, 8105))),
+        ).properties(
+            width = 1000,
+            height = 600
+        )
+
+    line = alt.Chart(df).mark_line(
+                color="#bcdeea",
+                size= 7,
+                clip=True
+            ).encode(
+                x=alt.X('x', title=None, axis=None, scale=alt.Scale(domain=(0, slide_val+0.1))),
+                y=alt.Y('exp', title=None, axis=None, scale=alt.Scale(domain=(-2, 8105))),
+            ).properties(
+                width = 1000,
+                height = 600
+            )
+
+    text = points.mark_text(
+                align='right',
+                baseline='middle',
+                dx=-10,
+                dy= -15,
+                font="IBM Plex Sans",
+                fontSize = 15,
+                fontWeight= 'bolder',
+                clip=True
+            ).encode(
+                text='Type'
+            )
+
+    finalchart = line + points + text
+
+    finalchart = finalchart.properties(
+                background='#f2f2f2',
+                title= {
+                    "text": ["The Spectrum of Intelligence"], 
+                    "subtitle": "Here the blue line represents the non-linear growth of intelligence and where we compare with others on it. " +
+                    "Credit for the concept to Sam Harris and his 2016 TED talk",
+                }
+            ).configure_title(
+                    fontSize=40,
+                    font="IBM Plex Sans"
+            )
+    return finalchart
+
+def gen_exp():
+    df = pd.DataFrame(np.random.randint(0, 11, size = 1000), columns=['x'])
+    df['exp'] = np.exp(df['x'])
+    pointsDf = pd.DataFrame([
+        {'x': 1, 'Type': 'Chicken'},
+        {'x': 5, 'Type': 'Average Human'},
+        {'x': 6, 'Type': 'Aboslute Best of Humanity'},
+        {'x': 9, 'Type': 'Where AI is Heading'}
+        ])
+    pointsDf['exp'] = np.exp(pointsDf['x'])
+    return df, pointsDf
+
 def render_intelligence_section():
     """
     Render the 'importance of intelligence' section of the paradigm-shift chapter.
@@ -117,6 +182,11 @@ def render_intelligence_section():
 
     Second, we need to impress upon readers just how vast the spectrum of intelligence may actually be. This will likely take the form of a zoom-able plot similar to that in Sam Harris' TED talk (cited below) where we first show the relative distinction between "smart" people and "dumb" people, and then compare this distinction with what a machine intelligence might achieve relative to a "smart" person - the relationship is exponential.
     '''
+    df, pointsDf = gen_exp()
+    slider_spect_intelligence = st.slider("Slide to reveal the shape of the spectrum of intelligence",
+                0, 9, 0)
+    st.write(spect_intel(slider_spect_intelligence, df, pointsDf))
+
 
 def magnitude_viz_speed(chart_type):
     speeds = pd.DataFrame([
@@ -195,15 +265,16 @@ def magnitude_viz_brain():
             "text": ["Another Look at Clock Speed Magnitudes"], 
             "subtitle": "Each human icon is equivalent to the combined frequency of 1000 human beings. Scroll to see the full impact.",
            }
-        )
+        ).properties(background='#f2f2f2')
+
 
     mag_viz = mag_viz.configure_title(
-        fontSize=30,
+        fontSize=35,
         font="IBM Plex Sans",
-        anchor='start'
-    ).configure(background='#FFFFFF')
-    
-    return(mag_viz)
+        anchor='start',
+    )
+
+    return mag_viz
 
 
 def render_substrate_section():
