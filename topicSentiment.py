@@ -99,11 +99,11 @@ def academic():
     year = st.select_slider("Select the year to see the popular topics in AI research.", list(years.keys()))
     nData = acData[int(year)]
     source = pd.DataFrame({
-        'Year' : nData.T,
+        'Number of Topics' : nData.T,
         'Topics' : acData['Topics']
     })
     acChart = alt.Chart(source).mark_bar().encode(
-        x=alt.X('Year:Q', scale=alt.Scale(domain=(0, 20))),
+        x=alt.X('Number of Topics:Q', scale=alt.Scale(domain=(0, 20))),
         y=alt.Y('Topics:N'),
         color=alt.Color("Topics:N", scale=alt.Scale(scheme='redyellowblue'))).properties(title="What topics are AI researchers focusing on?")
     st.altair_chart(acChart, use_container_width=True)
@@ -124,13 +124,13 @@ def movies(year):
                 "2016":"data/2016 - Obsolete.jpg",
                 "2017":"data/2017 -Blade_Runner_2049.png",
                 "2020":"data/2020 - AI Amok.jpg"}
-    narrative = {"2003":"In 2003, the movie The Matrix Reloaded debuted.  This is a story of a dystopian future where machines have taken over and supplanted humanity.  As you can see in the line chart, public perception shifted from positve to neutral and media artics were only 50% positive.  Did this movie affect the perception of AI?",
+    narrative = {"2003":"In 2003, the movie The Matrix Reloaded debuted.  This is a story of a dystopian future where machines have taken over and supplanted humanity.  As you can see in the line chart, public perception shifted from positve to neutral and media articles were only 50% positive.  Did this movie affect the perception of AI?",
                  "2004":"In 2004, the blockbuster movie i, Robot premiered.  This story, while not wholely positive for AI, did have a robot protagonist that helped save the day with Will Smith. Did the perception of AI change again?",
                  "2014":"2014 was the year the robots turned on the populace.  In the movie, RoboCop, robots patrol the streets and have run amok, it is a cyborg that helped keep the streets safe.  Are movies and popular media influencing the public about AI?",
                  "2015":"Another shift in perception as the feelgood movie, Chappie, came out in theaters.  If a robot can feel, do we feel safer around them?",
                  "2016":"An indie film about how technology is supplanting humans.  Did the small scale of this movie mean that the perception only mildly drop?",
                  "2017":"Cult classic, BladeRunner, came out in the early 80's and was a movie about a dystopian future.  This sequel came out in 2017 and increased public perception.  Did the love of a continuation of a cult classic offset fear toward AI?",
-                 }
+                 "2020":""}
     col1, col2 = st.beta_columns([3,5])
     if year in years:
         with col1:

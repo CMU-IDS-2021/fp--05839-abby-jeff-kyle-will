@@ -12,6 +12,7 @@ import matplotlib.pyplot as plt
 from streamlit_timeline import timeline
 import vega_datasets
 import topicSentiment as ts
+from PIL import Image
 
 
 # The relative path to the directory in which data is stored
@@ -45,14 +46,12 @@ def render_introduction_content():
     '''
     # Machine Intelligence: Risks and Opportunities
 
-    ---
-    TODO: This introduction content can be far more compelling. 
-    
-    Machine intelligence is a complex topic - technically, socially, and ethically. Accordingly, navigating this topic requires a combination of both breadth and depth of understanding that is difficult to come by in most settings.
+    ---    
+    Machine intelligence is a complex topic - technically, socially, politically, and ethically. Because of this complexity, navigating this topic requires a combination of both breadth and depth of understanding that is difficult to come by in most settings.
 
-    In the following article, we seek to provide you with the tools to navigate this topic effectively. What is machine intelligence, and why is it important? What is our current position, and how did we get here? What are the likely future implications? We address each of these questions and more in detail below.
+    In this application, we seek to provide you with the tools to navigate this topic effectively. What is machine intelligence, and why is it important? What is our current position, and how did we get here? What are the likely future implications, and what are we currently doing to shape this future? We address each of these questions and more in detail below.
 
-    Before we begin, we make one request of you: approach this topic with an open mind. It is easy to come in with pre-conceived notions of what machine intelligence is or can be. Depending on your background, such notions may or may not be well-founded. This topic might seem like science fiction, but below we will attempt to demonstrate that much of the hype surrounding machine intelligence, both optimistic and pessimistic, is grounded in reality.
+    Before we begin, we make one request of you: approach this topic with an open mind. It is easy to come in with pre-conceived notions of what machine intelligence is, what it is not, and what it can be. Depending on your background, such notions may or may not be well-founded. This topic might seem like science fiction, but below we will attempt to demonstrate that much of the hype surrounding machine intelligence, both optimistic and pessimistic, is grounded in data and the best technical understanding we currently possess.
     '''
     
     st.sidebar.header("Digging Deeper")
@@ -61,18 +60,25 @@ def render_introduction_content():
         + "for each section that will allow you to explore the data.")
 
 # -----------------------------------------------------------------------------
-# Chapter: History / Timeline
+# Chapter: Definition / History
 # -----------------------------------------------------------------------------
 
-def render_history_chapter():
+def render_definition_chapter():
     """
-    Render the history of machine intelligence chapter.
+    Render the definition / history of machine intelligence chapter.
     """
 
     '''
-    # A Brief History of Machine Intelligence
+    # Defining Machine Intelligence
 
-    Machine intelligence may seem like a distinctly modern phenomenon, but research into the subject has been going on for nearly seventy years. Some of major milestones related to the development of machine intelligence are highlighted in the timeline below.
+    What do we mean by "machine intelligence"? The definition of the term has evolved somewhat with the technical capabilities in the field, but for the purposes of our exploration, we will simply use the term to mean *the realization of general intelligence capabilities in non-biological substrate*. There are two salient components of this definition:
+    - We are concerned with _general_ intelligence; the other side of the spectrum, _narrow_ intelligence, poses its own set of risks and opportunities, but these are not our focus here
+    - The substrate in which intelligence is achieved is immaterial; this implies that the term "machine" is used only loosely here, and that the form factor in which machine intelligence is realized might be far from what we might expect
+    '''
+
+    '''
+    ### A Brief History
+    Machine intelligence may seem like a distinctly modern phenomenon, but research into the subject has been going on for nearly seventy years. To get a better idea of what machine intelligence is and where it came from, we highlight some of the major milestones in the development of machine intelligence in the timeline below.
     '''
 
     path = DATA_PATH + TIMELINE_DATA_FILENAME
@@ -82,20 +88,15 @@ def render_history_chapter():
     # Render the timeline
     timeline(data, height=500)
 
+    '''
+    ### Cars, Cats, and Playing Games
+
+    After examining the events in the timeline above, one might be left with the impression that machine intelligence is little more than a novelty. We see that the technology is capable of helping us in our daily endeavors, perhaps by recognizing cat pictures and driving us where we need to go. While it does appear that machine intelligence has the capacity to surpass humans, it appears this phenomenon only occurs in narrow, game-playing settings that are hardly of interest to most. It is a long way from the chessboard to global domination; is machine intelligence truly a technology with vast disruptive potential?
+    '''
+
 # -----------------------------------------------------------------------------
 # Chapter: Paradigm
 # -----------------------------------------------------------------------------
-
-def render_definition_section():
-    """
-    Render the definition section of the paradigm-shift chapter.
-    """
-
-    '''
-    ### Definitions
-
-    What do we mean when we refer to 'machine intelligence'?
-    '''
 
 def spect_intel(slide_val, df, pointsDf):
     points = alt.Chart(pointsDf).mark_circle(
@@ -141,8 +142,8 @@ def spect_intel(slide_val, df, pointsDf):
     finalchart = finalchart.properties(
                 title= {
                     "text": ["The Spectrum of Intelligence"], 
-                    "subtitle": "The blue line represents the non-linear growth of intelligence and where we compare with others on it. " +
-                    "Credit Sam Harris and his 2016 TED talk",
+                    "subtitle": "Will Humans always be the Smartest Things Around?"
+
                 }
             ).configure_title(
                     fontSize=40,
@@ -156,8 +157,8 @@ def gen_exp():
     pointsDf = pd.DataFrame([
         {'x': 1, 'Type': 'Chicken'},
         {'x': 5, 'Type': 'Average Human'},
-        {'x': 6, 'Type': 'Aboslute Best of Humanity'},
-        {'x': 9, 'Type': 'Where AI is Heading'}
+        {'x': 6, 'Type': 'John von Neumann'},
+        {'x': 9, 'Type': 'Machine Superintelligence'}
         ])
     pointsDf['exp'] = np.exp(pointsDf['x'])
     return df, pointsDf
@@ -170,22 +171,19 @@ def render_intelligence_section():
     '''
     ### The Primacy of Intelligence
 
-    Why is intelligence a matter of consequence?
-
-    TODO: This section will contain an interactive visualization regarding the shape of the spectrum of intelligence, and its importance in achieving those things we value. Most people are likely walk around with two implicit assumptions: 
-    - The spectrum of intelligence is in some way _observable_; we think that we can make sense of the full spectrum of intelligence
-    - Humans stand at or near the end of the spectrum of intelligence; we are the smartest things about which we have any knowledge
-
-    The assumptions are very likely invalid. There is no reason to think that humans stand anywhere near the zenith of what is possible, nor is there reason to believe the intelligence curve does not extend far beyond what we might currently be able to observe.
-
-    First, we need to establish the fact that intelligence is what distinguishes us from animals over which we (largely) dominate. For instance, apes are far stronger than humans pound-for-pound, yet the fate of the apes on Earth is almost entirely at the discretion of humanity, rather than in the hands of the apes themselves. QUESTION: How might we visualize this distinction?
-
-    Second, we need to impress upon readers just how vast the spectrum of intelligence may actually be. This will likely take the form of a zoom-able plot similar to that in Sam Harris' TED talk (cited below) where we first show the relative distinction between "smart" people and "dumb" people, and then compare this distinction with what a machine intelligence might achieve relative to a "smart" person - the relationship is exponential.
+    **Intelligence Allows us to get What we Want** Why is intelligence a matter of consequence? An answer to this question requires that we recognize that intelligence is the foundational source of power and control in the world. Intelligence is what allows us to attain the things we value in this world. Consider for example the diction between humans and the many members of the animal kingdom over which we (largely) dominate. Apes are far stronger than humans, pound-for-pound. Tigers are faster and have much sharper teeth. Ants represent a far larger proportion of the Earth's overall biomass. Yet in each of these cases, the fate of the this animal on Earth is almost entirely at the discretion of humanity, rather than in the hands of the animal itself. The common factor in each comparison is human intelligence - the fact that we are the most intellectually-competent species around.
+    
+    **Human Intelligence is Nothing Special** So humans are the smartest species around, will this always be the case? There is no reason to think that this is so, or even that humans stand anywhere _near_ the zenith of what is possible. In fact, there is reason to believe that the intelligence curve extends far beyond what we might currently be able to observe and understand. What would be the implications for humanity if the spectrum of intelligence actually resembles something like the visualization below?
     '''
+
     df, pointsDf = gen_exp()
-    slider_spect_intelligence = st.slider("Slide to reveal the shape of the spectrum of intelligence",
+    slider_spect_intelligence = st.slider("Slide to Explore the Shape of the Intelligence Spectrum",
                 0, 9, 0)
     st.write(spect_intel(slider_spect_intelligence, df, pointsDf))
+
+    '''
+    This visualization is not meant to actually quantify potential differences in level of intelligence, but merely highlight the fact that we (humans) might not even be able to conceive of the types of intelligence that are possible because of our own narrow viewpoint. However, is there any reason to believe that machine intelligence stands a chance of progressing to this point?
+    '''
 
 
 def magnitude_viz_speed(chart_type):
@@ -286,7 +284,6 @@ def render_substrate_section():
     What are the implications of releasing intelligence from the bonds of a biological substrate? In this section we will compare Human Beings brain potential to the computerized counterparts. We will begin to see just how vastly computers outperform humans in the areas of brain frequency, speed, and storage capacity.
 
     '''
-    from PIL import Image
 
     st.sidebar.header("The Potential of Mechanical Minds")
     st.sidebar.write("Select other options to understand the scale of the differences between a Human Being and a Computer")
@@ -350,13 +347,13 @@ def render_substrate_section():
         storage81 = Image.open('img/81ServerStorage.png')
         storage156 = Image.open('img/156ServerStorage.png')
         storages = {
-            "Human Storage": storagehuman,
+            "Human": storagehuman,
             "4x 2U Server Rack": storage4,
             "9x 2U Server Rack": storage9,
             "16x 2U Server Rack": storage16,
             "25x 2U Server Rack": storage25,
             "81x 2U Server Rack": storage81,
-            "156x 2U Server Rack": storage156,
+            "Small Cloud Facility": storage156,
         }
         storage = st.select_slider("Select your storage capacity.", list(storages.keys()))
         st.image(storages[storage], output_format='PNG')
@@ -369,14 +366,12 @@ def render_paradigm_chapter():
     """
 
     '''
-    # Machine Intelligence: A Paradigm Shift
+    # A Paradigm Shift
 
-    Based on the milestones timeline above, its clear that machine intelligence has demonstrated its skill at defeating humans in the games we play. This may be demoralizing for top players, and makes for an interesting couple of days of news coverage, but is this really cause for concern or trepidation? In other words, one might be skeptical of the potential of machine intelligence on the basis of events that have been hailed a major milestones in its development history. Is it really that big of a deal?
+    Based on the milestones timeline above, its clear that machine intelligence has demonstrated its prowess in select areas of human endeavor. This may be demoralizing for the world's Chess and Go players, and makes for an interesting couple of days of news coverage, but is this really cause for concern or trepidation? In other words, one might be skeptical of the potential of machine intelligence on the basis of events that have been hailed a major milestones in its development history. Is it really that big of a deal?
 
     The answer is an unequivocal 'yes', but justification requires some additional explanation.
     '''
-
-    render_definition_section()
 
     render_intelligence_section()
 
@@ -393,29 +388,55 @@ def render_popular_perceptions_section():
 
     '''
     ### Machine Intelligece in the Popular Media
-     
+    
+    
     How do we characterize the popular public perception of machine intelligence?
     '''
 
     '''
     With the prevalence of research and popular movies about Artificial Intelligence, it would be safe to say that the public has some thoughts and opinions on Artificial Intelligence.
     
-    Did you know that there were 182 movies that featured Artificial Intelligence in some form from 2000-2020?  With provocative titles such as "AI Amok (2020)" and "RoboCop (2014), was public perception of AI affected by these movies?  Let's Explore.
+    Did you know that there were 182 movies that featured Artificial Intelligence in some form from 2000-2020?  With provocative titles such as "AI Amok" (2020) and "RoboCop" (2014), was public perception of AI affected by these movies?  Let's Explore the perception of machine intelligence in the media..
     
-    We pulled all news articles from Nature.com from 2000-2020 that featured AI.  These articles do not include any journal or academic publications.
-    As you can see below the percentage of articles that are positive is almost consistently 100%.  Even looking at the overall perception, which is actually pretty close to neutral in all years, one possible explanation is that this media company is very good at keeping a neutral tone in this topic.  However, there are a few popular movies that may have affected the public perception of Artificial Intelligence and caused the sentiment analysis of these articles to trend toward neutral from the positvive.
+    We pulled all news articles from Nature.com from 2000-2020 that featured Artificial Intelligence.  These articles do not include any journal or academic publications.  We then performed a sentiment analysis on the content in the articles to judge the overarching sentiment of the reporting and tallied the number of positve articles vs negative articles.
+    
+    As you can see below the percentage of articles that are positive is almost consistently 100%.  Even when looking at the overall perception, you can see that it is actually pretty close to neutral in all years. There are a few explanations that could answer the question, but lets see if there is a correlation between hit-movies and the perception in news media.  
+    
+    Were there popular movies that may have affected the public perception of Artificial Intelligence and caused the sentiment analysis of these articles to trend toward neutral from the positvive.  Slide the bar to the right and see.
+    
+    ### Sentiment and Perception in the Public Media
     '''
     ts.public()
 
+    '''
+    Many of the media articles are slightly above neutral. This can be intepreted a few ways in that we can infer that humanity is wary of AI and machine intelligence or that we are playing a wait and see game.  It could be a combination of both.   Can we really say that the future of machine intelligence or Artificial Intelligence is bleak?  Should we be afraid?  Let's explore what is being researched in the field of AI.
+    '''
+
 def render_professional_perceptions_section():
     """
-    Render the academic perceptions section of the perceptions chapter.
+    Render professional perceptions
     """
-
     '''
+    
     ### Machine Intelligence in Professional Settings
 
     How do we characterize the nature of research work on machine intelligence?
+    
+    Research in the field of Artificial Intelligence is growing quickly. Over the last 8 years, there have been over 500 publications regarding Artificial Intelligence and related topics from a single journal source: the Journal of Artificial Intelligence Research.  
+    
+    We looked at the title of each article and built a topic model to gather the most popular 5 topics.  Using this model, we discovered that almost 20% of the articles published on these fields of research. 
+    
+    The first chart shows us how many articles are being published in a given year that are on the most popular topics.  AI Based Multi-Lingual translation is a field that is expanding quickly and some avenues of research are developing on the fly audio translation from multiple languages.  
+    
+    Autonomous AI Decision Making is the prodcess of making decision without human oversight.  Some focus areas are healthcare, where, according to Science Direct, "clinical decisions are made without human oversight."  
+    
+    Cloud-Based ML Frameworks is an area of research that seeks to create robust and modular cloud based systems to do machine learning.  
+    
+    Language Models is another aspect of research that is focused on predicting words.  This may sound simple, but languages have many rules and grammatical foibles that make this difficult. 
+    
+    The last popular topic is Multi-agent pathfinding.  This area of research is based on calculating the best path for multiple objects in realt time.  Imagine a machine intelligence trying to calculate the most optimal route for every care on the road. 
+    
+    As you can see in the chart below, there are a number of research papers that are on one of the top-5 topics.  As you move the slider over you can see how things change over time.  For a different perspective, you can track a single topic from the sidebar and follow the research pattern over time.
     '''
     ts.academic()
     topics = ["Language Models",
@@ -430,11 +451,9 @@ def render_professional_perceptions_section():
     pTopic = st.sidebar.selectbox("Select an option", topics)
     ts.topicTimeline(pTopic)
     '''
-    TODO: Big idea for this section is a text analysis of academic work on machine intelligence. Specifically, the plan is to do the following:
-    - Scrape PDF documents from the online Journal of Artificial Intelligence Research
-    - Extract text from these PDF documents
-    - Perform topic modeling on the documents (or just the titles? unclear if full text is feasible)
-    - Visualize the distribution of documents over time according to the topic(s) in which they fall
+    The AI Based Multi-Lingual topic seems to be trending upward from 2020 into 2021.  That is an interesting observation that could be related to the COVID-19 pandemic.  As many people are teleworking, is there a greater call for instant translation of multiple languages?  Is this a boon to humanity as we strive to counter the virus that is destroying our world?
+    
+    Autonomous AI Decision Making is also trending up in 2021.  The optimistic view of this is that AI will help derive vaccine genomes to help with stopping the virus, the pessimistic view is that the AI will start making decisions that could negatively impact us.  Who knows what the future holds?
     '''
 
 def render_perceptions_chapter():
@@ -444,9 +463,9 @@ def render_perceptions_chapter():
 
     '''
     ---
-    # Perceptions versus Reality 
-
-    TODO: Content here.
+    # Perceptions versus Reality
+    
+    How much do we really know about machine intelligence or Artificial Intelligence? What are the perceptions of AI that guide humanity toward the future?  Are we thinking positiviely? Negatively? Are we neutral?
     '''
     
     render_popular_perceptions_section()
@@ -933,9 +952,9 @@ def render_world_powers_section():
     """
     
     '''
-    ### Global Response
+    ### Global Response and Status
 
-    What are the sentiments of the world powers, speiciaflly the EU Countries regarding artificial intelligence regulation policy?
+    What are the sentiments of the world powers, specifically the EU Countries regarding artificial intelligence regulation policy? Furthermore, what are they doing about it?
     '''
 
     # Read in data as csv
@@ -961,16 +980,7 @@ def render_world_powers_section():
     COUNTRY_VOTES["No Safe Tech Training"] = 100.0 - COUNTRY_VOTES["Safe Tech Training"]
 
     country_selector = alt.selection_multi(fields=["Country"], init=[{"Country":"Hungary"}])
-    
-    # Transform fold is conducted so that we can utilize the stacked bar approach
-    # and analyze the huge discrepanacy between what world powers think
-    
-    '''
-    ### National Stance on AI Safety and Regulation
-    '''
 
-# Transform fold is conducted so that we can utilize the stacked bar approach
-# and analyze the huge discrepanacy between what world powers think
     all_country_data = alt.Chart(COUNTRY_VOTES).mark_bar().encode(
         tooltip=[alt.Tooltip("Country:N", title="Country")], 
         x=alt.X("Agree:Q", title="Percent Representatives that Want AI Regulation", scale=alt.Scale(domain=[0, 100])),
@@ -983,11 +993,11 @@ def render_world_powers_section():
 
     by_country1 = alt.Chart(COUNTRY_VOTES).transform_fold(
         ["Security Incident"],
-        as_=["% of Companies", "% Value"]
+        as_=["Digital Safety Metric", "% Value"]
     ).mark_bar().encode(
         y=alt.Y("% Value:Q", title="% of Companies with Tech Security Incident", scale=alt.Scale(domain=[0, 100])),
         tooltip=[alt.Tooltip("Country:N", title="Country")], 
-        color=alt.Color("% of Companies:N",
+        color=alt.Color("Digital Safety Metric:N",
             scale = alt.Scale(domain=["Security Incident"], range=["#bcdeea"])
         )
     ).transform_filter(
@@ -996,11 +1006,11 @@ def render_world_powers_section():
 
     by_country3 = alt.Chart(COUNTRY_VOTES).transform_fold(
         ["No Safe Tech Training"],
-        as_=["% of Companies", "% Value"]
+        as_=["Digital Safety Metric", "% Value"]
     ).mark_bar().encode(
         y=alt.Y("% Value:Q", title="% of Companies without Safe Tech Training", scale=alt.Scale(domain=[0, 100])),
         tooltip=[alt.Tooltip("Country:N", title="Country")], 
-        color=alt.Color("% of Companies:N",
+        color=alt.Color("Digital Safety Metric:N",
             scale = alt.Scale(domain=["No Safe Tech Training"], range=["#bcdeea"])
         )
     ).transform_filter(
@@ -1011,8 +1021,30 @@ def render_world_powers_section():
     st.write(joint_chart)
 
     '''
-    From the chart above we can see that nearly every major EU power agrees that AI imposes enough risk that it should be regulated. There is not one outlier nation that does not think that AI and Robotics are begning to play in increasingly dangerous or volatile role. However, when we inspect each country we can see that each country has had a non-significant amount of cyberseuciryt incidents. Additionally, a large amount of corporations in each country do not have any kind of digital saftey training at work whatsoever. Does this not foreshadow the next catastrophic event? AI is increasing at a rapid rate, yet safety does not seem to be a major concern.
+    From the chart above we can see that nearly every major EU power agrees that AI imposes enough risk that it should be regulated. There is not one outlier nation that does not think that AI and Robotics are begning to play in increasingly dangerous or volatile role. However, when we inspect each country we can see that each country has had a non-trivial amount of cyber security incidents. Additionally, a large handful of corporations in each country do not have any kind of digital saftey training at work whatsoever. Does this not foreshadow the next catastrophic event? AI is increasing at a rapid rate, yet safety does not seem to be a major concern. Select the US Case Study option on the sidebar to the left to view first hand how lack of regulation is letting AI get out of hand.
     '''
+
+    st.sidebar.header("Global Respons and Status")
+    case_study_select = st.sidebar.radio("Select the case study to learn more.", ("-", "US Case Study"))
+    if case_study_select == "US Case Study":
+        '''
+        ### US Case Study: Self-Driving Cars and their Lack of Regulation
+        Now that we've taken a look at what our counterparts in the EU believe, let's take a look back at America and a specific policy-case, "Self-Driving Cars". Traditionally, the regulation governing what cars are allowed to make it out onto the roadways is the FMVSS or Federal Motor Vehicle Safety Standards. These laws cover a wide array of aspects. However, they cover nothing to do with self-driving cars such as cyber-attacks, proper testing, software updates, emergency scenarios, etc. In September 2017, the House of Representatives did propose additional requirements to the FMVSS for autonomous cars, however, this proposal did not make it past the Senate. A Presidential Administration largely focused on minimal regulation certainly did not help the issue.
+        '''
+        '''
+        But who would possibly want less regulation on such a dangerous endeavor? 
+        '''
+        '''
+        The answer is businesses and the locations that want to attract them. Two of the hotbeds for self-driving car research are Arizona and our own state Pennsylvania. Contrary to popular belief, the location in Pittsburgh is not solely due to NREC or CMU, but rather Pennsylvania's loose regulations on self-driving car testing. 
+        '''
+        '''
+        You may be surprised to find that several incidents have occurred right here in Pittsburgh including an event in 2018 when a self-driving car slammed into an unsuspecting driver. The incidents get much more grave. Looking to make self-driving cars cheaper, Uber disabled what is called a LIDAR system in one of their Arizona vehicles. Without the costly system the car hit and killed a pedestrian. 
+        '''
+        '''
+        So when is enough? Clearly, these businesses only have testing, training, and profits in mind. Perhaps, the local governments do too. Regulation is needed on a larger scale, however, it is largely non-existent. 
+        '''
+        crash = Image.open('img/Ubercrash.jpg')
+        st.image(crash)
 
 def render_responses_chapter():
     """
@@ -1064,6 +1096,16 @@ def render_references():
     - Muller, Vincent and Bostrom, Nick. Future Progress in Artificial Intelligence: A Survey of Expert Opinion. (2016).
     - Webb, Rick. [Superintelligence and Public Opinion.](https://shift.newco.co/2017/04/24/superintelligence-and-public-opinion/) NewCo Shift. (2017).
     - Baobao Zhang & Allan Dafoe Artificial Intelligence, American Attitudes and Trends https://governanceai.github.io/US-Public-Opinion-Report-Jan-2019/addresults.html
+    - Timothy Lee B, Self-Driving Car Article, 2018 https://arstechnica.com/cars/2018/04/the-way-we-regulate-self-driving-cars-is-broken-heres-how-to-fix-it/
+    - Brain png image, https://www.cleanpng.com/png-drawing-cartoon-character-human-brain-7352936/
+    - Box png image, https://toppng.com/free-image/cardboard-box-PNG-free-PNG-Images_30993
+    - Spedomoter png image, https://www.pngkey.com/pngs/speedometer/
+    - Paul Reber, Human Brain Storage, 2010, https://www.scientificamerican.com/article/what-is-the-memory-capacity/
+    - EU Data Eurostat, 2021, https://ec.europa.eu/eurostat/web/main/data/database
+    - Richard Waters, Uber crash, 2017, https://www.ft.com/content/89692fee-1181-11e7-80f4-13e067d5072c
+    - Nature, https://www.nature.com
+    - Journal of Artificial Intelligence Research, https://www.jair.org/
+    - Internet Movie Database (IMDb), https://www.imdb.com/
     '''
 
 # -----------------------------------------------------------------------------
@@ -1080,7 +1122,7 @@ def main():
 
     render_introduction_content()
 
-    render_history_chapter()
+    render_definition_chapter()
 
     render_paradigm_chapter()
 
