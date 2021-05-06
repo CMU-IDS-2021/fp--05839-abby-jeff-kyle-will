@@ -1045,6 +1045,12 @@ def render_references():
     - Muller, Vincent and Bostrom, Nick. Future Progress in Artificial Intelligence: A Survey of Expert Opinion. (2016).
     - Webb, Rick. [Superintelligence and Public Opinion.](https://shift.newco.co/2017/04/24/superintelligence-and-public-opinion/) NewCo Shift. (2017).
     - Baobao Zhang & Allan Dafoe Artificial Intelligence, American Attitudes and Trends https://governanceai.github.io/US-Public-Opinion-Report-Jan-2019/addresults.html
+    - Timothy Lee B, Self-Driving Car Article, 2018 https://arstechnica.com/cars/2018/04/the-way-we-regulate-self-driving-cars-is-broken-heres-how-to-fix-it/
+    - Brain png image, https://www.cleanpng.com/png-drawing-cartoon-character-human-brain-7352936/
+    - Box png image, https://toppng.com/free-image/cardboard-box-PNG-free-PNG-Images_30993
+    - Spedomoter png image, https://www.pngkey.com/pngs/speedometer/
+    - Paul Reber, Human Brain Storage, 2010, https://www.scientificamerican.com/article/what-is-the-memory-capacity/
+    - EU Data Eurostat, 2021, https://ec.europa.eu/eurostat/web/main/data/database
     '''
 
 # -----------------------------------------------------------------------------
