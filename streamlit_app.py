@@ -353,13 +353,13 @@ def render_substrate_section():
         storage81 = Image.open('img/81ServerStorage.png')
         storage156 = Image.open('img/156ServerStorage.png')
         storages = {
-            "Human Storage": storagehuman,
+            "Human": storagehuman,
             "4x 2U Server Rack": storage4,
             "9x 2U Server Rack": storage9,
             "16x 2U Server Rack": storage16,
             "25x 2U Server Rack": storage25,
             "81x 2U Server Rack": storage81,
-            "156x 2U Server Rack": storage156,
+            "Small Cloud Facility": storage156,
         }
         storage = st.select_slider("Select your storage capacity.", list(storages.keys()))
         st.image(storages[storage], output_format='PNG')
