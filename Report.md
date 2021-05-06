@@ -23,7 +23,17 @@ A description of prior research or work related to your project.
 
 ### Methods
 
-An explanation of the techniques and algorithms you used or developed.
+Machine intelligence is a large topic with many distinct aspects worthy of consideration. Therefore, the first step we took in designing our application was to ask the question: what is the subset of available information that we would like to present in our application? Answering this question reduced to another, more well-defined one: what do users need to know about machine intelligence? In answer, we developed the set of questions shown in the table below. In addition, we also identified what we thought of as the "mainstream objection" to the question, or why one who is not familiar with the topic might dismiss it as unimportant or otherwise unworthy of considerable attention. Finally, for each question, we developed a short proposed narrative that we intended to pursue in our application.
+
+| Question | Mainstream Objection | Proposed Narrative |
+| --- | --- | --- | 
+| What is machine intelligence? Where did it come from? | TODO | TODO |
+| Why is machine intelligence important? | Most popular coverage of machine (or, more commonly, artificial) intelligence seems to deal with a trivial matters like machines beating humans at games like chess or StarCraft. It is a long way from Stockfish to anything that warrants attention. | Intelligence is the underlying source of power and control in the modern world. There are many reasons to believe that a machine intelligence will far surpass human intelligence along most dimensions of interest. |
+| How has the developent of machine intelligence evolved over time? How does this compare with the way it is potrayed in popular media? | TODO | TODO |
+| What do my neighbors think about the prospects of machine intelligence? How does this compare with what the experts think? | TODO | TODO |
+| What is being done to address the potential issues posed by the development of machine intelligence? | Worrying about imposing oversight or otherwise regularing machine intelligence research constitues a waste of time and attention. | Most of the world's national powers have publicly expressed interest in imposing regulations on machine intelligence research and development efforts, but few have taken steps towards doing so. |
+
+As with any narrative project, our primary goal is the effective communication of information. To this end, the organizing method for our application is to combine narrative elements with relevant visualizations to produce an engaging user experience. We organize our narrative into distinct thematic sections (which we refer to as "chapters"), each of which deals with a particular aspect of the topic of machine intelligence. The objective of each section, along with the specifics of the methods we used to realize the objective, are described below in further detail. 
 
 ### Results
 
