@@ -827,11 +827,11 @@ def render_world_powers_section():
 
     by_country1 = alt.Chart(COUNTRY_VOTES).transform_fold(
         ["Security Incident"],
-        as_=["% of Companies", "% Value"]
+        as_=["Digital Safety Metric", "% Value"]
     ).mark_bar().encode(
         y=alt.Y("% Value:Q", title="% of Companies with Tech Security Incident", scale=alt.Scale(domain=[0, 100])),
         tooltip=[alt.Tooltip("Country:N", title="Country")], 
-        color=alt.Color("% of Companies:N",
+        color=alt.Color("Digital Safety Metric:N",
             scale = alt.Scale(domain=["Security Incident"], range=["#bcdeea"])
         )
     ).transform_filter(
@@ -840,11 +840,11 @@ def render_world_powers_section():
 
     by_country3 = alt.Chart(COUNTRY_VOTES).transform_fold(
         ["No Safe Tech Training"],
-        as_=["% of Companies", "% Value"]
+        as_=["Digital Safety Metric", "% Value"]
     ).mark_bar().encode(
         y=alt.Y("% Value:Q", title="% of Companies without Safe Tech Training", scale=alt.Scale(domain=[0, 100])),
         tooltip=[alt.Tooltip("Country:N", title="Country")], 
-        color=alt.Color("% of Companies:N",
+        color=alt.Color("Digital Safety Metric:N",
             scale = alt.Scale(domain=["No Safe Tech Training"], range=["#bcdeea"])
         )
     ).transform_filter(
