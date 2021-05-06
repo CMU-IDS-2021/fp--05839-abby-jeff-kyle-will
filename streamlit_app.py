@@ -396,7 +396,8 @@ def render_popular_perceptions_section():
 
     '''
     ### Machine Intelligece in the Popular Media
-     
+    
+    
     How do we characterize the popular public perception of machine intelligence?
     '''
 
