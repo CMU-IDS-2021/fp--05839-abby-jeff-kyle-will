@@ -942,6 +942,13 @@ def render_prospects_chapter():
     ---
     # Prospects for Machine Intelligence
 
+    We have not yet achieved superintelligence. We may never achieve it in any meaningful way. Or, we may be a few years from a breakthrough.
+    The real question is what are the consequences of achieving it. This section seeks to understand whether superintellignce is achievable
+    and if it is, what will happen to the human race. Moreover, we seek to understand if the pursuit of such technologies is worth it.
+
+    This section considers these questions in the form of two different surveys conducted in 2016 and 2017. The 2016 survey asked a selection
+    of experts about the development of high level machine intelligence and the 2017 survey surveyed the general public in the United States
+    and had participants consider if the pursuit of super intelligence was worth the potential cost.
     '''
 
     render_expert_sentiment_section()
