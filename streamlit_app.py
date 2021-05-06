@@ -7,13 +7,15 @@
 import numpy as np
 import pandas as pd
 import altair as alt
+import vega_datasets
+from PIL import Image
 import streamlit as st
 import matplotlib.pyplot as plt
 from streamlit_timeline import timeline
-import vega_datasets
-import topicSentiment as ts
-from PIL import Image
 
+# Custom support imports
+import support.topic_modeling as tm
+import support.sentiment_analysis as sm
 
 # The relative path to the directory in which data is stored
 DATA_PATH = "data/"
@@ -387,7 +389,7 @@ def render_popular_perceptions_section():
     """
 
     '''
-    ### Machine Intelligece in the Popular Media
+    ### Machine Intelligence in the Popular Media
     
     
     How do we characterize the popular public perception of machine intelligence?
@@ -406,7 +408,7 @@ def render_popular_perceptions_section():
     
     ### Sentiment and Perception in the Public Media
     '''
-    ts.public()
+    sm.public()
 
     '''
     Many of the media articles are slightly above neutral. This can be intepreted a few ways in that we can infer that humanity is wary of AI and machine intelligence or that we are playing a wait and see game.  It could be a combination of both.   Can we really say that the future of machine intelligence or Artificial Intelligence is bleak?  Should we be afraid?  Let's explore what is being researched in the field of AI.
@@ -434,11 +436,11 @@ def render_professional_perceptions_section():
     
     Language Models is another aspect of research that is focused on predicting words.  This may sound simple, but languages have many rules and grammatical foibles that make this difficult. 
     
-    The last popular topic is Multi-agent pathfinding.  This area of research is based on calculating the best path for multiple objects in realt time.  Imagine a machine intelligence trying to calculate the most optimal route for every care on the road. 
+    The last popular topic is Multi-agent pathfinding.  This area of research is based on calculating the best path for multiple objects in real time.  Imagine a machine intelligence trying to calculate the most optimal route for every care on the road. 
     
     As you can see in the chart below, there are a number of research papers that are on one of the top-5 topics.  As you move the slider over you can see how things change over time.  For a different perspective, you can track a single topic from the sidebar and follow the research pattern over time.
     '''
-    ts.academic()
+    tm.academic()
     topics = ["Language Models",
               "Cloud-Based ML Frameworks",
               "AI Based Multi-Lingual Translation",
@@ -449,7 +451,7 @@ def render_professional_perceptions_section():
     st.sidebar.header("Tracking Academic Research")
     st.sidebar.write("Select each option to observe the shift in research priorities.")
     pTopic = st.sidebar.selectbox("Select an option", topics)
-    ts.topicTimeline(pTopic)
+    tm.topicTimeline(pTopic)
     '''
     The AI Based Multi-Lingual topic seems to be trending upward from 2020 into 2021.  That is an interesting observation that could be related to the COVID-19 pandemic.  As many people are teleworking, is there a greater call for instant translation of multiple languages?  Is this a boon to humanity as we strive to counter the virus that is destroying our world?
     
@@ -1034,7 +1036,7 @@ def render_world_powers_section():
     st.write(joint_chart)
 
     '''
-    From the chart above we can see that nearly every major EU power agrees that AI imposes enough risk that it should be regulated. There is not one outlier nation that does not think that AI and Robotics are begning to play in increasingly dangerous or volatile role. However, when we inspect each country we can see that each country has had a non-trivial amount of cyber security incidents. Additionally, a large handful of corporations in each country do not have any kind of digital saftey training at work whatsoever. Does this not foreshadow the next catastrophic event? AI is increasing at a rapid rate, yet safety does not seem to be a major concern. Select the US Case Study option on the sidebar to the left to view first hand how lack of regulation is letting AI get out of hand.
+    From the chart above we can see that nearly every major EU power agrees that AI imposes enough risk that it should be regulated. There is not one outlier nation that does not think that AI and Robotics are beginning to play in increasingly dangerous or volatile role. However, when we inspect each country we can see that each country has had a non-trivial amount of cyber security incidents. Additionally, a large handful of corporations in each country do not have any kind of digital saftey training at work whatsoever. Does this not foreshadow the next catastrophic event? AI is increasing at a rapid rate, yet safety does not seem to be a major concern. Select the US Case Study option on the sidebar to the left to view first hand how lack of regulation is letting AI get out of hand.
     '''
 
     st.sidebar.header("Global Respons and Status")
