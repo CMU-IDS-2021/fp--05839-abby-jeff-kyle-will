@@ -76,7 +76,9 @@ For each of these dimensions, we attempt to illustrate the distinction in magnit
 
 In the next chapter of our narrative, we consider perceptions of machine intelligence from both popular and professional points of view.
 
-**Dataset(s)** Nature (popular articles dataset), Journal of Artificial Intelligence Research (professional articles dataset)
+**Dataset(s)**
+- Nature (popular articles dataset)
+- Journal of Artificial Intelligence Research (professional articles dataset)
 
 **Method** Our goal in this section is impart some important ideas regarding how sentiment surroudning machine intelligence evolves over time:
 - What does the shape of a sentiment analysis look like?
@@ -217,5 +219,8 @@ The general references that we utilized during our research for this project are
 - Harris, Sam and Russel, Stuart. [The Dawn of Artificial Intelligence](https://samharris.org/podcasts/the-dawn-of-artificial-intelligence1/). 2016.
 - Harris, Sam and Yudkowsky, Eliezer. [AI: Racing Toward the Brink](https://intelligence.org/2018/02/28/sam-harris-and-eliezer-yudkowsky/). 2018.
 - [Machine Intelligence Research Institute](https://intelligence.org/).
+- [Internet Movie Database (IMDb)](https://www.imdb.com/).
 - McCarthy et al. _A Proposal for the Dartmouth Summer Research Project on Artificial Intelligence._ 1955.
+- Reber, Paul. [Human Brain Storage](https://www.scientificamerican.com/article/what-is-the-memory-capacity/). 2010.
+- Timothy Lee B. [Self-Driving Car Article](https://arstechnica.com/cars/2018/04/the-way-we-regulate-self-driving-cars-is-broken-heres-how-to-fix-it/). 2018.
 - Yudkowsky, Eliezer. [AI Alignment: Why it's Hard, and Where to Start](https://www.youtube.com/watch?v=EUjc1WuyPT8).

@@ -1448,26 +1448,32 @@ def render_references():
     """
 
     """
-    # References
+    The datasets that we utilized to generate the visualizations in our application are listed below.
 
-    The datasets and prior work we referenced while working on this project are provided below.
+    - [Journal of Artificial Intelligence Research](https://www.jair.org/index.php/jair).
+    - Muller, Vincent and Bostrom, Nick. [Future Progress in Artificial Intelligence: A Survey of Expert Opinion](https://www.nickbostrom.com/papers/survey.pdf). (2016).
+    - [Nature](https://www.nature.com/).
+    - Webb, Rick. [Superintelligence and Public Opinion.](https://shift.newco.co/2017/04/24/superintelligence-and-public-opinion/). NewCo Shift. (2017).
+    - Zhang, Baobao and Dafoe, Allan. [Artificial Intelligence, American Attitudes and Trends](https://governanceai.github.io/US-Public-Opinion-Report-Jan-2019/addresults.html). 2019.
 
+    The general references that we utilized during our research for this project are listed below.
+
+    - Armstrong, Stuart and Bostrom, Nick and Shulman, Carl. [Racing to the Precipice: A Model of Artificial Intelligence Development](http://www.fhi.ox.ac.uk/wp-content/uploads/Racing-to-the-precipice-a-model-of-artificial-intelligence-development.pdf). 2013.
+    - Bostrom, Nick. [The Superintelligent Will: Motivation and Instrumental Rationality in Advanced Artificial Agents](https://www.nickbostrom.com/superintelligentwill.pdf). 2012.
+    - Bostrom, Nick. [Existential Risks: Analyzing Human Extinction Scenarios and Related Hazards](https://www.nickbostrom.com/existential/risks.html). 2002.
+    - Bostrom, Nick. [The Future of Machine Intelligence](https://www.youtube.com/watch?v=8xwESiI6uKA). 2017.
+    - Bostrom, Nick. _Superintelligence: Paths, Dangers, Strategies_ 2014.
     - Bostrom, Nick. [What Happens When Our Computers Get Smarter Than We Are?](https://www.youtube.com/watch?v=MnT1xgZgkpk&t=326s) TED Talk. 2015.
+    - [EU Data Eurostat](https://ec.europa.eu/eurostat/web/main/data/database). 2021.
     - Harris, Sam. [Can We Build AI Without Losing Control Over It?](https://www.youtube.com/watch?v=8nt3edWLgIg) TED Talk. 2016.
+    - Harris, Sam and Russel, Stuart. [The Dawn of Artificial Intelligence](https://samharris.org/podcasts/the-dawn-of-artificial-intelligence1/). 2016.
+    - Harris, Sam and Yudkowsky, Eliezer. [AI: Racing Toward the Brink](https://intelligence.org/2018/02/28/sam-harris-and-eliezer-yudkowsky/). 2018.
+    - [Machine Intelligence Research Institute](https://intelligence.org/).
+    - [Internet Movie Database (IMDb)](https://www.imdb.com/).
     - McCarthy et al. _A Proposal for the Dartmouth Summer Research Project on Artificial Intelligence._ 1955.
-    - Muller, Vincent and Bostrom, Nick. Future Progress in Artificial Intelligence: A Survey of Expert Opinion. (2016).
-    - Webb, Rick. [Superintelligence and Public Opinion.](https://shift.newco.co/2017/04/24/superintelligence-and-public-opinion/) NewCo Shift. (2017).
-    - Baobao Zhang & Allan Dafoe Artificial Intelligence, American Attitudes and Trends https://governanceai.github.io/US-Public-Opinion-Report-Jan-2019/addresults.html
-    - Timothy Lee B, Self-Driving Car Article, 2018 https://arstechnica.com/cars/2018/04/the-way-we-regulate-self-driving-cars-is-broken-heres-how-to-fix-it/
-    - Brain png image, https://www.cleanpng.com/png-drawing-cartoon-character-human-brain-7352936/
-    - Box png image, https://toppng.com/free-image/cardboard-box-PNG-free-PNG-Images_30993
-    - Spedomoter png image, https://www.pngkey.com/pngs/speedometer/
-    - Paul Reber, Human Brain Storage, 2010, https://www.scientificamerican.com/article/what-is-the-memory-capacity/
-    - EU Data Eurostat, 2021, https://ec.europa.eu/eurostat/web/main/data/database
-    - Richard Waters, Uber crash, 2017, https://www.ft.com/content/89692fee-1181-11e7-80f4-13e067d5072c
-    - Nature, https://www.nature.com
-    - Journal of Artificial Intelligence Research, https://www.jair.org/
-    - Internet Movie Database (IMDb), https://www.imdb.com/
+    - Reber, Paul. [Human Brain Storage](https://www.scientificamerican.com/article/what-is-the-memory-capacity/). 2010.
+    - Timothy Lee B. [Self-Driving Car Article](https://arstechnica.com/cars/2018/04/the-way-we-regulate-self-driving-cars-is-broken-heres-how-to-fix-it/). 2018.
+    - Yudkowsky, Eliezer. [AI Alignment: Why it's Hard, and Where to Start](https://www.youtube.com/watch?v=EUjc1WuyPT8).
     """
 
 
