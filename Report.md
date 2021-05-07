@@ -78,9 +78,20 @@ In the next chapter of our narrative, we consider perceptions of machine intelli
 
 **Dataset(s)** Nature (popular articles dataset), Journal of Artificial Intelligence Research (professional articles dataset)
 
-**Method** Our goal in this section is impart two important ideas regarding how 
+**Method** Our goal in this section is impart some important ideas regarding how sentiment surroudning machine intelligence evolves over time:
+- What does the shape of a sentiment analysis look like?
+- To what might we attribute any changes in sentiment we might observe?
 
-**Limitations** In our application, we failed to 
+To answer these questions, we perform an analysis of the approximately 300 articles from the popular magazine _Nature_. In order to perform this analysis, we first had to scrape the _Nature_ website for relevant articles and parse the associated HTML for the content of interest. With this data in hand, we perform a sentiment analysis for each article, and plot the distribution of this sentiment over time. Finally, we also include a corresponding timeline of popular culture events, such as the release of popular movies, as means of offering some explanation for the trends we observe in the sentiment analysis. We recognize that any correlations between the two might (indeed, are likely) spurious, but we include this more as a means of communicating the idea that public sentiment surrounding machine intelligence is more likely to be shaped by popular culture events than by the state-of-the-art research being conducted in a professional setting.
+
+In addition to the sentiment analysis of popular articles, we also include an analysis of papers produced in a professional setting. For this task, we extract papers from the _Journal of Artificial Intelligence Research_ (JAIR) as the input dataset. An outline of the processing steps we took is:
+1. Scrape URLs for PDF documents from the JAIR website
+2. Download the PDF document to our local machine
+3. Extract the text from the PDF document, and locate the document title
+4. Once all titles are collected, perform a topic model analysis via latent dirichlet allocation
+5. Plot the distribution of topics as a function of time amongst all documents
+
+Our original goal with this analysis was to demonstrate that professional interest in the sub-field of machine intelligence safety research is not scaling at a rate that is commensurate with the overall rate of progress in the field. However, we found that the "resolution" of the topic model analysis was not sufficient to make any conclusions as strong as this. Nonetheless, we include the data in our final product and visualize the results of our analysis with a bar char and an accompanying line chart.
 
 #### Prospects for Machine Intelligence
 
